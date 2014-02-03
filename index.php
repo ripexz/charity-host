@@ -5,9 +5,9 @@
 
 	$page = "home";
 	$title = "Home";
-	if (isset($_GET['page'])) {
-		$page = $_GET['page'];
-		$title = $_GET['title'];
+	if (isset($_GET['page']) && isset($_GET['title'])) {
+		$page = htmlentities($_GET['page']);
+		$title = htmlentities($_GET['title']);
 	}
 
 	output_header($title);
