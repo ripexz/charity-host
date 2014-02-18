@@ -1,3 +1,3 @@
 RewriteEngine on
-RewriteRule ^/?home(/.*)?$ index.php?page=home [NC,L]
-RewriteRule ^/?faq(/.*)?$ index.php?page=faq [NC,L]
+RewriteRule ^/?home(/.*)?$ index.php?page=home&title=Home [NC,L]
+RewriteRule ^/?faq(/.*)?$ index.php?page=faq&title=FAQ [NC,L]

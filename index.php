@@ -17,9 +17,13 @@
 	echo '<h1 data-bind="text: title"></h1>';
 
 	echo "<div id=\"content\">";
-
-	include "core/pages/" . $page . ".php";
-
+	echo "<script type=\"text/javascript\">
+			$(document).ready(function(){
+				mvvm.getContent('{$page}', '{$title}');
+				$('.navbar li.active').removeClass('active');
+				$('.navbar a[href={$page}]').parent().addClass('active');
+			});
+		</script>";
 	echo "</div>";
 
 	echo "</div>";
