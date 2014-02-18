@@ -8,7 +8,7 @@
 		header("Location: home.php");
 	}
 
-	output_base_header("Login");
+	output_header("Login");
 
 	echo '<div class="container">
 			<form class="form-signin" role="form">
@@ -22,6 +22,6 @@
 			</form>
 		</div>';
 
-	output_base_footer();
+	output_footer();
 
 ?>
