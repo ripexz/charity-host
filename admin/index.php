@@ -1,7 +1,7 @@
 <?php
 
 	session_start();
-	require_once('../core/lib/output.php');
+	require_once('lib/output.php');
 	require_once('../core/lib/db.php');
 
 	if ( isset($_SESSION['authorised']) ) {
