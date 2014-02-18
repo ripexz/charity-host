@@ -7,7 +7,6 @@ function viewModel() {
 	self.title = ko.observable("Home");
 
 	self.getContent = function(page, title, dontPushState) {
-		document.title = title + " | " + siteName;
 		self.title(title);
 
 		var psObject = {
@@ -20,7 +19,13 @@ function viewModel() {
 			url: 'core/pages/' + page + '.php'
 		}).done(function(data) {
 			$("#content").html(data);
-			document.title = title + ' | ' + siteName;
+			if (title != siteName) {
+				document.title = title + ' | ' + siteName;
+			}
+			else {
+				document.title = "Home | " + siteName;
+			}
+			
 			if (dontPushState !== true) {
 				window.history.pushState(psObject, title, page);
 			}
@@ -38,7 +43,8 @@ $(document).ready(function() {
 	$('header .navbar a.ajax').click(function(e){
 		e.preventDefault();
 		var page = $(this).attr('href'),
-			title = $(this).text();
+			title = $(this).text() == "Home" ? siteName : $(this).text();
+
 		mvvm.getContent(page, title);
 	});
 });

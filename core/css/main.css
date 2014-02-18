@@ -1,3 +1,25 @@
 body {
 	padding-top: 50px;
 }
+header {
+	height: 400px;
+	background: #999;
+}
+header h1 {
+	text-align: center;
+	margin-top: 150px;
+	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+	font-size: 80px;
+}
+footer {
+	background: #CCC;
+	padding: 20px 0;
+}
+#faq_search {
+	position: absolute;
+	box-sizing: border-box;
+	top: 350px;
+	left: 50%;
+	width: 400px;
+	margin-left: -200px;
+}

@@ -4,17 +4,17 @@
 	require_once('core/lib/output.php');
 
 	$page = "home";
-	$title = "Home";
-	if (isset($_GET['page']) && isset($_GET['title'])) {
+	$title = "Charity Host";
+	if (isset($_GET['page'])) {
 		$page = htmlentities($_GET['page']);
-		$title = htmlentities($_GET['title']);
+		if ($page == "faq") {
+			$title = "FAQ";
+		}
 	}
 
 	output_header($title);
 
 	echo "<div class=\"container\">";
-
-	echo '<h1 data-bind="text: title"></h1>';
 
 	echo "<div id=\"content\">";
 	echo "<script type=\"text/javascript\">

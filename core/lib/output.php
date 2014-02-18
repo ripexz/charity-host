@@ -10,6 +10,7 @@
 					<script src=\"//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js\"></script>
 					<script src=\"core/js/bootstrap.min.js\"></script>
 					<script src=\"core/js/main.js\"></script>
+					<link rel=\"stylesheet\" href=\"http://fonts.googleapis.com/css?family=Open+Sans:400,700,600\">
 					<link rel=\"stylesheet\" href=\"core/css/bootstrap.min.css\" />
 					<link rel=\"stylesheet\" href=\"core/css/bootstrap-theme.min.css\" />
 					<link rel=\"stylesheet\" href=\"core/css/main.css\" />
@@ -28,17 +29,20 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<span class="navbar-brand">Charity Host</span>
 					</div>
 					<div class="navbar-collapse collapse" style="height: 1px;">
 						<ul class="nav navbar-nav">
 							<li class="active"><a class="ajax" href="home">Home</a></li>
 							<li><a class="ajax" href="faq">FAQ</a></li>
-							<li><a href="admin">Register</a></li>
+							<li><a href="admin/register.php">Register</a></li>
 							<li><a href="admin">Login</a></li>
 						</ul>
 					</div><!--/.nav-collapse -->
 				</div>
+			</div>';
+
+		echo '<div class="container">
+				<h1 data-bind="text: title"></h1>
 			</div>';
 		echo "</header>";
 	}
@@ -46,7 +50,8 @@
 	function output_footer($org = "Charity Host") {
 		echo "<footer>
 				<div class=\"container\">
-					<small>&copy;" . date('Y') . " " . $org . "</small>
+					<p class=\"pull-right\"><a href=\"#\">Back to top</a></p>
+					<p>&copy;" . date('Y') . " " . $org . "</p>
 				</div>
 			</footer>
 			</div> <!-- end of wrapper -->
