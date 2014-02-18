@@ -1,7 +1,5 @@
 <div id="faq_search">
-	<form class="navbar-form">
-		<input type="text" class="form-control" placeholder="Search...">
-	</form>
+	<input type="text" class="form-control" placeholder="Search...">
 </div>
 <div>
 	<h1>Help</h1>

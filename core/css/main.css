@@ -23,3 +23,8 @@ footer {
 	width: 400px;
 	margin-left: -200px;
 }
+#content h1,
+#content h2,
+#content h3 {
+	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
