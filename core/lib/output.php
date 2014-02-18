@@ -6,13 +6,13 @@
 				<head>
 					<meta charset=\"utf-8\" />
 					<title>{$title} | Charity Host</title>
-					<script src=\"js/knockout-3.0.0.js\"></script>
+					<script src=\"core/js/knockout-3.0.0.js\"></script>
 					<script src=\"//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js\"></script>
-					<script src=\"js/bootstrap.min.js\"></script>
-					<script src=\"js/main.js\"></script>
-					<link rel=\"stylesheet\" href=\"css/bootstrap.min.css\" />
-					<link rel=\"stylesheet\" href=\"css/bootstrap-theme.min.css\" />
-					<link rel=\"stylesheet\" href=\"css/main.css\" />
+					<script src=\"core/js/bootstrap.min.js\"></script>
+					<script src=\"core/js/main.js\"></script>
+					<link rel=\"stylesheet\" href=\"core/css/bootstrap.min.css\" />
+					<link rel=\"stylesheet\" href=\"core/css/bootstrap-theme.min.css\" />
+					<link rel=\"stylesheet\" href=\"core/css/main.css\" />
 				</head>
 			 <body>
 				<div id=\"wrapper\"> <!-- start of wrapper -->";
@@ -34,6 +34,8 @@
 						<ul class="nav navbar-nav">
 							<li class="active"><a class="ajax" href="home">Home</a></li>
 							<li><a class="ajax" href="faq">FAQ</a></li>
+							<li><a href="admin">Register</a></li>
+							<li><a href="admin">Login</a></li>
 						</ul>
 					</div><!--/.nav-collapse -->
 				</div>

@@ -4,9 +4,9 @@ var mvvm;
 function viewModel() {
 	var self = this;
 
-	self.title = ko.observable("Dashboard");
+	self.title = ko.observable("Home");
 
-	self.getContent = function(page, title) {
+	self.getContent = function(page, title, dontPushState) {
 		document.title = title + " | " + siteName;
 		self.title(title);
 
@@ -17,12 +17,13 @@ function viewModel() {
 
 		$.ajax({
 			type: "GET",
-			url: 'pages/' + page + '.php'
+			url: 'core/pages/' + page + '.php'
 		}).done(function(data) {
 			$("#content").html(data);
 			document.title = title + ' | ' + siteName;
-			window.history.pushState(psObject, title, page);
-
+			if (dontPushState !== true) {
+				window.history.pushState(psObject, title, page);
+			}
 			$("header .navbar li.active").removeClass("active");
 			$(".navbar a[href=" + page + "]").parent().addClass("active");
 		});
@@ -50,5 +51,7 @@ window.onpopstate = function (e) {
 	var page = e.state.page,
 		title = e.state.title;
 
-	mvvm.getContent(page, title);
+	console.log(e.state);
+
+	mvvm.getContent(page, title, true);
 };

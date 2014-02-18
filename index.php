@@ -1,7 +1,7 @@
 <?php
 
-	require_once('lib/db.php');
-	require_once('lib/output.php');
+	require_once('core/lib/db.php');
+	require_once('core/lib/output.php');
 
 	$page = "home";
 	$title = "Home";
@@ -17,13 +17,9 @@
 	echo '<h1 data-bind="text: title"></h1>';
 
 	echo "<div id=\"content\">";
-	echo "<script type=\"text/javascript\">
-			$(document).ready(function(){
-				mvvm.getContent('{$page}', '{$title}');
-				$('.navbar li.active').removeClass('active');
-				$('.navbar a[href={$page}]').parent().addClass('active');
-			});
-		</script>";
+
+	include "core/pages/" . $page . ".php";
+
 	echo "</div>";
 
 	echo "</div>";
