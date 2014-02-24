@@ -2,7 +2,7 @@
 
 	function output_charity_page($request, $name, $id) {
 
-		$page_data = get_page($request);
+		$page_data = get_page_data($request);
 
 		output_charity_header($request[0], $name);
 		echo "<div class=\"container\">";
