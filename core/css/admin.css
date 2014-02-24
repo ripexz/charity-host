@@ -1,6 +1,9 @@
 body.forms {
 	background: #DDD;
 }
+.navbar-right {
+	margin-right: 15px;
+}
 .form-signin {
 	max-width: 330px;
 	padding: 15px;
@@ -19,7 +22,6 @@ form p.end-link {
 .form-register input {
 	margin-bottom: 10px;
 }
-
 .sidebar {
 	position: fixed;
 	top: 51px;
@@ -32,4 +34,9 @@ form p.end-link {
 	overflow-y: auto;
 	background-color: #f5f5f5;
 	border-right: 1px solid #eee;
+}
+.sidebar .nav-sidebar {
+	margin-right: -21px;
+	margin-bottom: 20px;
+	margin-left: -20px;
 }
