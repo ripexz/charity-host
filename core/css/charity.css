@@ -10,8 +10,12 @@ footer {
 	position: fixed;
 	bottom: 0;
 	left: 0;
-	top: 0;
+	right: 0;
 }
 footer .container {
 	margin-top: 8px;
+}
+footer .container .pull-right a:visited,
+footer .container .pull-right a {
+	color: #DDD;
 }
