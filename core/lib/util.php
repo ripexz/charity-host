@@ -1,13 +1,15 @@
 <?php
 
 	require_once("db.php");
+	require_once("main_site.php");
+	require_once("charity.php");
 
 	/*
 	* Checks if requested page belongs to charity or
 	* if it's a normal page. Then redirects user to
 	* the required page.
 	*/
-	function redirect_request($request) {
+	function handle_request($request) {
 		$request = (string) $request;
 		$request = trim($request);
 		$request = trim($request, "/");
@@ -16,27 +18,28 @@
 
 		switch ($split[0]) {
 			case 'home':
-				header("Location: home.php?page=home&title=Home", true);
+				output_page("home", "Home");
 				break;
 
 			case 'faq':
-				header("Location: home.php?page=faq&title=FAQ", true);
+				output_page("faq", "FAQ");
 				break;
 			
 			default:
 				$validCharity = validate_charity_link($split[0]);
-				if (!$validCharity) {
-					header("Location: 404.php", true);
+				if ($validCharity === false) {
+					header("Location: 404.php");
 				}
 				else {
-					header("Location: charity.php", true);
+					output_charity_page($split[0], $split[1], $validCharity["name"], $validCharity["id"]);
 				}
 				break;
 		}
 	}
 
 	/*
-	* Checks if there's a charity with the link provided
+	* Checks if there's a charity with the link provided,
+	* returns charity data or false if not found.
 	*/
 	function validate_charity_link($link) {
 		$db = new db(null);
@@ -44,10 +47,10 @@
 		if (!$conn->connect_errno) {
 			$safe_link = $conn->real_escape_string($safe_link);
 
-			$result = $conn->query("SELECT id FROM charities WHERE link = '{$safe_link}'");
+			$result = $conn->query("SELECT id, name FROM charities WHERE link = '{$safe_link}'");
 			if ($result) {
 				if ($return->num_rows() == 1) {
-					return true;
+					return $conn->fetch_assoc();
 				}
 			}
 		}

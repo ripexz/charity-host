@@ -4,7 +4,7 @@
 	if ( isset($_SESSION['authorised']) ) {
 		header("Location: dashboard.php");
 	}
-	require_once('lib/output.php');
+	require_once('../core/lib/admin.php');
 	require_once('../core/lib/db.php');
 
 	output_header("Login", "forms");

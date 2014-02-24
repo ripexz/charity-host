@@ -1,5 +1,19 @@
 <?
-	function output_header($link, $charity, $title = "Home") {
+	function output_charity_page($link, $page, $name, $id) {
+		
+		output_charity_header($link, $name);
+
+		echo "<div class=\"container\">";
+
+		echo "Charity homepage content goes here";
+
+		echo "</div>";
+
+		output_charity_footer($name);
+
+	}
+
+	function output_charity_header($link, $charity, $title = "Home") {
 		echo "<!DOCTYPE html>
 			<html lang=\"en\">
 				<head>
@@ -46,7 +60,7 @@
 		echo "</header>";
 	}
 
-	function output_footer($charity, $org = "Charity Host") {
+	function output_charity_footer($charity, $org = "Charity Host") {
 		echo "<footer>
 				<div class=\"container\">
 					<p class=\"pull-right\"><a href=\"#\">Back to top</a></p>

@@ -7,8 +7,8 @@
 		$req = $_GET["req"];
 	}
 	
-	redirect_request($req);
-	
+	handle_request($req);
+
 	/*
 	$db = new db(null);
 	$conn = $db->connect();

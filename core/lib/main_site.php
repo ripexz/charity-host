@@ -1,5 +1,25 @@
 <?php
 
+	function output_page($page, $title) {
+
+		output_header($title);
+		echo "<div class=\"container\">";
+
+		echo "<div id=\"content\">";
+		echo "<script type=\"text/javascript\">
+				$(document).ready(function(){
+					mvvm.getContent('{$page}', '{$title}');
+					$('.navbar li.active').removeClass('active');
+					$('.navbar a[href={$page}]').parent().addClass('active');
+				});
+			</script>";
+		echo "</div>";
+
+		echo "</div>";
+		output_footer();
+
+	}
+
 	function output_header($title = "Home") {
 		echo "<!DOCTYPE html>
 			<html lang=\"en\">
