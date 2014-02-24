@@ -18,8 +18,8 @@
 					<input type="checkbox" value="remember-me"> Remember me
 				</label>
 				<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+				<p>Not a user? <a href="register.php">Click here to register</a>.</p>
 			</form>
-			<p>Not a user? <a href="register.php">Click here to register</a>.</p>
 		</div>';
 
 	output_footer();
