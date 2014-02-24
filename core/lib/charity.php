@@ -86,6 +86,7 @@
 		echo "<header>";
 
 		echo '<div class="container titlebar">
+				<img class="logo" src="" alt="Logo">
 				<h1 class="charity-name">'.$charity.'</h1>
 			</div>';
 

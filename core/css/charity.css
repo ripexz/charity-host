@@ -4,10 +4,17 @@ header {
 header .titlebar {
 	height: 100px;
 }
+header .titlebar img.logo {
+	height: 60px;
+	width: 96px;
+	position: absolute;
+	top: 20px;
+}
 header .titlebar h1 {
 	color: #DDD;
 	font-family: 'Open Sans';
 	margin-top: 30px;
+	margin-left: 120px;
 }
 header .navbar {
 	margin-bottom: 0;
