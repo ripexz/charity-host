@@ -7,7 +7,7 @@
 	require_once('lib/output.php');
 	require_once('../core/lib/db.php');
 
-	output_header("Login");
+	output_header("Login", "forms");
 
 	echo '<div class="container">
 			<form class="form-signin" role="form">
