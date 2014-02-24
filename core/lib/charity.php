@@ -11,12 +11,12 @@
 		//demo colour script:
 		echo "<script>
 				var hue = 0;
-				document.onload = function() {
+				$(document).ready(function() {
 					setInterval(function(){
 						hue = (hue == 360) ? 1 : hue + 1;
 						document.body.style.background = 'hsl(' + hue + ', 21%, 52%)';
 					}, 10);
-				};
+				});
 			</script>";
 		
 		echo '<div class="col-md-9 content">
