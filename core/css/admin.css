@@ -47,3 +47,17 @@ form p.end-link {
 	margin-bottom: 20px;
 	margin-left: -20px;
 }
+.nav-sidebar > li > a {
+	padding-right: 20px;
+	padding-left: 20px;
+}
+.nav-sidebar > .active > a {
+	color: #fff;
+	background-color: #428bca;
+}
+.admin .main {
+	padding: 20px 40px 20px 40px;
+}
+.main .page-header {
+	margin-top: 0;
+}
