@@ -4,10 +4,14 @@ body {
 
 footer {
 	background-color: #666;
-	background-color: rgba(0,0,0,0.7);
+	background-color: rgba(0,0,0,0.5);
 	color: #DDD;
 	padding: 20px 0;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	top: 0;
 }
-footer .cointainer {
+footer .container {
 	margin-top: 8px;
 }
