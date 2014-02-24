@@ -42,6 +42,12 @@
 	* returns charity data or false if not found.
 	*/
 	function validate_charity_link($link) {
+		//debug:
+		$arr = array();
+		$arr["name"] = "Test charity";
+		$arr["id"] = "1";
+		return $arr;
+		//end debug
 		$db = new db(null);
 		$conn = $db->connect();
 		if (!$conn->connect_errno) {
