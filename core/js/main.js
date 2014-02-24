@@ -4,7 +4,7 @@ var mvvm;
 function viewModel() {
 	var self = this;
 
-	self.title = ko.observable("Home");
+	self.title = ko.observable("Charity Host");
 
 	self.getContent = function(page, title, dontPushState) {
 		self.title(title);
