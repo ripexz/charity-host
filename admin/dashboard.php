@@ -19,14 +19,13 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">Project name</a>
+					<a class="navbar-brand" href="#">Charity name</a>
 				</div>
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="#">Dashboard</a></li>
 						<li><a href="#">Settings</a></li>
-						<li><a href="#">Profile</a></li>
-						<li><a href="#">Help</a></li>
+						<li><a href="#">Log out</a></li>
 					</ul>
 				</div>
 			</div>
