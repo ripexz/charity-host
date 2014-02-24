@@ -85,7 +85,11 @@
 
 		echo "<header>";
 
-		echo '<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		echo '<div class="titlebar">
+				<h1 class="charity-name"></h1>
+			</div>';
+
+		echo '<div class="navbar navbar-inverse" role="navigation">
 				<div class="container">
 					<div class="navbar-header">
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
