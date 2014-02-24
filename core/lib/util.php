@@ -14,6 +14,9 @@
 
 		$split = explode("/", $request);
 
+		var_dump($explode);
+		return false;
+
 		switch ($split[0]) {
 			case 'home':
 				header("Location: home.php?page=home&title=Home");
