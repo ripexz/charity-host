@@ -1,6 +1,6 @@
 <?php
 
-	require_once("lib/charity.php");
+	require_once("core/lib/charity.php");
 
 	output_header("Test Charity");
 
