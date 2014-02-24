@@ -8,7 +8,7 @@
 	require_once('lib/output.php');
 	require_once('../core/lib/db.php');
 
-	output_header("Dashboard");
+	output_header("Dashboard", "admin");
 
 	echo '<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 			<div class="container-fluid">

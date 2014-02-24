@@ -1,7 +1,14 @@
 body.forms {
 	background: #DDD;
 }
-.navbar-right {
+body.admin {
+	padding-top: 50px;
+}
+.admin .row {
+	margin-left: -15px;
+	margin-right: -15px;
+}
+.navbar-nav.navbar-right:last-child {
 	margin-right: 15px;
 }
 .form-signin {
