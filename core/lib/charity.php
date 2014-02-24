@@ -111,7 +111,7 @@
 			</div>
 			</header>';
 
-		echo '<div class="container">
+		echo '<div class="container page-title">
 				<h2>'.$title.'</h2>
 			</div>';
 	}
