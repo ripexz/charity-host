@@ -7,11 +7,55 @@
 		output_charity_header($request[0], $name);
 		echo "<div class=\"container\">";
 		echo '<div class="row">';
+
+		//demo colour script:
+		echo "<script>
+				var hue = 0;
+				document.onload = function() {
+					setInterval(function(){
+						hue = (hue == 360) ? 1 : hue + 1;
+						document.body.style.background = 'hsl(' + hue + ', 21%, 52%)';
+					}, 10);
+				};
+			</script>";
 		
 		echo '<div class="col-md-9 content">
 				<p>Body content</p>
+				<p>Body content</p>
+				<p>Body content</p>
+				<p>Body content</p>
+				<p>Body content</p>
+				<p>Body content</p>
+				<p>Body content</p>
+				<p>Body content</p>
+				<p>Body content</p>
+				<p>Body content</p>
+				<p>Body content</p>
+				<p>Body content</p>
+				<p>Body content</p>
+				<p>Body content</p>
+				<p>Body content</p>
+				<p>Body content</p>
+				<p>Body content</p>
+				<p>Body content</p>
+				<p>Body content</p>
+				<p>Body content</p>
+				<p>Body content</p>
+				<p>Body content</p>
+				<p>Body content</p>
+				<p>Body content</p>
+				<p>Body content</p>
+				<p>Body content</p>
 			</div>
 			<div class="col-md-3 sidebar">
+				<p>Sidebar content</p>
+				<p>Sidebar content</p>
+				<p>Sidebar content</p>
+				<p>Sidebar content</p>
+				<p>Sidebar content</p>
+				<p>Sidebar content</p>
+				<p>Sidebar content</p>
+				<p>Sidebar content</p>
 				<p>Sidebar content</p>
 			</div>';
 
