@@ -2,7 +2,7 @@
 
 	session_start();
 	if ( isset($_SESSION['authorised']) ) {
-		header("Location: home.php");
+		header("Location: dashboard.php");
 	}
 
 	require_once('lib/output.php');
