@@ -6,7 +6,13 @@ body {
 	padding: 15px;
 	margin: 0 auto;
 }
-.form-signin #reglink {
+form p.end-link {
 	margin-top: 20px;
 	text-align: center;
+}
+
+.form-register {
+	max-width: 500px;
+	padding: 15px;
+	margin: 0 auto;
 }
