@@ -16,20 +16,20 @@
 
 		switch ($split[0]) {
 			case 'home':
-				header("Location: home.php?page=home&title=Home");
+				header("Location: home.php?page=home&title=Home", true);
 				break;
 
 			case 'faq':
-				header("Location: home.php?page=faq&title=FAQ");
+				header("Location: home.php?page=faq&title=FAQ", true);
 				break;
 			
 			default:
 				$validCharity = validate_charity_link($split[0]);
 				if (!$validCharity) {
-					header("Location: 404.php");
+					header("Location: 404.php", true);
 				}
 				else {
-					header("Location: charity.php");
+					header("Location: charity.php", true);
 				}
 				break;
 		}
