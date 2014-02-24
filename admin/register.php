@@ -14,7 +14,7 @@
 			<form class="form-register" role="form">
 				<h2 class="form-register-heading">Registration</h2>
 
-				<h2>Charity details</h2>
+				<h3>Charity details</h3>
 				<input type="text" class="form-control" placeholder="Charity name" required autofocus>
 				<input type="text" class="form-control" placeholder="Charity link" required>
 				<p>Your charity will be accessible at http://www.eyeur.com/charity-link</p>
@@ -23,7 +23,7 @@
 				<input type="text" class="form-control" placeholder="Contact phone number (optional)">
 				<input type="text" class="form-control" placeholder="Address (optional)">
 
-				<h2>Your details</h2>
+				<h3>Your details</h3>
 				<input type="email" class="form-control" placeholder="Email address" required>
 				<input type="email" class="form-control" placeholder="Confirm email" required>
 				<input type="password" class="form-control" placeholder="Password" required>
