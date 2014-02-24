@@ -3,7 +3,7 @@
 		private $host = "localhost";
 		private $user = "root";
 		private $pass = "";
-		private $name = "crm";
+		private $name = "charity_host";
 
 		public function __construct($params) {
 			if ($params !== null) {
