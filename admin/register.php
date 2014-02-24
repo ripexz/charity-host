@@ -10,14 +10,21 @@
 
 	output_header("Registration");
 
+	echo '<script type="text/javascript">
+			function updatePreview(el) {
+				var linkEl = document.getElementById("urlPreview");
+				linkEl.innerText = el.value;
+			}
+		</script>';
+
 	echo '<div class="container">
 			<form class="form-register" role="form">
 				<h2 class="form-register-heading">Registration</h2>
 
 				<h3>Charity details</h3>
 				<input type="text" class="form-control" placeholder="Charity name" required autofocus>
-				<input type="text" class="form-control" placeholder="Charity link" required>
-				<p>Your charity will be accessible at http://www.eyeur.com/charity-link</p>
+				<input type="text" class="form-control" placeholder="Charity link" required onkeyup="updatePreview(this)">
+				<p>Your charity will be accessible at http://www.eyeur.com/<span id="urlPreview">charity-link</span></p>
 				<input type="email" class="form-control" placeholder="Contact email address" required>
 				<input type="email" class="form-control" placeholder="Confirm contact email" required>
 				<input type="text" class="form-control" placeholder="Contact phone number (optional)">
