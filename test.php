@@ -2,7 +2,7 @@
 
 	require_once("core/lib/charity.php");
 
-	output_header("Test Charity");
+	output_header("test", "Test Charity");
 
 	echo "<div class=\"container\">";
 
