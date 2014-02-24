@@ -14,7 +14,7 @@
 
 		$split = explode("/", $request);
 
-		var_dump($explode);
+		var_dump($split);
 		return false;
 
 		switch ($split[0]) {
