@@ -2,8 +2,13 @@
 
 	require_once("core/lib/output.php");
 
-	$title = trim((string)$_GET['title']);
-	$page = trim((string)$_GET['page']);
+	$title = "Home";
+	$page = "home";
+
+	if (isset($_GET["page"]) && isset($_GET["title"])) {
+		$title = trim((string)$_GET['title']);
+		$page = trim((string)$_GET['page']);
+	}
 
 	output_header($title);
 	echo "<div class=\"container\">";
