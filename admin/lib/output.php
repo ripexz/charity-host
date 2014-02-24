@@ -1,6 +1,6 @@
 <?php
 
-	function output_header($title) {
+	function output_header($title, $bodyClasses = "") {
 		echo "<!DOCTYPE html>
 			<html lang=\"en\">
 				<head>
@@ -15,7 +15,7 @@
 					<link rel=\"stylesheet\" href=\"/core/css/bootstrap-theme.min.css\" />
 					<link rel=\"stylesheet\" href=\"/core/css/admin.css\" />
 				</head>
-			 <body>
+			 <body class=\"{$bodyClasses}\">
 				<div id=\"wrapper\"> <!-- start of wrapper -->";
 	}
 

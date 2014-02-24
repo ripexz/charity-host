@@ -8,7 +8,7 @@
 	require_once('lib/output.php');
 	require_once('../core/lib/db.php');
 
-	output_header("Registration");
+	output_header("Registration", "forms");
 
 	echo '<script type="text/javascript">
 			function updatePreview(el) {
