@@ -85,8 +85,8 @@
 
 		echo "<header>";
 
-		echo '<div class="titlebar">
-				<h1 class="charity-name"></h1>
+		echo '<div class="container titlebar">
+				<h1 class="charity-name">'.$charity.'</h1>
 			</div>';
 
 		echo '<div class="navbar navbar-inverse" role="navigation">
