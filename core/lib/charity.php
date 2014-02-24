@@ -5,6 +5,15 @@
 
 		echo "<div class=\"container\">";
 
+		echo '<div class="row">
+				<div class="col-md-2">
+					<p>Sidebar content</p>
+				</div>
+				<div class="col-md-10">
+					<p>Body content</p>
+				</div>
+			</div>';
+
 		echo "Charity homepage content goes here";
 
 		echo "</div>";
