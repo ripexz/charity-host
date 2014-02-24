@@ -1,6 +1,13 @@
 header {
 	background: #222;
+}
+header .titlebar {
 	height: 100px;
+}
+header .titlebar h1 {
+	color: #DDD;
+	font-family: 'Open Sans';
+	margin-top: 30px;
 }
 header .navbar {
 	margin-bottom: 0;
