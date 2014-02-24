@@ -1,8 +1,6 @@
 RewriteEngine on
-RewriteRule ^/?home(/.*)?$ index.php?page=home [NC,L]
-RewriteRule ^/?faq(/.*)?$ index.php?page=faq [NC,L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-l
-RewriteRule ^(.*)$ index.php?charity=$1 [NC]
+RewriteRule ^(.*)$ index.php?req=$1 [NC]
