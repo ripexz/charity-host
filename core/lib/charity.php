@@ -1,21 +1,22 @@
 <?
-	function output_charity_page($link, $page, $name, $id) {
-		
-		output_charity_header($link, $name);
 
+	function output_charity_page($request, $name, $id) {
+
+		$page_data = get_page($request);
+
+		output_charity_header($request[0], $name);
 		echo "<div class=\"container\">";
-
-		echo '<div class="row">
-				<div class="col-md-10">
-					<p>Body content</p>
-				</div>
-				<div class="col-md-2">
-					<p>Sidebar content</p>
-				</div>
+		echo '<div class="row">';
+		
+		echo '<div class="col-md-9">
+				<p>Body content</p>
+			</div>
+			<div class="col-md-3 fixed">
+				<p>Sidebar content</p>
 			</div>';
 
+		echo '</div>';
 		echo "</div>";
-
 		output_charity_footer($name);
 
 	}
@@ -77,5 +78,10 @@
 			</div> <!-- end of wrapper -->
 			</body>
 			</html>";
+	}
+
+	function get_page_data($request, $charity_id) {
+		//todo
+		return false;
 	}
 ?>

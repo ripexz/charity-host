@@ -31,7 +31,7 @@
 					header("Location: 404.php");
 				}
 				else {
-					output_charity_page($split[0], $split[1], $validCharity["name"], $validCharity["id"]);
+					output_charity_page($split, $validCharity["name"], $validCharity["id"]);
 				}
 				break;
 		}
