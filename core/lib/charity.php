@@ -108,12 +108,12 @@
 						</ul>
 					</div><!--/.nav-collapse -->
 				</div>
-			</div>';
+			</div>
+			</header>';
 
 		echo '<div class="container">
-				<h1>'.$title.'</h1>
+				<h2>'.$title.'</h2>
 			</div>';
-		echo "</header>";
 	}
 
 	function output_charity_footer($charity, $org = "Charity Host") {
