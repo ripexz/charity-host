@@ -63,7 +63,7 @@
 			</div>';
 
 		echo '<div class="container">
-				<h1>{$title}</h1>
+				<h1>'.$title.'</h1>
 			</div>';
 		echo "</header>";
 	}
