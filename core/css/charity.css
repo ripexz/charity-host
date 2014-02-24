@@ -12,6 +12,9 @@ header .titlebar h1 {
 header .navbar {
 	margin-bottom: 0;
 }
+header .navbar .container {
+	padding-left: 0;
+}
 footer {
 	background-color: #666;
 	background-color: rgba(0,0,0,0.5);
