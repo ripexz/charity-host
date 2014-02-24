@@ -14,9 +14,6 @@
 
 		$split = explode("/", $request);
 
-		var_dump($split);
-		return false;
-
 		switch ($split[0]) {
 			case 'home':
 				header("Location: home.php?page=home&title=Home");
@@ -27,14 +24,14 @@
 				break;
 			
 			default:
+				$validCharity = validate_charity_link($split[0]);
+				if (!$validCharity) {
+					header("Location: 404.php");
+				}
+				else {
+					header("Location: charity.php");
+				}
 				break;
-		}
-		$validCharity = validate_charity_link($split[0]);
-		if (!$validCharity) {
-			header("Location: 404.php");
-		}
-		else {
-			header("Location: charity.php");
 		}
 	}
 
