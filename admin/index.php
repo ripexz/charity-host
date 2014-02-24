@@ -1,12 +1,11 @@
 <?php
 
 	session_start();
-	require_once('lib/output.php');
-	require_once('../core/lib/db.php');
-
 	if ( isset($_SESSION['authorised']) ) {
 		header("Location: home.php");
 	}
+	require_once('lib/output.php');
+	require_once('../core/lib/db.php');
 
 	output_header("Login");
 
@@ -20,6 +19,7 @@
 				</label>
 				<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
 			</form>
+			<p>Not a user? <a href="register.php">Click here to register</a>.</p>
 		</div>';
 
 	output_footer();
