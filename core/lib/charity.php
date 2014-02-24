@@ -1,5 +1,5 @@
 <?
-	function output_header($charity, $title = "Home") {
+	function output_header($link, $charity, $title = "Home") {
 		echo "<!DOCTYPE html>
 			<html lang=\"en\">
 				<head>
@@ -32,31 +32,9 @@
 					</div>
 					<div class="collapse navbar-collapse">
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="#">Home</a></li>
-							<li><a href="#about">About</a></li>
-							<li><a href="#contact">Contact</a></li>
-						</ul>
-					</div><!--/.nav-collapse -->
-				</div>
-			</div>';
-
-		echo '<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-				<div class="container">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-					</div>
-					<div class="navbar-collapse collapse" style="height: 1px;">
-						<ul class="nav navbar-nav">
-							<li class="active"><a class="ajax" href="home">Home</a></li>
-							<li><a class="ajax" href="faq">FAQ</a></li>
-							<li><a href="admin/register.php">Register</a></li>
-							<li><a href="admin">Login</a></li>
+							<li class="active"><a href="/'.$link.'/">Home</a></li>
+							<li><a href="/'.$link.'/lostfound">Lost and Found</a></li>
+							<li><a href="/'.$link.'/sponsor">Sponsor an Animal</a></li>
 						</ul>
 					</div><!--/.nav-collapse -->
 				</div>
