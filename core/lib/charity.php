@@ -8,10 +8,10 @@
 		echo "<div class=\"container\">";
 		echo '<div class="row">';
 		
-		echo '<div class="col-md-9">
+		echo '<div class="col-md-9 content">
 				<p>Body content</p>
 			</div>
-			<div class="col-md-3 fixed">
+			<div class="col-md-3 sidebar">
 				<p>Sidebar content</p>
 			</div>';
 

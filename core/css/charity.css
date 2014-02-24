@@ -5,17 +5,20 @@ body {
 footer {
 	background-color: #666;
 	background-color: rgba(0,0,0,0.5);
-	color: #DDD;
-	padding: 0;
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	right: 0;
+	color: #EEE;
+	padding: 10px 0;
 }
 footer .container {
 	margin-top: 8px;
 }
 footer .container .pull-right a:visited,
 footer .container .pull-right a {
-	color: #DDD;
+	color: #EEE;
+}
+div.content {
+	background: rgba(0,0,0,0.3);
+}
+div.sidebar {
+	background: rgba(0,0,0,0.5);
+	color: #EEE;
 }
