@@ -44,7 +44,6 @@
 					<ul class="nav nav-sidebar">
 						<li><a href="#">Settings</a></li>
 						<li><a href="#">Users</a></li>
-						<li><a href="#">Donations</a></li>
 					</ul>
 					<ul class="nav nav-sidebar">
 						<li><a href="#">Your profile</a></li>
