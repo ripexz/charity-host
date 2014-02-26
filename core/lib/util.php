@@ -63,4 +63,10 @@
 		return false;
 	}
 
+	/*
+	* Encrypts password provided using whirlpool hashing algorithm
+	*/
+	function encrypt($password) {
+		return hash("whirlpool", $password);
+	}
 ?>
