@@ -25,8 +25,8 @@
 				<input type="text" class="form-control" placeholder="Charity name" required autofocus>
 				<input type="text" class="form-control" placeholder="Charity link" required onkeyup="updatePreview(this)">
 				<p>Your charity will be accessible at http://www.eyeur.com/<span id="urlPreview">charity-link</span></p>
-				<input type="email" class="form-control" placeholder="Contact email address" required>
-				<input type="email" class="form-control" placeholder="Confirm contact email" required>
+				<input type="email" class="form-control" placeholder="Contact email address (optional)">
+				<input type="email" class="form-control" placeholder="PayPal address (optional)">
 				<input type="text" class="form-control" placeholder="Contact phone number (optional)">
 				<input type="text" class="form-control" placeholder="Address (optional)">
 
