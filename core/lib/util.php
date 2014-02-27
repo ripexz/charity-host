@@ -28,6 +28,9 @@
 			default:
 				$validCharity = validate_charity_link($split[0]);
 				if ($validCharity === false) {
+					var_dump($request);
+					var_dump($split);
+					var_dump($validCharity);
 					include "404.php";
 				}
 				else {
