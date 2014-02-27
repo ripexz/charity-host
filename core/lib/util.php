@@ -67,7 +67,7 @@
 		return hash("whirlpool", $password);
 	}
 
-	function show_not_found(); {
+	function show_not_found() {
 		include "404.php";
 	}
 ?>
