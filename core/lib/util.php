@@ -28,7 +28,7 @@
 			default:
 				$validCharity = validate_charity_link($split[0]);
 				if ($validCharity === false) {
-					header("Location: 404.php");
+					include "404.php";
 				}
 				else {
 					output_charity_page($split, $validCharity["name"], $validCharity["id"]);
