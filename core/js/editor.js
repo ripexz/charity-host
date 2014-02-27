@@ -44,7 +44,8 @@ $(document).ready(function(){
 	var sidebar = $("#pf-sidebar-select").find(":checked").val();
 	rearrangeEditor(sidebar, function(){
 		tinymce.init({
-			selector: "textarea"
+			selector: "textarea",
+			statusbar: false
 		});
 	});
 
