@@ -47,7 +47,7 @@
 				$errors[] = "Charity link entered cannot be used.";
 			}
 			else {
-				$result = $conn->$query("SELECT id FROM charities WHERE charity_link = '{$safe[charity_link]}';");
+				$result = $conn->query("SELECT id FROM charities WHERE charity_link = '{$safe[charity_link]}';");
 				if ($result->num_rows != 0) {
 					$errors[] = "Charity link entered is already taken.";
 				}
