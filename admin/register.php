@@ -10,7 +10,7 @@
 	require_once('../core/lib/validation.php');
 	$errors = array();
 
-	if isset($_POST["submit"]) {
+	if (isset($_POST["submit"])) {
 		$db = new db(null);
 		$conn = $db->connect();
 
