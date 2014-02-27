@@ -8,6 +8,7 @@
 					<title>{$title} | Charity Host</title>
 					<script src=\"/core/js/knockout-3.0.0.js\"></script>
 					<script src=\"//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js\"></script>
+					<script src=\"//tinymce.cachefly.net/4.0/tinymce.min.js\"></script>
 					<script src=\"/core/js/bootstrap.min.js\"></script>
 					<script src=\"/core/js/main.js\"></script>
 					<link rel=\"stylesheet\" href=\"http://fonts.googleapis.com/css?family=Open+Sans:400,700,600\">
