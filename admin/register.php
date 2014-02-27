@@ -28,7 +28,7 @@
 				<input name="admin_email" type="email" class="form-control" placeholder="Email address" required>
 				<input name="admin_email_2" type="email" class="form-control" placeholder="Confirm email" required>
 				<input name="password" type="password" class="form-control" placeholder="Password" required>
-				<input name="passowrd_2"type="password" class="form-control" placeholder="Confirm password" required>
+				<input name="password_2" type="password" class="form-control" placeholder="Confirm password" required>
 				<button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Register</button>
 			</form>
 		</div>';
@@ -60,7 +60,10 @@
 			$valid["admin_email_2"] = get_required_string($_POST, "admin_email_2", "Your email (repeat)", 255, $errors);
 
 			$valid["password"] = get_required_string($_POST, "password", "Your password", 255, $errors);
-			$valid["passowrd_2"] = get_required_string($_POST, "passowrd_2", "Your password (repeat)", 255, $errors);
+			$valid["password_2"] = get_required_string($_POST, "password_2", "Your password (repeat)", 255, $errors);
+
+			$valid["password"] = encrypt($valid["password"]);
+			$valid["password_2"] = encrypt($valid["password_2"]);
 
 			$safe = $db->escape_array($conn, $valid);
 
@@ -68,7 +71,7 @@
 				$errors[] = "Passwords do not match.";
 			}
 
-			if ($valid["password"] != $valid["passowrd_2"]) {
+			if ($valid["password"] != $valid["password_2"]) {
 				$errors[] = "Passwords do not match.";
 			}
 
