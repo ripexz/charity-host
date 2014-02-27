@@ -20,15 +20,18 @@
 			$db_email = $conn->real_escape_string($email);
 			$db_password = $conn->real_escape_string($password);
 
-			$result = $conn->query("SELECT * FROM admins WHERE email = '{$db_email}' AND password = '{$db_password}'");
+			$result = $conn->query("SELECT a.id AS admin_id, a.email as admin_email, a.is_owner, c.id as charity_id, c.name, c.link FROM admins a JOIN charity_admins ca ON a.id = ca.admin_id JOIN charities c ON c.id = ca.charity_id WHERE a.email = '{$db_email}' AND a.password = '{$db_password}'");
 			if ($result->num_rows == 1) {
 				$data = $result->fetch_assoc();
 
 				session_regenerate_id();
 				$_SESSION['authorised'] = true;
-				$_SESSION['admin_id'] = $data["id"];
-				$_SESSION['admin_email'] = $data["email"];
+				$_SESSION['admin_id'] = $data["admin_id"];
+				$_SESSION['admin_email'] = $data["admin_email"];
 				$_SESSION['is_owner'] = $data["is_owner"];
+				$_SESSION['charity_id'] = $data["charity_id"];
+				$_SESSION['charity_name'] = $data["name"];
+				$_SESSION['charity_link'] = $data["link"];
 				header("Location: dashboard.php");
 			}
 			else {
