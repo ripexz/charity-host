@@ -97,7 +97,7 @@
 				$charity_id = $result->insert_id;
 				$admin_id = $result2->insert_id;
 
-				$result3 = $conn->query("INSERT INTO charity_admins (admin_id, charity_id) VALUES ({$admin_id, $charity_id})");
+				$result3 = $conn->query("INSERT INTO charity_admins (admin_id, charity_id) VALUES ({$admin_id}, {$charity_id})");
 
 				echo "<div class=\"alert alert-danger\"><strong>Success! </strong>You can now log in.</div>";
 			}
