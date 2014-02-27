@@ -54,7 +54,7 @@
 				<p class=\"help-block\">http://www.eyeur.com/{$_SESSION['charity_link']}/<span id=\"urlPreview\">{$link}</span></p>
 			</div>
 			<button name=\"submit\" type=\"submit\" class=\"btn btn-default\">Submit</button>
-		</form>';
+		</form>";
 
 	echo '</div>';
 	output_admin_footer();
