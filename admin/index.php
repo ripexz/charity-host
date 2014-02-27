@@ -40,7 +40,7 @@
 		}
 	}
 
-	output_admin_header("Login", "forms");
+	output_base_header("Login", "forms");
 
 	echo '<div class="container">
 			<form class="form-signin" role="form" method="post" action="'.$_SERVER['PHP_SELF'].'">
@@ -55,6 +55,6 @@
 			</form>
 		</div>';
 
-	output_admin_footer();
+	output_base_footer();
 
 ?>

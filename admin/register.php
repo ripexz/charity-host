@@ -42,7 +42,7 @@
 			</script>';
 	}
 
-	output_admin_header("Registration", "forms");
+	output_base_header("Registration", "forms");
 
 	if (isset($_POST["submit"])) {
 		$db = new db(null);
@@ -124,6 +124,6 @@
 		output_registration_form();
 	}
 
-	output_admin_footer();
+	output_base_footer();
 
 ?>
