@@ -74,7 +74,8 @@
 			</label>
 			<label class=\"radio-inline\">
 				<input name=\"sidebar\" type=\"radio\" id=\"pf-sidebar-none\" value=\"none\"> None
-			</label>";
+			</label>
+		</div>";
 
 	echo "<div id=\"pf-editors-wrap\">";
 
@@ -84,8 +85,8 @@
 	echo "<div id=\"pf-sidebar-wrap\">
 			<textarea></textarea>
 		</div>";
+
 	
-	echo "</div>";
 
 	echo "<button name=\"submit\" type=\"submit\" class=\"btn btn-default\">Submit</button>";
 	echo "</form>";
