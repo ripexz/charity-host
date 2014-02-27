@@ -43,22 +43,17 @@
 	output_admin_header($h1, $_SESSION["charity_name"], "admin");
 	echo '<div>';
 
-	echo '<form role="form">
-			<div class="form-group">
-				<label for="pf-page-title">Page title</label>
-				<input type="test" class="form-control" id="pf-page-title" placeholder="Please enter the page title" required autofocus>
+	echo "<form role=\"form\" method=\"post\" action=\"{$_SERVER['PHP_SELF']}?id={$id}\">
+			<div class=\"form-group\">
+				<label for=\"pf-page-title\">Page title</label>
+				<input type=\"test\" class=\"form-control\" id=\"pf-page-title\" placeholder=\"Please enter the page title\" value=\"{$title}\" required autofocus>
 			</div>
-			<div class="form-group">
-				<label for="pf-page-link">Page link</label>
-				<input type="text" class="form-control" id="pf-page-link" placeholder="Please enter the page link" onkeyup="updatePreview(this)">
-				<p class="help-block">http://www.eyeur.com/' . $_SESSION["charity_link"] . '/<span id="urlPreview"></span></p>
+			<div class=\"form-group\">
+				<label for=\"pf-page-link\">Page link</label>
+				<input type=\"text\" class=\"form-control\" id=\"pf-page-link\" placeholder=\"Please enter the page link\" value=\"{$link}\" onkeyup=\"updatePreview(this)\" required>
+				<p class=\"help-block\">http://www.eyeur.com/{$_SESSION['charity_link']}/<span id=\"urlPreview\">{$link}</span></p>
 			</div>
-			<div class="checkbox">
-				<label>
-				<input type="checkbox"> Check me out
-				</label>
-			</div>
-			<button name="submit" type="submit" class="btn btn-default">Submit</button>
+			<button name=\"submit\" type=\"submit\" class=\"btn btn-default\">Submit</button>
 		</form>';
 
 	echo '</div>';
