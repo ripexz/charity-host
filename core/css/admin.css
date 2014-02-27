@@ -68,7 +68,7 @@ form p.end-link {
 /* Editor styling */
 #pf-editors-wrap {
 	position: relative;
-	min-height: 400px;
+	height: 420px;
 }
 #pf-content-wrap {
 	position: absolute;
@@ -88,6 +88,6 @@ form p.end-link {
 #pf-content-wrap textarea,
 #pf-sidebar-wrap textarea {
 	width: 100%;
-	height: 400px;
+	height: 300px;
 	resize: none;
 }
