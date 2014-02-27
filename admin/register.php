@@ -40,7 +40,7 @@
 			}
 
 			$valid["charity_link"] = strtolower($valid["charity_link"]);
-			if (!preg_match("/^[\w\-]$/", $valid["charity_link"])) {
+			if (!preg_match("/^[\w-]+$/", $valid["charity_link"])) {
 				$errors[] = "Charity link can only contain letters, numbers, underscores and dashes";
 			}
 			else if ($valid["charity_link"] == "admin" || $valid["charity_link"] == "core" || $valid["charity_link"] == "home" || $valid["charity_link"] == "faq") {
