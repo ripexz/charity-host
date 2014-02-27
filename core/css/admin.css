@@ -65,3 +65,16 @@ form p.end-link {
 .main .page-header {
 	margin-top: 0;
 }
+/* Editor styling */
+#pf-content-wrap {
+	display: inline-block;
+	width: 70%;
+}
+#pf-sidebar-wrap {
+	display: inline-block;
+	width: 30%;
+}
+#pf-content-wrap textarea,
+#pf-sidebar-wrap textarea {
+	width: 100%;
+}

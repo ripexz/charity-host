@@ -60,6 +60,33 @@
 			<p class=\"help-block\">http://www.eyeur.com/{$_SESSION['charity_link']}/<span id=\"urlPreview\">{$link}</span></p>
 		</div>";
 
+	echo "<div class=\"form-group\">
+			<label>Content</label>
+			<input type=\"test\" class=\"form-control\" id=\"pf-page-title\" placeholder=\"Please enter the page title\" value=\"{$title}\" required autofocus />
+		</div>";
+
+	echo "<div class=\"radio\">
+			<label class=\"radio-inline\">
+				<input name=\"sidebar\" type=\"radio\" id=\"pf-sidebar-left\" value=\"left\"> Left
+			</label>
+			<label class=\"radio-inline\">
+				<input name=\"sidebar\" type=\"radio\" id=\"pf-sidebar-right\" value=\"right\"> Right
+			</label>
+			<label class=\"radio-inline\">
+				<input name=\"sidebar\" type=\"radio\" id=\"pf-sidebar-none\" value=\"none\"> None
+			</label>";
+
+	echo "<div id=\"pf-editors-wrap\">";
+
+	echo "<div id=\"pf-content-wrap\">
+			<textarea></textarea>
+		</div>";
+	echo "<div id=\"pf-sidebar-wrap\">
+			<textarea></textarea>
+		</div>";
+	
+	echo "</div>";
+
 	echo "<button name=\"submit\" type=\"submit\" class=\"btn btn-default\">Submit</button>";
 	echo "</form>";
 
