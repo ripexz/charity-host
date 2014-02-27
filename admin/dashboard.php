@@ -25,7 +25,7 @@
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="#">Dashboard</a></li>
 						<li><a href="#">Settings</a></li>
-						<li><a href="#">Log out</a></li>
+						<li><a href="logout.php">Log out</a></li>
 					</ul>
 				</div>
 			</div>
@@ -47,7 +47,7 @@
 					</ul>
 					<ul class="nav nav-sidebar">
 						<li><a href="#">Your profile</a></li>
-						<li><a href="#">Log out</a></li>
+						<li><a href="logout.php">Log out</a></li>
 					</ul>
 				</div>
 				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
