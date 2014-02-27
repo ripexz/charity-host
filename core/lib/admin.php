@@ -52,8 +52,8 @@
 				<div class="row">
 					<div class="col-sm-3 col-md-2 sidebar">
 						<ul class="nav nav-sidebar">
-							<li class="active"><a href="#">Overview</a></li>
-							<li><a href="#">Pages</a></li>
+							<li class="active"><a href="dashboard.php">Overview</a></li>
+							<li><a href="pages.php">Pages</a></li>
 							<li><a href="#">Lost & Found</a></li>
 							<li><a href="#">Sponsored Animals</a></li>
 							<li><a href="#">Gallery</a></li>
