@@ -67,22 +67,28 @@
 
 	echo "<div id=\"pf-sidebar-select\">
 			<label class=\"radio-inline\">
-				<input name=\"sidebar\" type=\"radio\" id=\"pf-sidebar-left\" value=\"left\"> Left
+				<input";
+	echo $sidebar == "left" ? " checked" : "";
+	echo " name=\"sidebar\" type=\"radio\" id=\"pf-sidebar-left\" value=\"left\"> Left
 			</label>
 			<label class=\"radio-inline\">
-				<input name=\"sidebar\" type=\"radio\" id=\"pf-sidebar-right\" value=\"right\" checked> Right
+				<input";
+	echo $sidebar == "right" ? " checked" : "";
+	echo " name=\"sidebar\" type=\"radio\" id=\"pf-sidebar-right\" value=\"right\"> Right
 			</label>
 			<label class=\"radio-inline\">
-				<input name=\"sidebar\" type=\"radio\" id=\"pf-sidebar-none\" value=\"none\"> None
+				<input";
+	echo $sidebar == "none" ? " checked" : "";
+	echo " name=\"sidebar\" type=\"radio\" id=\"pf-sidebar-none\" value=\"none\"> None
 			</label>
 		</div>";
 
 	echo "<div id=\"pf-editors-wrap\">";
 	echo "<div id=\"pf-content-wrap\">
-			<textarea></textarea>
+			<textarea>{$content}</textarea>
 		</div>";
 	echo "<div id=\"pf-sidebar-wrap\">
-			<textarea></textarea>
+			<textarea>{$sidebar_content}</textarea>
 		</div>";
 	echo "</div>";
 
