@@ -25,7 +25,7 @@
 			</html>";
 	}
 
-	function output_admin_header($title, $bodyClasses = "") {
+	function output_admin_header($title, $charity_name, $bodyClasses = "") {
 		output_base_header($title, $bodyClasses);
 		echo '<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 			<div class="container-fluid">
@@ -36,7 +36,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">Charity name</a>
+					<a class="navbar-brand" href="#">'.$charity_name.'</a>
 				</div>
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
