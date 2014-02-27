@@ -8,7 +8,7 @@
 	require_once('../core/lib/admin.php');
 	require_once('../core/lib/db.php');
 
-	output_header("Dashboard", "admin");
+	output_admin_header("Dashboard", "admin");
 
 	echo '<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 			<div class="container-fluid">
@@ -57,6 +57,6 @@
 			</div>
 		</div>';
 
-	output_footer();
+	output_admin_footer();
 
 ?>
