@@ -9,7 +9,7 @@
 
 	output_admin_header("Dashboard", $_SESSION["charity_name"], "admin");
 
-	echo '<p>Content goes here</p>';
+	echo '<div><p>Content goes here</p></div>';
 
 	output_admin_footer();
 
