@@ -61,11 +61,6 @@
 		</div>";
 
 	echo "<div class=\"form-group\">
-			<label>Content</label>
-			<input type=\"test\" class=\"form-control\" id=\"pf-page-title\" placeholder=\"Please enter the page title\" value=\"{$title}\" required autofocus />
-		</div>";
-
-	echo "<div class=\"form-group\">
 			<label>Sidebar position</label>";
 	echo "<div id=\"pf-sidebar-select\">
 			<label class=\"radio-inline\">
