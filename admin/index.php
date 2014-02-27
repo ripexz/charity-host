@@ -43,7 +43,7 @@
 	output_admin_header("Login", "forms");
 
 	echo '<div class="container">
-			<form class="form-signin" role="form">
+			<form class="form-signin" role="form" method="post" action="'$_SERVER['PHP_SELF'].'">
 				<h2 class="form-signin-heading">Please sign in</h2>
 				<input name="email" type="email" class="form-control" placeholder="Email address" required autofocus>
 				<input name="password" type="password" class="form-control" placeholder="Password" required>

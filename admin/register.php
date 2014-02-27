@@ -79,7 +79,7 @@
 		</script>';
 
 	echo '<div class="container">
-			<form class="form-register" role="form">
+			<form class="form-register" role="form" method="post" action="'$_SERVER['PHP_SELF'].'">
 				<h2 class="form-register-heading">Registration</h2>
 
 				<h3>Charity details</h3>
