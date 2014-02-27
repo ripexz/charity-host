@@ -80,14 +80,19 @@
 			if (!preg_match("/^[\w-]+$/", $valid["charity_link"])) {
 				$errors[] = "Charity link can only contain letters, numbers, underscores and dashes";
 			}
-			else if ($valid["charity_link"] == "admin" || $valid["charity_link"] == "core" || $valid["charity_link"] == "home" || $valid["charity_link"] == "faq") {
+			
+			if ($valid["charity_link"] == "admin" || $valid["charity_link"] == "core" || $valid["charity_link"] == "home" || $valid["charity_link"] == "faq") {
 				$errors[] = "Charity link entered cannot be used.";
 			}
-			else {
-				$result = $conn->query("SELECT id FROM charities WHERE charity_link = '{$safe[charity_link]}';");
-				if ($result->num_rows != 0) {
-					$errors[] = "Charity link entered is already taken.";
-				}
+
+			$check_link = $conn->query("SELECT id FROM charities WHERE charity_link = '{$safe[charity_link]}';");
+			if ($check_link->num_rows != 0) {
+				$errors[] = "Charity link entered is already taken.";
+			}
+
+			$check_email = $conn->query("SELECT id FROM admins WHERE email = '{$safe[admin_email]}';");
+			if ($check_email->num_rows != 0) {
+				$errors[] = "User email address already in use.";
 			}
 
 			if (count($errors) == 0) {
