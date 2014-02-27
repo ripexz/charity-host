@@ -1,10 +1,10 @@
 <?php
 
 	session_start();
-	/*
+	
 	if ( !isset($_SESSION['authorised']) ) {
 		header("Location: index.php");
-	}*/
+	}
 	require_once('../core/lib/admin.php');
 	require_once('../core/lib/db.php');
 
