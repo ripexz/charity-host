@@ -100,11 +100,10 @@
 				$sql = "INSERT INTO charities (name, link, email, paypal, phone, address)
 						VALUES ('{$safe[charity_name]}', '{$safe[charity_link]}', '{$safe[charity_email]}', '{$safe[charity_paypal]}', '{$safe[charity_phone]}', '{$safe[charity_address]}')";
 				$result = $conn->query($sql);
+				$charity_id = $conn->insert_id;
 
-				$result2 = $conn->query("INSERT INTO admins (email, password, is_owner) VALUES ('{$safe[admin_email]}', '{$safe[password]}', 1)");
-
-				$charity_id = $result->insert_id;
-				$admin_id = $result2->insert_id;
+				$result2 = $conn->query("INSERT INTO admins (email, password, is_owner) VALUES ('{$safe[admin_email]}', '{$safe[password]}', 1)");				
+				$admin_id = $conn->insert_id;
 
 				$result3 = $conn->query("INSERT INTO charity_admins (admin_id, charity_id) VALUES ({$admin_id}, {$charity_id})");
 
