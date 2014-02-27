@@ -69,7 +69,7 @@
 		}
 	}
 
-	output_header("Registration", "forms");
+	output_admin_header("Registration", "forms");
 
 	echo '<script type="text/javascript">
 			function updatePreview(el) {
@@ -100,6 +100,6 @@
 			</form>
 		</div>';
 
-	output_footer();
+	output_admin_footer();
 
 ?>

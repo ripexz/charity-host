@@ -1,6 +1,6 @@
 <?php
 
-	function output_header($title, $bodyClasses = "") {
+	function output_admin_header($title, $bodyClasses = "") {
 		echo "<!DOCTYPE html>
 			<html lang=\"en\">
 				<head>
@@ -19,7 +19,7 @@
 				<div id=\"wrapper\"> <!-- start of wrapper -->";
 	}
 
-	function output_footer() {
+	function output_admin_footer() {
 		echo "</div> <!-- end of wrapper -->
 			</body>
 			</html>";

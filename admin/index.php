@@ -40,7 +40,7 @@
 		}
 	}
 
-	output_header("Login", "forms");
+	output_admin_header("Login", "forms");
 
 	echo '<div class="container">
 			<form class="form-signin" role="form">
@@ -55,6 +55,6 @@
 			</form>
 		</div>';
 
-	output_footer();
+	output_admin_footer();
 
 ?>
