@@ -7,7 +7,7 @@ function rearrangeEditor(sidebar, callback) {
 			});
 			$("#pf-sidebar-wrap").fadeIn(function(){
 				$("#pf-sidebar-wrap").animate({
-					left: "70%",
+					left: "70.1%",
 					right: "0%"
 				});
 			});
@@ -27,7 +27,7 @@ function rearrangeEditor(sidebar, callback) {
 			$("#pf-sidebar-wrap").fadeIn(function(){
 				$("#pf-sidebar-wrap").animate({
 					left: "0%",
-					right: "70%"
+					right: "70.1%"
 				});
 			});
 			break;
@@ -44,8 +44,16 @@ $(document).ready(function(){
 	var sidebar = $("#pf-sidebar-select").find(":checked").val();
 	rearrangeEditor(sidebar, function(){
 		tinymce.init({
-			selector: "textarea",
-			statusbar: false
+			selector: "#pf-content",
+			menubar: false,
+			statusbar: false,
+			toolbar: "styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+		});
+		tinymce.init({
+			selector: "#pf-sidebar-content",
+			menubar: false,
+			statusbar: false,
+			toolbar: "styleselect | bold italic underline | bullist numlist | link image"
 		});
 	});
 

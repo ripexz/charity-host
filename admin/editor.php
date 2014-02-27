@@ -85,10 +85,10 @@
 
 	echo "<div id=\"pf-editors-wrap\">";
 	echo "<div id=\"pf-content-wrap\">
-			<textarea>{$content}</textarea>
+			<textarea id=\"pf-content\">{$content}</textarea>
 		</div>";
 	echo "<div id=\"pf-sidebar-wrap\">
-			<textarea>{$sidebar_content}</textarea>
+			<textarea id=\"pf-sidebar-content\">{$sidebar_content}</textarea>
 		</div>";
 	echo "</div>";
 
