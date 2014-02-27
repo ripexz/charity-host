@@ -9,7 +9,7 @@
 
 	$charity_id = (int) $_SESSION["charity_id"];
 	$new = true;
-	$title = 'New page';
+	$title = '';
 	$link = '';
 	$content = '';
 	$sidebar = 'right';
@@ -42,28 +42,24 @@
 	$h1 = $new ? "Add page" : "Edit page";
 	output_admin_header($h1, $_SESSION["charity_name"], "admin");
 	echo '<div>';
-/*
-<form role="form">
-	<div class="form-group">
-		<label for="exampleInputEmail1">Email address</label>
-		<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-	</div>
-	<div class="form-group">
-		<label for="exampleInputPassword1">Password</label>
-		<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-	</div>
-	<div class="form-group">
-		<label for="exampleInputFile">File input</label>
-		<input type="file" id="exampleInputFile">
-		<p class="help-block">Example block-level help text here.</p>
-	</div>
-	<div class="checkbox">
-		<label>
-		<input type="checkbox"> Check me out
-		</label>
-	</div>
-	<button type="submit" class="btn btn-default">Submit</button>
-</form>*/
+
+	echo '<form role="form">
+			<div class="form-group">
+				<label for="pf-page-title">Page title</label>
+				<input type="test" class="form-control" id="pf-page-title" placeholder="Please enter the page title" required autofocus>
+			</div>
+			<div class="form-group">
+				<label for="pf-page-link">Page link</label>
+				<input type="text" class="form-control" id="pf-page-link" placeholder="Please enter the page link" onkeyup="updatePreview(this)">
+				<p class="help-block">http://www.eyeur.com/' . $_SESSION["charity_link"] . '/<span id="urlPreview"></span></p>
+			</div>
+			<div class="checkbox">
+				<label>
+				<input type="checkbox"> Check me out
+				</label>
+			</div>
+			<button name="submit" type="submit" class="btn btn-default">Submit</button>
+		</form>';
 
 	echo '</div>';
 	output_admin_footer();

@@ -33,13 +33,6 @@
 				<button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Register</button>
 			</form>
 		</div>';
-
-		echo '<script type="text/javascript">
-				function updatePreview(el) {
-					var linkEl = document.getElementById("urlPreview");
-					linkEl.innerText = el.value.toLowerCase();
-				}
-			</script>';
 	}
 
 	output_base_header("Registration", "forms");

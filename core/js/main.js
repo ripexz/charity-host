@@ -61,3 +61,8 @@ window.onpopstate = function (e) {
 
 	mvvm.getContent(page, title, true);
 };
+
+function updatePreview(el) {
+	var linkEl = document.getElementById("urlPreview");
+	linkEl.innerText = el.value.toLowerCase();
+}
