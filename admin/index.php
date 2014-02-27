@@ -12,10 +12,7 @@
 		$db = new db(null);
 		$conn = $db->connect();
 
-		if ($conn->connect_errno) {
-			echo $conn->connect_errno;
-		}
-		else {
+		if (!$conn->connect_errno) {
 			$email = (string) $_POST["email"];
 			$password = (string) $_POST["password"];
 			$password = encrypt($password);
@@ -37,6 +34,9 @@
 			else {
 				echo "Email and password do not match our records.";
 			}
+		}
+		else {
+			echo "<div class=\"alert alert-danger\"><strong>Error: </strong>Cannot connect to database.</div>";
 		}
 	}
 
