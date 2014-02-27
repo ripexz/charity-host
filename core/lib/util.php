@@ -46,16 +46,10 @@
 		$conn = $db->connect();
 		if (!$conn->connect_errno) {
 			$safe_link = $conn->real_escape_string($link);
-
-			var_dump($safe_link);
-			var_dump($link);
-
+			
 			$result = $conn->query("SELECT id, name FROM charities WHERE link = '{$safe_link}'");
-
-			var_dump($result);
-
 			if ($result->num_rows == 1) {
-				return $conn->fetch_assoc();
+				return $result->fetch_assoc();
 			}
 			else {
 				return false;
