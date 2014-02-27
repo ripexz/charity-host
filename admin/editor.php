@@ -43,18 +43,25 @@
 	output_admin_header($h1, $_SESSION["charity_name"], "admin");
 	echo '<div>';
 
-	echo "<form role=\"form\" method=\"post\" action=\"{$_SERVER['PHP_SELF']}?id={$id}\">
-			<div class=\"form-group\">
-				<label for=\"pf-page-title\">Page title</label>
-				<input type=\"test\" class=\"form-control\" id=\"pf-page-title\" placeholder=\"Please enter the page title\" value=\"{$title}\" required autofocus>
-			</div>
-			<div class=\"form-group\">
-				<label for=\"pf-page-link\">Page link</label>
-				<input type=\"text\" class=\"form-control\" id=\"pf-page-link\" placeholder=\"Please enter the page link\" value=\"{$link}\" onkeyup=\"updatePreview(this)\" required>
-				<p class=\"help-block\">http://www.eyeur.com/{$_SESSION['charity_link']}/<span id=\"urlPreview\">{$link}</span></p>
-			</div>
-			<button name=\"submit\" type=\"submit\" class=\"btn btn-default\">Submit</button>
-		</form>";
+	echo "<form role=\"form\" method=\"post\" action=\"{$_SERVER['PHP_SELF']}?id={$id}\">";
+	
+	echo "<div class=\"form-group\">
+			<label for=\"pf-page-title\">Page title</label>
+			<input type=\"test\" class=\"form-control\" id=\"pf-page-title\" placeholder=\"Please enter the page title\" value=\"{$title}\" required autofocus />
+		</div>";
+	
+	echo "<div class=\"form-group\">
+			<label for=\"pf-page-link\">Page link</label>
+			<input type=\"text\" class=\"form-control\" id=\"pf-page-link\" placeholder=\"Please enter the page link\" value=\"{$link}\" onkeyup=\"updatePreview(this)\" required"
+	if ($link == "home") { 
+		echo " disabled";
+	}
+	echo " />
+			<p class=\"help-block\">http://www.eyeur.com/{$_SESSION['charity_link']}/<span id=\"urlPreview\">{$link}</span></p>
+		</div>";
+
+	echo "<button name=\"submit\" type=\"submit\" class=\"btn btn-default\">Submit</button>";
+	echo "</form>";
 
 	echo '</div>';
 	output_admin_footer();
