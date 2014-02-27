@@ -7,6 +7,7 @@
 
 	require_once('../core/lib/admin.php');
 	require_once('../core/lib/db.php');
+	require_once('../core/lib/util.php');
 	require_once('../core/lib/validation.php');
 	$errors = array();
 
