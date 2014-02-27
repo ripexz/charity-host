@@ -1,15 +1,15 @@
 function rearrangeEditor(sidebar) {
 	switch (sidebar) {
 		case "right":
+			$("#pf-content-wrap").animate({
+				left: "0%",
+				right: "30%"
+			});
 			$("#pf-sidebar-wrap").fadeIn(function(){
 				$("#pf-sidebar-wrap").animate({
 					left: "70%",
 					right: "0%"
 				});
-			});
-			$("#pf-content-wrap").animate({
-				left: "0%",
-				right: "30%"
 			});
 			break;
 		case "none":
@@ -20,15 +20,15 @@ function rearrangeEditor(sidebar) {
 			});
 			break;
 		case "left":
+			$("#pf-content-wrap").animate({
+				left: "30%",
+				right: "0%"
+			});
 			$("#pf-sidebar-wrap").fadeIn(function(){
 				$("#pf-sidebar-wrap").animate({
 					left: "0%",
 					right: "70%"
 				});
-			});
-			$("#pf-content-wrap").animate({
-				left: "30%",
-				right: "0%"
 			});
 			break;
 
@@ -38,5 +38,15 @@ function rearrangeEditor(sidebar) {
 }
 
 $(document).ready(function(){
-	rearrangeEditor("right");
+	tinymce.init({
+		selector: "textarea"
+	});
+
+	var sidebar = $("#pf-sidebar-select").find(":checked").val();
+	rearrangeEditor(sidebar);
+
+	//Bind changes:
+	$("#pf-sidebar-select input").click(function(e){
+		rearrangeEditor($(this).val());
+	});
 });
