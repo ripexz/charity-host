@@ -107,7 +107,7 @@
 
 				$result3 = $conn->query("INSERT INTO charity_admins (admin_id, charity_id) VALUES ({$admin_id}, {$charity_id})");
 
-				echo "<div class=\"alert alert-danger\"><strong>Success! </strong>You can now log in.</div>";
+				echo "<div class=\"alert alert-success\"><strong>Success! </strong>You can now log in.</div>";
 			}
 			else {
 				foreach ($errors as $error) {
