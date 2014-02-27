@@ -44,7 +44,7 @@
 	function validate_charity_link($link) {
 		$db = new db(null);
 		$conn = $db->connect();
-		if ($conn->connect_errno) {
+		if (!$conn->connect_errno) {
 			$safe_link = $conn->real_escape_string($link);
 
 			var_dump($safe_link);
