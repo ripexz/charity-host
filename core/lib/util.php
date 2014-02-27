@@ -28,7 +28,7 @@
 			default:
 				$validCharity = validate_charity_link($split[0]);
 				if ($validCharity === false) {
-					include "404.php";
+					show_not_found();
 				}
 				else {
 					output_charity_page($split, $validCharity["name"], $validCharity["id"]);
@@ -46,7 +46,7 @@
 		$conn = $db->connect();
 		if (!$conn->connect_errno) {
 			$safe_link = $conn->real_escape_string($link);
-			
+
 			$result = $conn->query("SELECT id, name FROM charities WHERE link = '{$safe_link}'");
 			if ($result->num_rows == 1) {
 				return $result->fetch_assoc();
@@ -65,5 +65,9 @@
 	*/
 	function encrypt($password) {
 		return hash("whirlpool", $password);
+	}
+
+	function show_not_found(); {
+		include "404.php";
 	}
 ?>

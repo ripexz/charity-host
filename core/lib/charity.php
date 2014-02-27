@@ -1,14 +1,21 @@
 <?
 
-	function output_charity_page($request, $name, $id) {
+	require_once("db.php");
+	require_once("util.php");
 
-		$page_data = get_page_data($request, $id);
+	function output_charity_page($request, $name, $charity_id) {
+
+		$page_data = get_page_data($request, $charity_id);
+		if (!$page_data) {
+			show_not_found();
+			exit();
+		}
 
 		output_charity_header($request[0], $name);
-		echo "<div class=\"container\">";
-		echo '<div class="row">';
+		echo '<div class="container">
+				<div class="row">';
 
-		//demo colour script:
+		// Demo colour script:
 		echo "<script>
 				var hue = 0;
 				$(document).ready(function() {
@@ -19,48 +26,25 @@
 				});
 			</script>";
 		
-		echo '<div class="col-md-9 content">
-				<p>Body content</p>
-				<p>Body content</p>
-				<p>Body content</p>
-				<p>Body content</p>
-				<p>Body content</p>
-				<p>Body content</p>
-				<p>Body content</p>
-				<p>Body content</p>
-				<p>Body content</p>
-				<p>Body content</p>
-				<p>Body content</p>
-				<p>Body content</p>
-				<p>Body content</p>
-				<p>Body content</p>
-				<p>Body content</p>
-				<p>Body content</p>
-				<p>Body content</p>
-				<p>Body content</p>
-				<p>Body content</p>
-				<p>Body content</p>
-				<p>Body content</p>
-				<p>Body content</p>
-				<p>Body content</p>
-				<p>Body content</p>
-				<p>Body content</p>
-				<p>Body content</p>
-			</div>
-			<div class="col-md-3 sidebar">
-				<p>Sidebar content</p>
-				<p>Sidebar content</p>
-				<p>Sidebar content</p>
-				<p>Sidebar content</p>
-				<p>Sidebar content</p>
-				<p>Sidebar content</p>
-				<p>Sidebar content</p>
-				<p>Sidebar content</p>
-				<p>Sidebar content</p>
-			</div>';
+		// Render page:
+		switch ($page_data["sidebar"]) {
+			case "left":
+				echo '<div class="col-md-3 sidebar">' . $page_data["sidebar_content"] . '</div>';
+				echo '<div class="col-md-9 content">' . $page_data["content"] . '</div>';
+				break;
 
-		echo '</div>';
-		echo "</div>";
+			case "right":
+				echo '<div class="col-md-9 content">' . $page_data["content"] . '</div>';
+				echo '<div class="col-md-3 sidebar">' . $page_data["sidebar_content"] . '</div>';
+				break;
+			
+			default:
+				echo '<div class="col-md-12 content">' . $page_data["content"] . '</div>';
+				break;
+		}
+
+		echo '</div>
+			</div>';
 		output_charity_footer($name);
 
 	}
@@ -129,7 +113,21 @@
 	}
 
 	function get_page_data($request, $charity_id) {
-		//todo
+		$page = 'home';
+		if (isset($request[1])) {
+			$page = $request[1];
+		}
+		
+		$db = new db(null);
+		$conn = $db->connect();
+
+		$page = $conn->real_escape_string($page);
+		$result = $conn->query("SELECT p.* FROM pages p JOIN charity_pages ca ON p.id = ca.page_id WHERE p.link = '{$page}' AND ca.charity_id = {$charity_id}");
+		
+		if ($result->num_rows == 1) {
+			return $result->fetch_assoc();
+		}
+
 		return false;
 	}
 ?>
