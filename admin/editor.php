@@ -78,18 +78,19 @@
 		</div>";
 
 	echo "<div id=\"pf-editors-wrap\">";
-
 	echo "<div id=\"pf-content-wrap\">
 			<textarea></textarea>
 		</div>";
 	echo "<div id=\"pf-sidebar-wrap\">
 			<textarea></textarea>
 		</div>";
-
-	
+	echo "</div>";
 
 	echo "<button name=\"submit\" type=\"submit\" class=\"btn btn-default\">Submit</button>";
 	echo "</form>";
+
+	// Load additional JS:
+	echo "<script type=\"text/javascript\" src=\"/core/js/editor.js\"></script>";
 
 	echo '</div>';
 	output_admin_footer();

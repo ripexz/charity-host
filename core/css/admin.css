@@ -66,15 +66,28 @@ form p.end-link {
 	margin-top: 0;
 }
 /* Editor styling */
+#pf-editors-wrap {
+	position: relative;
+	min-height: 400px;
+}
 #pf-content-wrap {
-	display: inline-block;
-	width: 70%;
+	position: absolute;
+	left: 0%;
+	right: 30%;
+	top: 0;
+	bottom: 0;
 }
 #pf-sidebar-wrap {
-	display: inline-block;
-	width: 30%;
+	position: absolute;
+	left: 0%;
+	right: 0%;
+	top: 0;
+	bottom: 0;
+	display: none;
 }
 #pf-content-wrap textarea,
 #pf-sidebar-wrap textarea {
 	width: 100%;
+	height: 100%;
+	resize: none;
 }
