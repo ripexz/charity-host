@@ -49,7 +49,7 @@
 			else {
 				$result = $conn->$query("SELECT id FROM charities WHERE charity_link = '{$safe[charity_link]}';");
 				if ($result->num_rows != 0) {
-					$errors[] = "Charity link entered is already taken."
+					$errors[] = "Charity link entered is already taken.";
 				}
 			}
 
