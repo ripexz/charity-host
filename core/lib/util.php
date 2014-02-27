@@ -44,14 +44,12 @@
 	function validate_charity_link($link) {
 		$db = new db(null);
 		$conn = $db->connect();
-		if (!$conn->connect_errno) {
+		if ($conn->connect_errno == 0) {
 			$safe_link = $conn->real_escape_string($link);
 
 			$result = $conn->query("SELECT id, name FROM charities WHERE link = '{$safe_link}'");
-			if ($result) {
-				if ($return->num_rows == 1) {
-					return $conn->fetch_assoc();
-				}
+			if ($result->num_rows == 1) {
+				return $conn->fetch_assoc();
 			}
 		}
 		return false;
