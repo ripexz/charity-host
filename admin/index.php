@@ -32,7 +32,7 @@
 				header("Location: dashboard.php");
 			}
 			else {
-				echo "Email and password do not match our records.";
+				echo "<div class=\"alert alert-danger\"><strong>Error: </strong>Email and password do not match our records.</div>";
 			}
 		}
 		else {

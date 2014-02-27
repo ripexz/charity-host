@@ -10,6 +10,39 @@
 	require_once('../core/lib/validation.php');
 	$errors = array();
 
+	function output_registration_form() {
+		echo '<div class="container">
+			<form class="form-register" role="form" method="post" action="'.$_SERVER['PHP_SELF'].'">
+				<h2 class="form-register-heading">Registration</h2>
+
+				<h3>Charity details</h3>
+				<input name="charity_name" type="text" class="form-control" placeholder="Charity name" required autofocus>
+				<input name="charity_link" type="text" class="form-control" placeholder="Charity link" required onkeyup="updatePreview(this)">
+				<p>Your charity will be accessible at http://www.eyeur.com/<span id="urlPreview"></span></p>
+				<input name="charity_email" type="email" class="form-control" placeholder="Contact email address (optional)">
+				<input name="charity_paypal" type="email" class="form-control" placeholder="PayPal address (optional)">
+				<input name="charity_phone" type="text" class="form-control" placeholder="Contact phone number (optional)">
+				<input name="charity_address" type="text" class="form-control" placeholder="Address (optional)">
+
+				<h3>Your details</h3>
+				<input name="admin_email" type="email" class="form-control" placeholder="Email address" required>
+				<input name="admin_email_2" type="email" class="form-control" placeholder="Confirm email" required>
+				<input name="password" type="password" class="form-control" placeholder="Password" required>
+				<input name="passowrd_2"type="password" class="form-control" placeholder="Confirm password" required>
+				<button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Register</button>
+			</form>
+		</div>';
+
+		echo '<script type="text/javascript">
+				function updatePreview(el) {
+					var linkEl = document.getElementById("urlPreview");
+					linkEl.innerText = el.value.toLowerCase();
+				}
+			</script>';
+	}
+
+	output_admin_header("Registration", "forms");
+
 	if (isset($_POST["submit"])) {
 		$db = new db(null);
 		$conn = $db->connect();
@@ -54,51 +87,34 @@
 			}
 
 			if (count($errors) == 0) {
-				echo "SUCCESS";
-				exit();
-				//$conn->query("INSERT INTO charities (name, link, email, paypal, phone, address) VALUES ('{$safe[]}')");
+				// Create charity
+				$sql = "INSERT INTO charities (name, link, email, paypal, phone, address)
+						VALUES ('{$safe[charity_name]}', '{$safe[charity_link]}', '{$safe[charity_email]}', '{$safe[charity_paypal]}', '{$safe[charity_phone]}', '{$safe[charity_address]}')";
+				$result = $conn->query($sql);
+
+				$result2 = $conn-query("INSERT INTO admins (email, password, is_owner) VALUES ('{$safe[admin_email]}', '{$safe[password]}', 1)");
+
+				$charity_id = $result->insert_id;
+				$admin_id = $result2->insert_id;
+
+				$result3 = $conn->query("INSERT INTO charity_admins (admin_id, charity_id) VALUES ({$admin_id, $charity_id})");
+
+				echo "<div class=\"alert alert-danger\"><strong>Success! </strong>You can now log in.</div>";
 			}
 			else {
 				foreach ($errors as $error) {
 					echo "<div class=\"alert alert-danger\"><strong>Error: </strong>{$error}</div>";
 				}
+				output_registration_form();
 			}
 		}
 		else {
-			echo "<div class=\"alert alert-danger\"><strong>Error: </strong>Cannot connect to database.</div>";
+			echo "<div class=\"alert alert-danger\"><strong>Error: </strong>Cannot connect to database. Please try again later.</div>";
 		}
 	}
-
-	output_admin_header("Registration", "forms");
-
-	echo '<script type="text/javascript">
-			function updatePreview(el) {
-				var linkEl = document.getElementById("urlPreview");
-				linkEl.innerText = el.value.toLowerCase();
-			}
-		</script>';
-
-	echo '<div class="container">
-			<form class="form-register" role="form" method="post" action="'.$_SERVER['PHP_SELF'].'">
-				<h2 class="form-register-heading">Registration</h2>
-
-				<h3>Charity details</h3>
-				<input name="charity_name" type="text" class="form-control" placeholder="Charity name" required autofocus>
-				<input name="charity_link" type="text" class="form-control" placeholder="Charity link" required onkeyup="updatePreview(this)">
-				<p>Your charity will be accessible at http://www.eyeur.com/<span id="urlPreview"></span></p>
-				<input name="charity_email" type="email" class="form-control" placeholder="Contact email address (optional)">
-				<input name="charity_paypal" type="email" class="form-control" placeholder="PayPal address (optional)">
-				<input name="charity_phone" type="text" class="form-control" placeholder="Contact phone number (optional)">
-				<input name="charity_address" type="text" class="form-control" placeholder="Address (optional)">
-
-				<h3>Your details</h3>
-				<input name="admin_email" type="email" class="form-control" placeholder="Email address" required>
-				<input name="admin_email_2" type="email" class="form-control" placeholder="Confirm email" required>
-				<input name="password" type="password" class="form-control" placeholder="Password" required>
-				<input name="passowrd_2"type="password" class="form-control" placeholder="Confirm password" required>
-				<button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Register</button>
-			</form>
-		</div>';
+	else {
+		output_registration_form();
+	}
 
 	output_admin_footer();
 
