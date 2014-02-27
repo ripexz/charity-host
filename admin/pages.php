@@ -31,7 +31,7 @@
 			while ($row = $result->fetch_assoc()) {
 				echo '<tr>';
 				echo "<td>{$row['title']}</td>";
-				echo "<td><a href=\"http://www.eyeur.com/{$_SESSION['charity_link']}/{$_row['link']}\" target=\"_blank\">{$row['link']}</a></td>";
+				echo "<td><a href=\"http://www.eyeur.com/{$_SESSION['charity_link']}/{$row['link']}\" target=\"_blank\">{$row['link']}</a></td>";
 				echo "<td><a href=\"editor.php?id={$row['id']}\">Edit</a></td>";
 				echo '</tr>';
 			}
