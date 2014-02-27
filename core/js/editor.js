@@ -38,7 +38,5 @@ function rearrangeEditor(sidebar) {
 }
 
 $(document).ready(function(){
-	$("#pf-sidebar-select").find(":checked") {
-
-	}
+	rearrangeEditor("right");
 });
