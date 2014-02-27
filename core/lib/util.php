@@ -45,7 +45,7 @@
 		$db = new db(null);
 		$conn = $db->connect();
 		if (!$conn->connect_errno) {
-			$safe_link = $conn->real_escape_string($safe_link);
+			$safe_link = $conn->real_escape_string($link);
 
 			$result = $conn->query("SELECT id, name FROM charities WHERE link = '{$safe_link}'");
 			if ($result) {
