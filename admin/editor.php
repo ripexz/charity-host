@@ -65,7 +65,7 @@
 			<input type=\"test\" class=\"form-control\" id=\"pf-page-title\" placeholder=\"Please enter the page title\" value=\"{$title}\" required autofocus />
 		</div>";
 
-	echo "<div>
+	echo "<div id=\"pf-sidebar-select\">
 			<label class=\"radio-inline\">
 				<input name=\"sidebar\" type=\"radio\" id=\"pf-sidebar-left\" value=\"left\"> Left
 			</label>
