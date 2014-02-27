@@ -49,7 +49,7 @@
 
 			$result = $conn->query("SELECT id, name FROM charities WHERE link = '{$safe_link}'");
 			if ($result) {
-				if ($return->num_rows() == 1) {
+				if ($return->num_rows == 1) {
 					return $conn->fetch_assoc();
 				}
 			}
