@@ -1,4 +1,4 @@
-function rearrangeEditor(sidebar) {
+function rearrangeEditor(sidebar, callback) {
 	switch (sidebar) {
 		case "right":
 			$("#pf-content-wrap").animate({
@@ -35,15 +35,18 @@ function rearrangeEditor(sidebar) {
 		default:
 			break;
 	}
+	if (callback) {
+		callback();
+	}
 }
 
 $(document).ready(function(){
-	tinymce.init({
-		selector: "textarea"
-	});
-
 	var sidebar = $("#pf-sidebar-select").find(":checked").val();
-	rearrangeEditor(sidebar);
+	rearrangeEditor(sidebar, function(){
+		tinymce.init({
+			selector: "textarea"
+		});
+	});
 
 	//Bind changes:
 	$("#pf-sidebar-select input").click(function(e){

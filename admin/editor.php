@@ -70,7 +70,7 @@
 				<input name=\"sidebar\" type=\"radio\" id=\"pf-sidebar-left\" value=\"left\"> Left
 			</label>
 			<label class=\"radio-inline\">
-				<input name=\"sidebar\" type=\"radio\" id=\"pf-sidebar-right\" value=\"right\"> Right
+				<input name=\"sidebar\" type=\"radio\" id=\"pf-sidebar-right\" value=\"right\" checked> Right
 			</label>
 			<label class=\"radio-inline\">
 				<input name=\"sidebar\" type=\"radio\" id=\"pf-sidebar-none\" value=\"none\"> None
