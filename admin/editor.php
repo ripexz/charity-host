@@ -52,7 +52,7 @@
 	
 	echo "<div class=\"form-group\">
 			<label for=\"pf-page-link\">Page link</label>
-			<input type=\"text\" class=\"form-control\" id=\"pf-page-link\" placeholder=\"Please enter the page link\" value=\"{$link}\" onkeyup=\"updatePreview(this)\" required"
+			<input type=\"text\" class=\"form-control\" id=\"pf-page-link\" placeholder=\"Please enter the page link\" value=\"{$link}\" onkeyup=\"updatePreview(this)\" required";
 	if ($link == "home") { 
 		echo " disabled";
 	}
