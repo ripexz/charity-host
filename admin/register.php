@@ -96,16 +96,27 @@
 			}
 
 			if (count($errors) == 0) {
-				// Create charity
+				// Create charity entry
 				$sql = "INSERT INTO charities (name, link, email, paypal, phone, address)
 						VALUES ('{$safe[charity_name]}', '{$safe[charity_link]}', '{$safe[charity_email]}', '{$safe[charity_paypal]}', '{$safe[charity_phone]}', '{$safe[charity_address]}')";
 				$result = $conn->query($sql);
 				$charity_id = $conn->insert_id;
 
+				// Create user entry
 				$result2 = $conn->query("INSERT INTO admins (email, password, is_owner) VALUES ('{$safe[admin_email]}', '{$safe[password]}', 1)");				
 				$admin_id = $conn->insert_id;
 
+				// Create charity_admins entry
 				$result3 = $conn->query("INSERT INTO charity_admins (admin_id, charity_id) VALUES ({$admin_id}, {$charity_id})");
+
+				// Create homepage in pages
+				$content = $conn->real_escape_string("<p>This is your home page.</p>");
+				$sidebar = $conn->real_escape_string("<p>This is a sidebar.</p>");
+				$result4 = $conn->query("INSERT INTO pages (title, link, content, sidebar, sidebar_content) VALUES ('Home', 'home', '{$content}', 'right', '{$sidebar}')");
+				$page_id = $conn->insert_id;
+
+				// Create page entry in charity_pages
+				$result5 = $conn->query("INSERT INTO charity_pages (page_id, charity_id) VALUES ({$page_id}, {$charity_id})");
 
 				echo "<div class=\"alert alert-success\"><strong>Success! </strong>You can now log in.</div>";
 			}
