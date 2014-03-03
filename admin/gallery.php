@@ -39,7 +39,7 @@
 					</div>
 				</div><!-- /.modal-content -->
 			</div><!-- /.modal-dialog -->
-		</div><!-- /.modal -->'
+		</div><!-- /.modal -->';
 
 	// Load additional JS:
 	echo "<script type=\"text/javascript\" src=\"/core/js/gallery.js\"></script>";
