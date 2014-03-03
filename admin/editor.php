@@ -79,7 +79,10 @@
 
 	if (isset($_GET['id']) && $_GET['id'] > 0) { //editing existing page
 		$new = false;
-		$id = (int) $_GET['id'];
+
+		if ($id == 0) { //check if not editing newly created page
+			$id = (int) $_GET['id'];
+		}
 
 		$result = $conn->query("SELECT p.* FROM pages p JOIN charity_pages ca ON p.id = ca.page_id WHERE ca.charity_id = {$charity_id} AND p.id = {$id}");
 		if ($result->num_rows == 1) {
