@@ -65,6 +65,11 @@ form p.end-link {
 	margin-top: 0;
 }
 /* Editor styling */
+#pf-submit {
+	position: absolute;
+	top: 12px;
+	right: 40px;
+}
 #pf-editors-wrap {
 	position: relative;
 	height: 550px;

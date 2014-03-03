@@ -60,6 +60,8 @@
 	echo '<div>';
 
 	echo "<form role=\"form\" method=\"post\" action=\"{$_SERVER['PHP_SELF']}?id={$id}\">";
+
+	echo "<button id=\"pf-submit\" name=\"submit\" type=\"submit\" class=\"btn btn-lg btn-primary\">Submit</button>";
 	
 	echo "<div class=\"form-group\">
 			<label for=\"pf-page-title\">Page title</label>
@@ -106,7 +108,6 @@
 		</div>";
 	echo "</div>";
 
-	echo "<button name=\"submit\" type=\"submit\" class=\"btn btn-default\">Submit</button>";
 	echo "</form>";
 
 	// Load additional JS:
