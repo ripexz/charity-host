@@ -46,7 +46,13 @@
 			}
 		}
 
-		if (count($errors) == 0) { //all is good
+		var_dump($tempArr);
+		var_dump($temp_id);
+		var_dump($id);
+		var_dump($errors);
+		exit();
+
+		if (count($errors) == 0 && 1 == 0) { //all is good
 			if ($id > 0) { //submitted edit
 				$query = "UPDATE pages p
 						JOIN charity_pages ca ON p.id = ca.page_id
