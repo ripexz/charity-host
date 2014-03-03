@@ -108,12 +108,12 @@
 	
 	echo "<div class=\"form-group\">
 			<label for=\"pf-page-title\">Page title</label>
-			<input type=\"test\" class=\"form-control\" id=\"pf-page-title\" placeholder=\"Please enter the page title\" value=\"{$title}\" required autofocus />
+			<input name=\"title\" type=\"test\" class=\"form-control\" id=\"pf-page-title\" placeholder=\"Please enter the page title\" value=\"{$title}\" required autofocus />
 		</div>";
 	
 	echo "<div class=\"form-group\">
 			<label for=\"pf-page-link\">Page link</label>
-			<input type=\"text\" class=\"form-control\" id=\"pf-page-link\" placeholder=\"Please enter the page link\" value=\"{$link}\" onkeyup=\"updatePreview(this)\" required";
+			<input name=\"link\" type=\"text\" class=\"form-control\" id=\"pf-page-link\" placeholder=\"Please enter the page link\" value=\"{$link}\" onkeyup=\"updatePreview(this)\" required";
 	if ($link == "home") { 
 		echo " disabled";
 	}
@@ -144,10 +144,10 @@
 
 	echo "<div id=\"pf-editors-wrap\">";
 	echo "<div id=\"pf-content-wrap\">
-			<textarea id=\"pf-content\">{$content}</textarea>
+			<textarea name=\"content\" id=\"pf-content\">{$content}</textarea>
 		</div>";
 	echo "<div id=\"pf-sidebar-wrap\">
-			<textarea id=\"pf-sidebar-content\">{$sidebar_content}</textarea>
+			<textarea name=\"sidebar_content\" id=\"pf-sidebar-content\">{$sidebar_content}</textarea>
 		</div>";
 	echo "</div>";
 
