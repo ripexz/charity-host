@@ -15,7 +15,7 @@
 	$db = new db(null);
 	$conn = $db->connect();
 	$charity_id = (int) $_SESSION["charity_id"];
-	$result = $conn->query("SELECT p.* FROM pages p JOIN charity_pages cp ON cp.page_id = p.id WHERE cp.charity_id = {$charity_id} ORDER BY p.id DESC");
+	$result = $conn->query("SELECT p.* FROM pages p JOIN charity_pages cp ON cp.page_id = p.id WHERE cp.charity_id = {$charity_id} ORDER BY p.id ASC");
 
 	if ($result) {
 		if ($result->num_rows > 0) {
