@@ -11,7 +11,7 @@
 			exit();
 		}
 
-		output_charity_header($request[0], $name);
+		output_charity_header($request[0], $name, $charity_id, $page_data["title"]);
 		echo '<div class="container">
 				<div class="row">';
 
@@ -49,7 +49,7 @@
 
 	}
 
-	function output_charity_header($link, $charity, $title = "Home") {
+	function output_charity_header($link, $charity, $charity_id, $title = "Home") {
 		echo "<!DOCTYPE html>
 			<html lang=\"en\">
 				<head>
@@ -85,11 +85,11 @@
 						</button>
 					</div>
 					<div class="collapse navbar-collapse">
-						<ul class="nav navbar-nav">
-							<li class="active"><a href="/'.$link.'/">Home</a></li>
-							<li><a href="/'.$link.'/lostfound">Lost and Found</a></li>
-							<li><a href="/'.$link.'/sponsor">Sponsor an Animal</a></li>
-						</ul>
+						<ul class="nav navbar-nav">';
+		
+		get_charity_nav($link, $charity_id);
+
+		echo 			'</ul>
 					</div><!--/.nav-collapse -->
 				</div>
 			</div>
@@ -129,5 +129,30 @@
 		}
 
 		return false;
+	}
+
+	function get_charity_nav($charity_link, $charity_id) {
+		$db = new db(null);
+		$conn = $db->connect();
+
+		$lnf = false;
+		$sa = false;
+
+		$features = $conn->query("SELECT lnf_enabled, sa_enabled FROM charities WHERE id = {$charity_id}");
+		if ($features->num_rows == 1) {
+			$arr = $features->fetch_assoc();
+			$lnf = (bool) $arr["lnf_enabled"];
+			$sa = (bool) $arr["sa_enabled"];
+		}
+		echo '<li><a href="/'.$charity_link.'/">Home</a></li>';
+		echo $lnf ? '<li><a href="/'.$charity_link.'/lostfound">Lost and Found</a></li>' : '';
+		echo $sa ? '<li><a href="/'.$charity_link.'/sponsor">Sponsor an Animal</a></li>' : '';
+		
+		$links = $conn->query("SELECT p.link, p.title FROM pages p JOIN charity_pages ca ON p.id = ca.page_id WHERE p.link <> 'home' AND ca.charity_id = {$charity_id} ORDER BY p.id ASC");
+		if ($links->num_rows > 0) {
+			foreach ($row = $links->fetch_assoc) {
+				echo "<li><a href=\"/{$charity_link}/{$row['link']}\">{$row['title']}</a></li>";
+			}
+		}
 	}
 ?>
