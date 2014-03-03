@@ -10,8 +10,6 @@
 	* the required page.
 	*/
 	function handle_request($request) {
-		$ajax = strpos($request, 'ajax=true');
-
 		$request = (string) $request;
 		$request = trim($request);
 		$request = trim($request, "/");
@@ -20,11 +18,11 @@
 
 		switch ($split[0]) {
 			case 'home':
-				output_page("home", "Home", $ajax);
+				output_page("home", "Home");
 				break;
 
 			case 'faq':
-				output_page("faq", "FAQ", $ajax);
+				output_page("faq", "FAQ");
 				break;
 			
 			default:

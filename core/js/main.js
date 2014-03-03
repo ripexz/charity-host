@@ -16,7 +16,7 @@ function viewModel() {
 
 		$.ajax({
 			type: "GET",
-			url: 'core/pages/' + page + '.php?ajax=true'
+			url: '/core/pages/' + page + '.php'
 		}).done(function(data) {
 			$("#content").html(data);
 			if (title != siteName) {
