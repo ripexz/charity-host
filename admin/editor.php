@@ -59,8 +59,7 @@
 				$result = $conn->query($query);
 			}
 			else { //submitted new
-				$query = "INSERT INTO pages p (title, link, content, sidebar, sidebar_content)
-						VALUES ('{$safe[title]}', '{$safe[link]}', '{$safe[content]}', '{$safe[sidebar]}', '{$safe[sidebar_content]}')";
+				$query = "INSERT INTO pages (title, link, content, sidebar, sidebar_content) VALUES ('{$safe[title]}', '{$safe[link]}', '{$safe[content]}', '{$safe[sidebar]}', '{$safe[sidebar_content]}')";
 				$result = $conn->query($query);
 				if ($result) {
 					$id = $conn->insert_id;
