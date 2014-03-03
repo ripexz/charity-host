@@ -8,7 +8,7 @@
 	require_once('../core/lib/db.php');
 
 	output_admin_header("Gallery", $_SESSION["charity_name"], "admin");
-	echo '<button class="btn btn-lg btn-primary btn-top-right" data-toggle="modal" data-target="#uploadModal">Upload</button>';
+	echo '<button class="btn btn-lg btn-primary btn-top-right" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#uploadModal">Upload</button>';
 	echo '<div>';
 
 	$db = new db(null);
