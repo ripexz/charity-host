@@ -63,8 +63,8 @@
 						VALUES ('{$safe[title]}', '{$safe[link]}', '{$safe[content]}', '{$safe[sidebar]}', '{$safe[sidebar_content]}')";
 				$result = $conn->query($query);
 				if ($result) {
-					$new_id = $conn->insert_id;
-					$conn->query("INSERT INTO charity_pages (page_id, charity_id) VALUES ({$new_id}, {$charity_id})");
+					$id = $conn->insert_id;
+					$conn->query("INSERT INTO charity_pages (page_id, charity_id) VALUES ({$id}, {$charity_id})");
 				}
 			}
 		}
