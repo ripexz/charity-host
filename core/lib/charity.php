@@ -11,7 +11,7 @@
 			exit();
 		}
 
-		output_charity_header($request[0], $name, $charity_id, $page_data["title"]);
+		output_charity_header($request, $name, $charity_id, $page_data["title"]);
 		echo '<div class="container">
 				<div class="row">';
 
@@ -49,7 +49,7 @@
 
 	}
 
-	function output_charity_header($link, $charity, $charity_id, $title = "Home") {
+	function output_charity_header(&$request, $charity, $charity_id, $title = "Home") {
 		echo "<!DOCTYPE html>
 			<html lang=\"en\">
 				<head>
@@ -87,7 +87,7 @@
 					<div class="collapse navbar-collapse">
 						<ul class="nav navbar-nav">';
 		
-		get_charity_nav($link, $charity_id);
+		get_charity_nav($request, $charity_id);
 
 		echo 			'</ul>
 					</div><!--/.nav-collapse -->
@@ -112,7 +112,7 @@
 			</html>";
 	}
 
-	function get_page_data($request, $charity_id) {
+	function get_page_data(&$request, $charity_id) {
 		$page = 'home';
 		if (isset($request[1])) {
 			$page = $request[1];
@@ -131,7 +131,13 @@
 		return false;
 	}
 
-	function get_charity_nav($charity_link, $charity_id) {
+	function get_charity_nav(&$request, $charity_id) {
+		$charity_link = $request[0];
+		$curr_link = 'home';
+		if ($request[1]) {
+			$curr_link = $request[1];
+		}
+
 		$db = new db(null);
 		$conn = $db->connect();
 
@@ -144,14 +150,14 @@
 			$lnf = (bool) $arr["lnf_enabled"];
 			$sa = (bool) $arr["sa_enabled"];
 		}
-		echo '<li><a href="/'.$charity_link.'/">Home</a></li>';
-		echo $lnf ? '<li><a href="/'.$charity_link.'/lostfound">Lost and Found</a></li>' : '';
-		echo $sa ? '<li><a href="/'.$charity_link.'/sponsor">Sponsor an Animal</a></li>' : '';
+		echo '<li' . ($curr_link == 'home' ? ' class="active"' : '') . '><a href="/'.$charity_link.'/">Home</a></li>';
+		echo $lnf ? '<li' . ($curr_link == 'lostfound' ? ' class="active"' : '') . '><a href="/'.$charity_link.'/lostfound">Lost and Found</a></li>' : '';
+		echo $sa ? '<li' . ($curr_link == 'sponsor' ? ' class="active"' : '') . '><a href="/'.$charity_link.'/sponsor">Sponsor an Animal</a></li>' : '';
 		
 		$links = $conn->query("SELECT p.link, p.title FROM pages p JOIN charity_pages ca ON p.id = ca.page_id WHERE p.link <> 'home' AND ca.charity_id = {$charity_id} ORDER BY p.id ASC");
 		if ($links->num_rows > 0) {
 			while ($row = $links->fetch_assoc()) {
-				echo "<li><a href=\"/{$charity_link}/{$row['link']}\">{$row['title']}</a></li>";
+				echo "<li" . ($curr_link == $row['link'] ? ' class="active"' : '') . "><a href=\"/{$charity_link}/{$row['link']}\">{$row['title']}</a></li>";
 			}
 		}
 	}
