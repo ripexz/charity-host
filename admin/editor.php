@@ -20,13 +20,19 @@
 
 		$valid = array();
 		$valid["title"] = get_required_string($_POST, "title", "Page title", 255, $errors);
-		$valid["link"] = get_required_string($_POST, "link", "Page link", 255, $errors);
 		$valid["sidebar"] = trim((string) $_POST["sidebar"]);
 		$valid["content"] = trim((string) $_POST["content"]);
 		$valid["sidebar_content"] = trim((string) $_POST["sidebar_content"]);
 
 		if ($valid["sidebar"] != "none" && $valid["sidebar"] != "left" && $valid["sidebar"] != "right") {
 			$errors[] = "Invalid sidebar position choice.";
+		}
+
+		if (isset($_POST["link"]) || $id = 0) {
+			$valid["link"] = get_required_string($_POST, "link", "Page link", 60, $errors);
+		}
+		else {
+			$valid["link"] = "home";
 		}
 
 		$safe = $db->escape_array($conn, $valid);
@@ -110,7 +116,7 @@
 			<label for=\"pf-page-title\">Page title</label>
 			<input name=\"title\" type=\"test\" class=\"form-control\" id=\"pf-page-title\" placeholder=\"Please enter the page title\" value=\"{$title}\" required autofocus />
 		</div>";
-	
+
 	echo "<div class=\"form-group\">
 			<label for=\"pf-page-link\">Page link</label>
 			<input name=\"link\" type=\"text\" class=\"form-control\" id=\"pf-page-link\" placeholder=\"Please enter the page link\" value=\"{$link}\" onkeyup=\"updatePreview(this)\" required";
