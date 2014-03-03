@@ -8,7 +8,7 @@
 	require_once('../core/lib/db.php');
 
 	output_admin_header("Gallery", $_SESSION["charity_name"], "admin");
-	echo '<a href="editor.php" class="btn btn-lg btn-primary btn-top-right">Upload</a>';
+	echo '<a href="editor.php" class="btn btn-lg btn-primary btn-top-right" data-toggle="modal" data-target="#uploadModal">Upload</a>';
 	echo '<div>';
 
 	$db = new db(null);
@@ -21,6 +21,25 @@
 	//todo
 	echo '<p data-bind="text: searchText"></p>';
 	echo '</div>';
+
+	// Upload modal:
+	echo '<div id="uploadModal" class="modal fade">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title">Upload an image</h4>
+					</div>
+					<div class="modal-body">
+						<p>Upload form goes here</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary">Upload</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->'
 
 	// Load additional JS:
 	echo "<script type=\"text/javascript\" src=\"/core/js/gallery.js\"></script>";
