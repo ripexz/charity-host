@@ -52,8 +52,8 @@
 		echo '<div class="container-fluid">
 				<div class="row">
 					<div class="col-sm-3 col-md-2 sidebar">
-						<ul class="nav nav-sidebar">
-							<li class="active"><a href="dashboard.php">Overview</a></li>
+						<ul id="admin_snav" class="nav nav-sidebar">
+							<li><a href="dashboard.php">Overview</a></li>
 							<li><a href="pages.php">Pages</a></li>
 							<li><a href="#">Lost & Found</a></li>
 							<li><a href="#">Sponsored Animals</a></li>
