@@ -1,8 +1,10 @@
 <?php
 
-	function output_page($page, $title) {
+	function output_page($page, $title, $ajax = false) {
 
-		output_header($title);
+		if (!$ajax) {
+			output_header($title);
+		}
 		echo "<div class=\"container\">";
 
 		echo "<div id=\"content\">";
@@ -16,7 +18,9 @@
 		echo "</div>";
 
 		echo "</div>";
-		output_footer();
+		if (!$ajax) {
+			output_footer();
+		}
 
 	}
 

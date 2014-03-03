@@ -6,8 +6,24 @@
 	}
 	require_once('../core/lib/admin.php');
 	require_once('../core/lib/db.php');
+	require_once('../core/lib/validation.php');
+	$errors = array();
 
 	$charity_id = (int) $_SESSION["charity_id"];
+	$id = 0;
+
+	// Handle data if submitted:
+	if (isset($_POST["submit"])) {
+		$valid = array();
+		$valid["title"] = get_required_string($_POST, "title", "Page title", 255, $errors);
+		$valid["link"] = get_required_string($_POST, "link", "Page link", 255, $errors);
+		$valid["sidebar"] = (bool) $_POST["sidebar"];
+		$valid["content"] = trim((string) $_POST["content"]);
+		$valid["sidebar_content"] = trim((string) $_POST["sidebar_content"]);
+	}
+
+	// Retrieve and display:
+
 	$new = true;
 	$title = '';
 	$link = '';
