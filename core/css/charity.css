@@ -41,12 +41,10 @@ footer .container .pull-right a {
 	color: #DDD;
 }
 div.content {
-	background: rgba(0,0,0,0.4);
-	color: #EEE;
+	background: rgba(255,255,255,0.7);
 	padding: 20px;
 }
 div.sidebar {
-	background: rgba(0,0,0,0.7);
-	color: #DDD;
+	background: rgba(255,255,255,0.5);
 	padding: 20px;
 }

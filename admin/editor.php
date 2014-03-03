@@ -111,7 +111,7 @@
 
 	echo "<form role=\"form\" method=\"post\" action=\"{$_SERVER['PHP_SELF']}?id={$id}\">";
 
-	echo "<button id=\"pf-submit\" name=\"submit\" type=\"submit\" class=\"btn btn-lg btn-primary\">Submit</button>";
+	echo "<button id=\"pf-submit\" name=\"submit\" type=\"submit\" class=\"btn btn-lg btn-primary btn-top-right\">Submit</button>";
 	
 	echo "<div class=\"form-group\">
 			<label for=\"pf-page-title\">Page title</label>

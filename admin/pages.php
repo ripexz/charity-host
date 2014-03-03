@@ -9,6 +9,7 @@
 
 	
 	output_admin_header("Pages", $_SESSION["charity_name"], "admin");
+	echo '<a href="editor.php" class="btn btn-lg btn-primary btn-top-right">New Page</a>';
 	echo '<div>';
 
 	$db = new db(null);
