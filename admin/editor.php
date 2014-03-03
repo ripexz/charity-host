@@ -55,7 +55,7 @@
 							p.content = '{$safe[content]}',
 							p.sidebar = '{$safe[sidebar]}',
 							p.sidebar_content = '{$safe[sidebar_content]}'
-						WHERE ca.charity_id = {$charity_id}";
+						WHERE ca.charity_id = {$charity_id} AND p.id = {$id}";
 				$result = $conn->query($query);
 			}
 			else { //submitted new
