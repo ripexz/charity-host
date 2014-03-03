@@ -1,7 +1,7 @@
 var siteName = "Charity Host";
 var mvvm;
 
-function viewModel() {
+function mainSiteViewModel() {
 	var self = this;
 
 	self.title = ko.observable("Charity Host");
@@ -37,7 +37,7 @@ function viewModel() {
 
 $(document).ready(function() {
 
-	mvvm = new viewModel();
+	mvvm = new mainSiteViewModel();
 	ko.applyBindings(mvvm);
 
 	$('header .navbar a.ajax').click(function(e){

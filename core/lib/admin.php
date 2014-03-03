@@ -57,7 +57,7 @@
 							<li><a href="pages.php">Pages</a></li>
 							<li><a href="#">Lost & Found</a></li>
 							<li><a href="#">Sponsored Animals</a></li>
-							<li><a href="#">Gallery</a></li>
+							<li><a href="gallery.php">Gallery</a></li>
 						</ul>
 						<ul class="nav nav-sidebar">
 							<li><a href="#">Settings</a></li>
