@@ -9,21 +9,61 @@
 	require_once('../core/lib/validation.php');
 	$errors = array();
 
+	$db = new db(null);
+	$conn = $db->connect();
 	$charity_id = (int) $_SESSION["charity_id"];
 	$id = 0;
 
 	// Handle data if submitted:
 	if (isset($_POST["submit"])) {
+		$id = (int) $_GET['id'];
+
 		$valid = array();
 		$valid["title"] = get_required_string($_POST, "title", "Page title", 255, $errors);
 		$valid["link"] = get_required_string($_POST, "link", "Page link", 255, $errors);
-		$valid["sidebar"] = (bool) $_POST["sidebar"];
+		$valid["sidebar"] = trim((string) $_POST["sidebar"]);
 		$valid["content"] = trim((string) $_POST["content"]);
 		$valid["sidebar_content"] = trim((string) $_POST["sidebar_content"]);
+
+		if ($valid["sidebar"] != "none" && $valid["sidebar"] != "left" && $valid["sidebar"] != "right") {
+			$errors[] = "Invalid sidebar position choice.";
+		}
+
+		$safe = $db->escape_array($conn, $valid);
+
+		$linkCheck = $conn->query("SELECT p.id FROM pages p JOIN charity_pages ca ON p.id = ca.page_id WHERE ca.charity_id = {$charity_id} AND p.link = '{$safe[link]}'");
+		if ($linkCheck->num_rows > 0) {
+			$temp_id = $linkCheck->fetch_assoc();
+			if ($id <= 0 || $temp_id != $id) {
+				$errors[] = "This page link is already in use.";
+			}
+		}
+
+		if (count($errors) == 0) { //all is good
+			if ($id > 0) { //submitted edit
+				$query = "UPDATE pages p
+						JOIN charity_pages ca ON p.id = ca.page_id
+						SET p.title = '{$safe[title]}',
+							p.link = '{$safe[link]}',
+							p.content = '{$safe[content]}',
+							p.sidebar = '{$safe[sidebar]}',
+							p.sidebar_content = '{$safe[sidebar_content]}'
+						WHERE ca.charity_id = {$charity_id}";
+				$result = $conn->query($query);
+			}
+			else { //submitted new
+				$query = "INSERT INTO pages p (title, link, content, sidebar, sidebar_content)
+						VALUES ('{$safe[title]}', '{$safe[link]}', '{$safe[content]}', '{$safe[sidebar]}', '{$safe[sidebar_content]}')";
+				$result = $conn->query($query);
+				if ($result) {
+					$new_id = $conn->insert_id;
+					$conn->query("INSERT INTO charity_pages (page_id, charity_id) VALUES ({$new_id}, {$charity_id})");
+				}
+			}
+		}
 	}
 
 	// Retrieve and display:
-
 	$new = true;
 	$title = '';
 	$link = '';
@@ -33,9 +73,6 @@
 
 	if (isset($_GET['id']) && $_GET['id'] > 0) { //editing existing page
 		$new = false;
-		$db = new db(null);
-		$conn = $db->connect();
-		
 		$id = (int) $_GET['id'];
 
 		$result = $conn->query("SELECT p.* FROM pages p JOIN charity_pages ca ON p.id = ca.page_id WHERE ca.charity_id = {$charity_id} AND p.id = {$id}");
@@ -57,7 +94,13 @@
 	
 	$h1 = $new ? "Add page" : "Edit page";
 	output_admin_header($h1, $_SESSION["charity_name"], "admin");
+
 	echo '<div>';
+
+	//If there are errors, show em here:
+	foreach ($errors as $error) {
+		echo "<div class=\"alert alert-danger\"><strong>Error: </strong>{$error}</div>";
+	}
 
 	echo "<form role=\"form\" method=\"post\" action=\"{$_SERVER['PHP_SELF']}?id={$id}\">";
 
