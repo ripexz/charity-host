@@ -150,7 +150,7 @@
 		
 		$links = $conn->query("SELECT p.link, p.title FROM pages p JOIN charity_pages ca ON p.id = ca.page_id WHERE p.link <> 'home' AND ca.charity_id = {$charity_id} ORDER BY p.id ASC");
 		if ($links->num_rows > 0) {
-			foreach ($row = $links->fetch_assoc()) {
+			while ($row = $links->fetch_assoc()) {
 				echo "<li><a href=\"/{$charity_link}/{$row['link']}\">{$row['title']}</a></li>";
 			}
 		}
