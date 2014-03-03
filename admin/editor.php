@@ -39,7 +39,8 @@
 
 		$linkCheck = $conn->query("SELECT p.id FROM pages p JOIN charity_pages ca ON p.id = ca.page_id WHERE ca.charity_id = {$charity_id} AND p.link = '{$safe[link]}'");
 		if ($linkCheck->num_rows > 0) {
-			$temp_id = $linkCheck->fetch_assoc();
+			$tempArr = $linkCheck->fetch_assoc();
+			$temp_id = $tempArr["id"];
 			if ($id <= 0 || $temp_id != $id) {
 				$errors[] = "This page link is already in use.";
 			}
