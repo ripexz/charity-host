@@ -77,7 +77,7 @@
 	$sidebar = 'right';
 	$sidebar_content = '';
 
-	if (isset($_GET['id']) && $_GET['id'] > 0) { //editing existing page
+	if (isset($_GET['id']) && $_GET['id'] > 0 || $id > 0) { //editing existing page
 		$new = false;
 
 		if ($id == 0) { //check if not editing newly created page
