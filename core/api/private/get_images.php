@@ -37,7 +37,7 @@
 
 	// Generate query
 	$sql = "SELECT i.*
-			FROM images
+			FROM images i
 				JOIN charity_images ci ON i.id = ci.image_id
 			WHERE ci.charity_id = {$charity_id}
 			ORDER BY i.id DESC
