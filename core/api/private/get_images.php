@@ -15,7 +15,7 @@
 
 	// Connect to database
 	require_once('../../lib/db.php');
-	$db = new $db(null);
+	$db = new db(null);
 	$conn = $db->connect();
 
 	// Set up defaults
