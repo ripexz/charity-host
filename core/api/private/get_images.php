@@ -24,10 +24,10 @@
 	$charity_id = $_SESSION["charity_id"];
 
 	// Check passed values
-	if (isset($_GET['page']) {
+	if (isset($_GET['page'])) {
 		$page = $_GET['page'] > 0 ? (int) $_GET['page'] : $page;
 	}
-	if (isset($_GET['pagesize']) {
+	if (isset($_GET['pagesize'])) {
 		$pagesize = $_GET['pagesize'] > 0 ? (int) $_GET['pagesize'] : $pagesize;
 	}
 
