@@ -50,7 +50,7 @@
 		http_response_code(500);
 		echo '{
 			"STATUS": "ERROR",
-			"MESSAGE": "Images could not be loaded."
+			"MESSAGE": "Images could not be loaded. Debug:"' . $conn->error . '
 		}';
 		exit();
 	}
