@@ -41,7 +41,7 @@
 				JOIN charity_images ci ON i.id = ci.image_id
 			WHERE ci.charity_id = {$charity_id}
 			ORDER BY i.id DESC
-			LIMIT {$lower_limit} {$upper_limit}";
+			LIMIT {$lower_limit}, {$upper_limit}";
 
 	// Execute query
 	$result = $conn->query($sql);
@@ -50,7 +50,7 @@
 		http_response_code(500);
 		echo '{
 			"STATUS": "ERROR",
-			"MESSAGE": "Images could not be loaded. Debug:"' . $conn->error . '
+			"MESSAGE": "Images could not be loaded"
 		}';
 		exit();
 	}
