@@ -44,7 +44,7 @@
 			ORDER BY i.id DESC
 			LIMIT {$upper_limit}, {$next_page}";
 	$res = $conn->query($sql);
-	$loadmore = $res->num_rows > 0 ? true : false;
+	$loadmore = ($res->num_rows > 0) ? true : false;
 
 	// Generate query
 	$sql = "SELECT i.*
