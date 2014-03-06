@@ -42,7 +42,7 @@
 
 	// Check if there will be more entries
 	$sql = "SELECT lnf.*
-			FROM lost_and_found i
+			FROM lost_and_found lnf
 				JOIN charity_lost_found clf ON lnf.id = clf.lost_found_id
 			WHERE clf.charity_id = {$charity_id}
 			ORDER BY lnf.id DESC
@@ -52,7 +52,7 @@
 
 	// Generate query
 	$sql = "SELECT lnf.*
-			FROM lost_and_found i
+			FROM lost_and_found lnf
 				JOIN charity_lost_found clf ON lnf.id = clf.lost_found_id
 			WHERE clf.charity_id = {$charity_id}
 			ORDER BY lnf.id DESC
