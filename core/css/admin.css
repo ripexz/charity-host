@@ -95,7 +95,10 @@ form p.end-link {
 	height: 500px;
 	resize: none;
 }
-#gallery-image-list .gi {
+#gallery-images {
+	margin-top: 20px;
+}
+#gallery-images .gi {
 	display: inline-block;
 	border: 2px solid #666;
 }
