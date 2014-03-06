@@ -29,7 +29,7 @@
 		}
 
 		if (count($errors) == 0) {
-			$info = getimagesize($_FILES["file"]["tmp_name"]);
+			$info = getimagesize($_FILES["imagefile"]["tmp_name"]);
 			if ($info === FALSE) {
 				$errors[] = "Unable to determine image type of uploaded file.";
 			}
@@ -84,9 +84,9 @@
 							<input name="imagetitle" type="text" class="form-control" id="title" placeholder="Image title" required>
 						</div>
 						<div class="form-group">
-							<label for="image">Choose an image</label>
-							<input name="imagefile" type="file" id="image" required>
-							<p class=\"help-block\">No larger than 2MB in size.</p>
+							<label for="imagefile">Choose an image</label>
+							<input name="imagefile" type="file" id="imagefile" required>
+							<p class="help-block">No larger than 2MB in size.</p>
 						</div>
 					</div>
 					<div class="modal-footer">
