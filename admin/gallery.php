@@ -35,8 +35,9 @@
 			}
 			else {
 				$title = $conn->real_escape_string($title);
-				$filename = $charity_id . "_" . mt_rand(10, 99) . "_" . time();
-				$upload_to = "/core/uploads/" . $filename;
+				$extension = pathinfo($_FILES["imagefile"]["name"], PATHINFO_EXTENSION);
+				$filename = $charity_id . "_" . mt_rand(10, 99) . "_" . time() . '.' . $extension;
+				$upload_to = "../core/uploads/" . $filename;
 
 				if (move_uploaded_file($_FILES["imagefile"]["tmp_name"], $upload_to)) {
 					//Add db entry to images:
