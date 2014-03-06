@@ -32,7 +32,7 @@
 	}
 
 	// Calculate limits
-	$lower_limit = $page * $pagesize - $page;
+	$lower_limit = $page * $pagesize - $pagesize;
 	$upper_limit = $page * $pagesize;
 	$next_page = $upper_limit + $page;
 
