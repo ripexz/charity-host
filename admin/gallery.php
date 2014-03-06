@@ -6,6 +6,7 @@
 	}
 	require_once('../core/lib/admin.php');
 	require_once('../core/lib/db.php');
+	require_once('../core/lib/validation.php');
 
 	$db = new db(null);
 	$conn = $db->connect();
