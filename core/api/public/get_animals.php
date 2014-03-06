@@ -41,21 +41,21 @@
 	$next_page = $upper_limit + $page;
 
 	// Check if there will be more entries
-	$sql = "SELECT lnf.*
-			FROM lost_and_found lnf
-				JOIN charity_lost_found clf ON lnf.id = clf.lost_found_id
-			WHERE clf.charity_id = {$charity_id}
-			ORDER BY lnf.id DESC
+	$sql = "SELECT a.*
+			FROM animals a
+				JOIN charity_animals ca ON a.id = ca.animal_id
+			WHERE ca.charity_id = {$charity_id}
+			ORDER BY a.id DESC
 			LIMIT {$upper_limit}, {$next_page}";
 	$res = $conn->query($sql);
 	$loadmore = ($res->num_rows > 0) ? "true" : "false";
 
 	// Generate query
-	$sql = "SELECT lnf.*
-			FROM lost_and_found lnf
-				JOIN charity_lost_found clf ON lnf.id = clf.lost_found_id
-			WHERE clf.charity_id = {$charity_id}
-			ORDER BY lnf.id DESC
+	$sql = "SELECT a.*
+			FROM animals a
+				JOIN charity_animals ca ON a.id = ca.animal_id
+			WHERE ca.charity_id = {$charity_id}
+			ORDER BY a.id DESC
 			LIMIT {$lower_limit}, {$upper_limit}";
 
 	// Execute query
@@ -65,7 +65,7 @@
 		http_response_code(500);
 		echo '{
 			"STATUS": "ERROR",
-			"MESSAGE": "Lost and found entries could not be loaded."
+			"MESSAGE": "Animal entries could not be loaded."
 		}';
 		exit();
 	}
@@ -74,16 +74,14 @@
 	$item = 0;
 	$json = '{ "STATUS": "OK"';
 	$json .= ', "loadmore": ' . $loadmore;
-	$json .= ', "lost_and_found": [';
+	$json .= ', "animals": [';
 	while ($row = $result->fetch_assoc()) {
 		$item++;
 		$json .= "{
 			\"id\": \"{$row['id']}\",
 			\"title\": \"{$row['title']}\",
 			\"description\": \"{$row['description']}\",
-			\"image\": \"{$row['image']}\",
-			\"email\": \"{$row['email']}\",
-			\"phone\": \"{$row['phone']}\"
+			\"image\": \"{$row['image']}\"
 		}";
 		if ($item < $result->num_rows) {
 			$json .= ',';
