@@ -65,7 +65,7 @@
 	echo '<div id="image-list">';
 
 	echo '<div data-bind="foreach: visibleImages">
-			<div><img data-bind="attr: {src: url, title: title, alt: title}"/></div>
+			<div><img data-bind="attr: {src: \'http://www.eyeur.com/core/uploads/\' + url, title: title, alt: title}"/></div>
 		</div>';
 
 	echo '</div>';
