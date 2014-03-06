@@ -53,7 +53,8 @@ function galleryViewModel() {
 $(document).ready(function() {
 	var el = $("#imagesView")[0];
 	gallery_vm = new galleryViewModel();
-	
+	gallery_vm.getData();
+
 	ko.cleanNode(el);
 	ko.applyBindings(gallery_vm, el);
 });
