@@ -34,6 +34,17 @@
 	// Calculate limits
 	$lower_limit = $page * $pagesize - $page;
 	$upper_limit = $page * $pagesize;
+	$next_page = $upper_limit + $page;
+
+	// Check if there will be more images
+	$sql = "SELECT i.*
+			FROM images i
+				JOIN charity_images ci ON i.id = ci.image_id
+			WHERE ci.charity_id = {$charity_id}
+			ORDER BY i.id DESC
+			LIMIT {$upper_limit}, {$next_page}";
+	$res = $conn->query($sql);
+	$loadmore = $res->num_rows > 0 ? true : false;
 
 	// Generate query
 	$sql = "SELECT i.*
@@ -57,7 +68,9 @@
 
 	// Generate JSON
 	$item = 0;
-	$json = '{ "STATUS": "OK", "images": [';
+	$json = '{ "STATUS": "OK"';
+	$json .= ', "loadmore": ' . $loadmore;
+	$json .= ', "images": [';
 	while ($row = $result->fetch_assoc()) {
 		$item++;
 		$json .= "{

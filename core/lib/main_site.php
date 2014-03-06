@@ -36,7 +36,7 @@
 					<link rel=\"stylesheet\" href=\"/core/css/bootstrap-theme.min.css\" />
 					<link rel=\"stylesheet\" href=\"/core/css/main.css\" />
 				</head>
-			 <body>
+			 <body id=\"mainSiteBody\">
 				<div id=\"wrapper\"> <!-- start of wrapper -->";
 
 		echo "<header>";

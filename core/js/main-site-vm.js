@@ -36,8 +36,11 @@ function mainSiteViewModel() {
 
 $(document).ready(function() {
 
+	var el = $("#mainSiteBody")[0];
 	mvvm = new mainSiteViewModel();
-	ko.applyBindings(mvvm);
+	
+	ko.cleanNode(el)
+	ko.applyBindings(mvvm, el);
 
 	$('header .navbar a.ajax').click(function(e){
 		e.preventDefault();
