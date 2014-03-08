@@ -103,7 +103,7 @@ form p.end-link {
 	border: 2px solid #666;
 	position: relative;
 }
-#gallery-image .gi .gi-overlay {
+#gallery-images .gi .gi-overlay {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -113,6 +113,6 @@ form p.end-link {
 	background: rgba(0,0,0,0.7);
 	opacity: 0;
 }
-#gallery-image .gi .gi-overlay:hover {
+#gallery-images .gi .gi-overlay:hover {
 	opacity: 1;
 }
