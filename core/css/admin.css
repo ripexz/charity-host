@@ -132,8 +132,7 @@ form p.end-link {
 }
 #gallery-images .gi-overlay .gi-delete {
 	position: absolute;
-	top: 50%;
 	left: 50%;
 	margin-left: -29px;
-	margin-top: -15px;
+	bottom: 10px;
 }
