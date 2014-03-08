@@ -9,6 +9,9 @@ function galleryImage(opts) {
 function galleryViewModel() {
 	var self = this;
 
+	//Reset cache on load:
+	self.loadTime = Date.now();
+
 	self.searchText = ko.observable("");
 	self.images = ko.observableArray([]);
 
