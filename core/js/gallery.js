@@ -5,6 +5,11 @@ function galleryImage(opts) {
 	this.title = opts.title;
 	this.url = opts.url;
 	this.hashCode = ko.observable('');
+
+	this.changeHashCode = function() {
+		var hashstr = Date.now() + '';
+		this.hashCode(hashstr);
+	}
 }
 
 function galleryViewModel() {
