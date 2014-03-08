@@ -48,6 +48,10 @@ function galleryViewModel() {
 			}
 		});
 	}
+
+	self.deleteImage = function(id) {
+		//todo
+	}
 }
 
 $(document).ready(function() {
