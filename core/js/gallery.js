@@ -7,7 +7,7 @@ function galleryImage(opts) {
 	this.hashCode = ko.observable('');
 
 	this.changeHashCode = function() {
-		var hashstr = Date.now() + '';
+		var hashstr = '&hash=' + Date.now();
 		this.hashCode(hashstr);
 	}
 }
