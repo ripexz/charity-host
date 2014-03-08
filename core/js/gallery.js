@@ -50,7 +50,32 @@ function galleryViewModel() {
 	}
 
 	self.deleteImage = function(id) {
-		//todo
+		var confimed = confirm("Are you sure you want to delete this image?");
+		var id = parseInt(id, 10);
+
+		if (confirmed) {
+			$.ajax({
+				type: "DELETE",
+				url: '/core/api/private/delete_image.php?id=' + id,
+			}).done(function(data) {
+				if (data.STATUS == "OK") {
+					var index = self.findIndexByKeyValue(self.images(), 'id', id);
+					self.images.remove(self.images()[index]);
+				}
+				else {
+					alert(data.STATUS, data.MESSAGE);
+				}
+			});
+		}
+	}
+
+	self.findIndexByKeyValue = function(array, key, value) {
+		for ( i = 0; i < array.length; i++ ) {
+			if ( array[i][key] == value ) {
+				return i;
+			}
+		}
+		return -1;
 	}
 }
 
