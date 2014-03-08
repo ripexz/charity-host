@@ -19,7 +19,7 @@
 				<h3>Charity details</h3>
 				<input name="charity_name" type="text" class="form-control" placeholder="Charity name" required autofocus>
 				<input name="charity_link" type="text" class="form-control" placeholder="Charity link" required onkeyup="updatePreview(this)">
-				<p>Your charity will be accessible at http://www.eyeur.com/<span id="urlPreview"></span></p>
+				<p>Your charity will be accessible at http://www.charityhost.eu/<span id="urlPreview"></span></p>
 				<input name="charity_email" type="email" class="form-control" placeholder="Contact email address (optional)">
 				<input name="charity_paypal" type="email" class="form-control" placeholder="PayPal address (optional)">
 				<input name="charity_phone" type="text" class="form-control" placeholder="Contact phone number (optional)">

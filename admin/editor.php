@@ -127,7 +127,7 @@
 		echo " disabled";
 	}
 	echo " />
-			<p class=\"help-block\">http://www.eyeur.com/{$_SESSION['charity_link']}/<span id=\"urlPreview\">{$link}</span></p>
+			<p class=\"help-block\">http://www.charityhost.eu/{$_SESSION['charity_link']}/<span id=\"urlPreview\">{$link}</span></p>
 		</div>";
 
 	echo "<div class=\"form-group\">
