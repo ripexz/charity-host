@@ -67,7 +67,7 @@
 				<div class="gi-overlay">
 					<button data-bind="click: function(){$root.deleteImage(id)}" class="gi-delete btn btn-sm btn-danger">Delete</button>
 				</div>
-				<img data-bind="event: {err: changeHashCode}, attr: {src: \'/core/phpthumb/phpThumb.php?src=/core/uploads/\' + url + \'&w=211&f=png&sia=\' + title + hashCode(), alt: title}"/>
+				<img data-bind="event: {error: changeHashCode}, attr: {src: \'/core/phpthumb/phpThumb.php?src=/core/uploads/\' + url + \'&w=211&f=png&sia=\' + title + hashCode(), alt: title}"/>
 			</div>
 		</div>';
 
