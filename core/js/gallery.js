@@ -1,14 +1,16 @@
 var gallery_vm;
 
 function galleryImage(opts) {
-	this.id = opts.id;
-	this.title = opts.title;
-	this.url = opts.url;
-	this.hashCode = ko.observable('');
+	var self = this;
 
-	this.changeHashCode = function() {
+	self.id = opts.id;
+	self.title = opts.title;
+	self.url = opts.url;
+	self.hashCode = ko.observable('');
+
+	self.changeHashCode = function() {
 		var hashstr = '&hash=' + Date.now();
-		this.hashCode(hashstr);
+		self.hashCode(hashstr);
 	}
 }
 
