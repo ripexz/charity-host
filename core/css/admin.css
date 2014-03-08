@@ -102,6 +102,12 @@ form p.end-link {
 	display: inline-block;
 	border: 2px solid #666;
 	position: relative;
+	margin-bottom: 10px;
+	margin-right: 4px;
+	height: 128px;
+}
+#gallery-images .gi img {
+	height: 124px;
 }
 #gallery-images .gi .gi-overlay {
 	position: absolute;
