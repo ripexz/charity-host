@@ -50,7 +50,7 @@ function galleryViewModel() {
 	}
 
 	self.deleteImage = function(id) {
-		var confimed = confirm("Are you sure you want to delete this image?");
+		var confirmed = confirm("Are you sure you want to delete this image?");
 		var id = parseInt(id, 10);
 
 		if (confirmed) {
