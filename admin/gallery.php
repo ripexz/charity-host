@@ -64,6 +64,7 @@
 	echo '<div><input data-bind="value: searchText, valueUpdate: \'afterkeydown\'" type="text" class="form-control" placeholder="Search images by title"></div>';
 	echo '<div id="gallery-images" data-bind="foreach: visibleImages">
 			<div class="gi">
+				<div class="gi-overlay"></div>
 				<img data-bind="attr: {src: \'http://www.eyeur.com/core/phpthumb/phpThumb.php?src=/core/uploads/\' + url + \'&w=211&f=png&sia=\' + title, alt: title}"/>
 			</div>
 		</div>';
