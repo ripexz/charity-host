@@ -4,13 +4,11 @@ function galleryImage(opts) {
 	this.id = opts.id;
 	this.title = opts.title;
 	this.url = opts.url;
+	this.hashCode = ko.observable('');
 }
 
 function galleryViewModel() {
 	var self = this;
-
-	//Reset cache on load:
-	self.loadTime = Date.now();
 
 	self.searchText = ko.observable("");
 	self.images = ko.observableArray([]);
