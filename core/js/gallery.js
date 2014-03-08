@@ -1,16 +1,21 @@
 var gallery_vm;
 
 function galleryImage(opts) {
-	this.id = opts.id;
-	this.title = opts.title;
-	this.url = opts.url;
+	var self = this;
+
+	self.id = opts.id;
+	self.title = opts.title;
+	self.url = opts.url;
+	self.hashCode = ko.observable('');
+
+	self.changeHashCode = function() {
+		var hashstr = '&hash=' + Date.now();
+		self.hashCode(hashstr);
+	}
 }
 
 function galleryViewModel() {
 	var self = this;
-
-	//Reset cache on load:
-	self.loadTime = Date.now();
 
 	self.searchText = ko.observable("");
 	self.images = ko.observableArray([]);
