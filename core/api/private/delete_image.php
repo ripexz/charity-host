@@ -62,16 +62,11 @@
 	$image_data = $res->fetch_assoc();
 
 	// Delete from images table
-	//$result = $conn->query("DELETE FROM images WHERE id = {$id}");
-	//$result2 = $conn->query("DELETE FROM charity_images WHERE image_id = {$id}");
+	$result = $conn->query("DELETE FROM images WHERE id = {$id}");
+	$result2 = $conn->query("DELETE FROM charity_images WHERE image_id = {$id}");
 
 	// Delete image from server
-	$basepath = realpath("/core/uploads/");
-	$path = $basepath . $image_data['url'];
-
-	var_dump($path);
-	exit();
-
+	$path = '../../uploads/' . $image_data['url'];
 	$deleted = unlink($path);
 
 	http_response_code(200);
