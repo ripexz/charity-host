@@ -37,17 +37,6 @@
 		echo '<div class="container">
 				<div class="row">';
 
-		// Demo colour script:
-		echo "<script>
-				var hue = 0;
-				$(document).ready(function() {
-					setInterval(function(){
-						hue = (hue == 360) ? 1 : hue + 1;
-						document.body.style.background = 'hsl(' + hue + ', 21%, 52%)';
-					}, 10);
-				});
-			</script>";
-		
 		// Render page:
 		switch ($page_data["sidebar"]) {
 			case "left":
@@ -74,7 +63,7 @@
 	/*
 	* Generates and outputs charity site header
 	*/
-	function output_charity_header(&$request, $charity, $charity_id, $title = "Home", $logo = "/core/images/logo.png") {
+	function output_charity_header(&$request, $charity, $charity_id, $title = "Home", $logo = "/core/images/logo.png", $color = null) {
 		echo "<!DOCTYPE html>
 			<html lang=\"en\">
 				<head>
@@ -87,10 +76,19 @@
 					<link rel=\"stylesheet\" href=\"http://fonts.googleapis.com/css?family=Open+Sans:400,700,600\">
 					<link rel=\"stylesheet\" href=\"/core/css/bootstrap.min.css\" />
 					<link rel=\"stylesheet\" href=\"/core/css/bootstrap-theme.min.css\" />
-					<link rel=\"stylesheet\" href=\"/core/css/charity.css\" />
-				</head>
-			 <body>
-				<div id=\"wrapper\"> <!-- start of wrapper -->";
+					<link rel=\"stylesheet\" href=\"/core/css/charity.css\" />";
+
+		if ($color == null) {
+			$style = "#FFF";
+		}
+		else {
+			$style = "hsl(" . $color . ", 21%, 52%)";
+		}
+		echo "<style>body { background: {$style}; }</style>";
+		
+		echo	"</head>
+				<body>
+					<div id=\"wrapper\"> <!-- start of wrapper -->";
 
 		echo "<header>";
 
