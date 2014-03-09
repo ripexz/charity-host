@@ -3,9 +3,31 @@
 	require_once("db.php");
 	require_once("util.php");
 
+	/*
+	* Checks if page is valid, if yes - generates and outputs
+	* requested page
+	*/
 	function output_charity_page($request, $name, $charity_id) {
 
-		$page_data = get_page_data($request, $charity_id);
+		if ($request[1]) {
+			switch ($request[1]) {
+				case 'lostfound':
+					$page_data = get_lnf_data($charity_id);
+					break;
+
+				case 'sponsor':
+					$page_data = get_sa_data($charity_id);
+					break;
+
+				default:
+					$page_data = get_page_data($request, $charity_id);
+					break;
+			}
+		}
+		else {
+			$page_data = get_page_data($request, $charity_id);
+		}
+
 		if (!$page_data) {
 			show_not_found();
 			exit();
@@ -49,6 +71,9 @@
 
 	}
 
+	/*
+	* Generates and outputs charity site header
+	*/
 	function output_charity_header(&$request, $charity, $charity_id, $title = "Home") {
 		echo "<!DOCTYPE html>
 			<html lang=\"en\">
@@ -100,6 +125,9 @@
 			</div>';
 	}
 
+	/*
+	* Generates and outputs charity page footer
+	*/
 	function output_charity_footer($charity, $org = "Charity Host") {
 		echo "<footer>
 				<div class=\"container\">
@@ -112,6 +140,9 @@
 			</html>";
 	}
 
+	/*
+	* Retrieves charity page data from the database
+	*/
 	function get_page_data(&$request, $charity_id) {
 		$page = 'home';
 		if (isset($request[1])) {
@@ -131,6 +162,60 @@
 		return false;
 	}
 
+	/*
+	* Checks if Lost and Found is enabled, if yes returns
+	* relevant page data
+	*/
+	function get_lnf_data($charity_id) {
+		$features = get_feature_status($charity_id);
+
+		if ($features["lnf_enabled"]) {
+			$data = array();
+
+			$data["sidebar"] = "none";
+			$data["title"] = "Lost and found";
+			$data["link"] = "lostfound";
+			$data["content"] = "<script src=\"/core/js/lnf.js\"></script>";
+		}
+
+		return false;
+	}
+
+	/*
+	* Checks if Sponsored Animals is enabled, if yes returns
+	* relevant page data
+	*/
+	function get_sa_data($charity_id) {
+		$features = get_feature_status($charity_id);
+
+		if ($features["sa_enabled"]) {
+			$data = array();
+
+			$data["sidebar"] = "none";
+			$data["title"] = "Lost and Found";
+			$data["link"] = "lostfound";
+
+			$data["content"] = '<div id="sponsored-animals" data-bind="foreach: visibleAnimals">
+								<div class="sa">
+									<div class="sa-image">
+										<img data-bind="event: {error: changeHashCode}, attr: {src: \'/core/phpthumb/phpThumb.php?src=/core/uploads/\' + url + \'&w=211&f=png&sia=\' + title + hashCode(), alt: title}"/>
+									</div>
+									<div class="sa-title">
+										<p data-bind="text: title"></p>
+									</div>
+									<div data-bind="html: description" class="sa-desc"></div>
+								</div>
+							</div>
+							<script src="/core/js/sa.js"></script>';
+			return $data;
+		}
+
+		return false;
+	}
+
+	/*
+	* Generates and outputs charity nav <li>s
+	*/
 	function get_charity_nav(&$request, $charity_id) {
 		$charity_link = $request[0];
 		$curr_link = 'home';
@@ -141,15 +226,10 @@
 		$db = new db(null);
 		$conn = $db->connect();
 
-		$lnf = false;
-		$sa = false;
+		$features = get_feature_status($charity_id);
+		$lnf = $features["lnf_enabled"];
+		$sa = $features["sa_enabled"];
 
-		$features = $conn->query("SELECT lnf_enabled, sa_enabled FROM charities WHERE id = {$charity_id}");
-		if ($features->num_rows == 1) {
-			$arr = $features->fetch_assoc();
-			$lnf = (bool) $arr["lnf_enabled"];
-			$sa = (bool) $arr["sa_enabled"];
-		}
 		echo '<li' . ($curr_link == 'home' ? ' class="active"' : '') . '><a href="/'.$charity_link.'/">Home</a></li>';
 		echo $lnf ? '<li' . ($curr_link == 'lostfound' ? ' class="active"' : '') . '><a href="/'.$charity_link.'/lostfound">Lost and Found</a></li>' : '';
 		echo $sa ? '<li' . ($curr_link == 'sponsor' ? ' class="active"' : '') . '><a href="/'.$charity_link.'/sponsor">Sponsor an Animal</a></li>' : '';
@@ -160,5 +240,22 @@
 				echo "<li" . ($curr_link == $row['link'] ? ' class="active"' : '') . "><a href=\"/{$charity_link}/{$row['link']}\">{$row['title']}</a></li>";
 			}
 		}
+	}
+
+	/*
+	* Checks which charity features are enabled
+	*/
+	function get_feature_status($charity_id) {
+		$data = array();
+		$data["lnf_enabled"] = false;
+		$data["sa_enabled"] = false;
+
+		$features = $conn->query("SELECT lnf_enabled, sa_enabled FROM charities WHERE id = {$charity_id}");
+		if ($features->num_rows == 1) {
+			$arr = $features->fetch_assoc();
+			$lnf = (bool) $arr["lnf_enabled"];
+			$sa = (bool) $arr["sa_enabled"];
+		}
+		return $data;
 	}
 ?>

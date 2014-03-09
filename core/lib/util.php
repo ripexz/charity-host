@@ -67,6 +67,9 @@
 		return hash("whirlpool", $password);
 	}
 
+	/*
+	* Redirects user to a "Not Found" page
+	*/
 	function show_not_found() {
 		include "404.php";
 	}

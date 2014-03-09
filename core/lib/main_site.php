@@ -1,5 +1,8 @@
 <?php
 
+	/*
+	* Generates and outputs main site pages
+	*/
 	function output_page($page, $title) {
 
 		output_header($title);
@@ -20,6 +23,9 @@
 
 	}
 
+	/*
+	* Generates and outputs pages for main site
+	*/
 	function output_header($title = "Home") {
 		echo "<!DOCTYPE html>
 			<html lang=\"en\">
@@ -68,6 +74,9 @@
 		echo "</header>";
 	}
 
+	/*
+	* Generates and outputs main site footers
+	*/
 	function output_footer($org = "Charity Host") {
 		echo "<footer>
 				<div class=\"container\">
