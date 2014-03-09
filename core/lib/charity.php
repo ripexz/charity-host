@@ -166,10 +166,10 @@
 	* Checks if Lost and Found is enabled, if yes returns
 	* relevant page data
 	*/
-	function get_sa_data($charity_id) {
+	function get_lnf_data($charity_id) {
 		$features = get_feature_status($charity_id);
 
-		if ($features["sa_enabled"]) {
+		if ($features["lnf_enabled"]) {
 			$data = array();
 
 			$data["sidebar"] = "none";
