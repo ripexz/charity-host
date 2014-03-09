@@ -76,8 +76,8 @@
 				<label>Background colour</label>
 				<div class="colour-settings">';
 	
-	echo '<label class="radio-inline"><input'.($bg == -1 ? ' checked' : '').' type="radio" name="color" value="white"/>White</label>'
-	echo '<label class="radio-inline"><input'.($bg >= 0 ? ' checked' : '').' type="radio" name="color" value="hue"/>Choose...</label>'
+	echo '<label class="radio-inline"><input'.($bg == -1 ? ' checked' : '').' type="radio" name="color" value="white"/>White</label>';
+	echo '<label class="radio-inline"><input'.($bg >= 0 ? ' checked' : '').' type="radio" name="color" value="hue"/>Choose...</label>';
 	
 	echo		'</div>
 				<div class="colour-picker">
