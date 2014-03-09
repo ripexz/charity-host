@@ -61,7 +61,7 @@
 			<div class="form-group">
 				<label>Charity logo</label>
 				<div class="logo-settings">
-					<label class="radio-inline"><input type="radio" name="logo" value="keep"/>Keep current</label>
+					<label class="radio-inline"><input type="radio" name="logo" value="keep" checked/>Keep current</label>
 					<label class="radio-inline"><input type="radio" name="logo" value="new"/>Upload new</label>
 				</div>
 			</div>
@@ -75,6 +75,10 @@
 				<div class="colour-settings">
 					<label class="radio-inline"><input type="radio" name="color" value="white"/>White</label>
 					<label class="radio-inline"><input type="radio" name="color" value="hue"/>Choose...</label>
+				</div>
+				<div class="colour-picker">
+					<div class="demo"></div>
+					<input type="range" name="hue" id="colour-range" />
 				</div>
 			</div>
 			<div class="form-group">
