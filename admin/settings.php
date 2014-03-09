@@ -13,7 +13,6 @@
 	$charity_id = (int) $_SESSION["charity_id"];
 
 	output_admin_header("Dashboard", $_SESSION["charity_name"], "admin");
-	echo '<button class="btn btn-lg btn-primary btn-top-right">Save Settings</button>';
 	echo '<div id="settings">';
 
 	// Handle submitted data
@@ -31,7 +30,6 @@
 	}
 
 	// Get data
-
 	$get_settings = $conn->query("SELECT * FROM charities WHERE charity_id = {$charity_id}");
 	$data = $get_settings->fetch_assoc();
 
@@ -59,7 +57,7 @@
 		echo "<img src=\"/core/uploads/{$data[logo_url]}\" alt=\"Charity Host\" title=\"Logo\"/>";
 	}
 
-	echo	'</div>
+	echo'</div>
 			<div class="form-group">
 				<label>Charity logo</label>
 				<div class="logo-settings">
@@ -82,7 +80,7 @@
 			<div class="form-group">
 				<!-- todo -->
 			</div>
-			<button name="submit" type="submit" class="btn btn-primary">Upload</button>
+			<button name="submit" type="submit" class="btn btn-primary">Save settings</button>
 		</form>';
 
 	echo '</div>';
