@@ -63,7 +63,7 @@
 	/*
 	* Generates and outputs charity site header
 	*/
-	function output_charity_header(&$request, $charity, $charity_id, $title = "Home", $logo = "/core/images/logo.png", $color = null) {
+	function output_charity_header(&$request, $charity, $charity_id, $title = "Home", $logo = "/core/images/logo.png", $color = -1) {
 		echo "<!DOCTYPE html>
 			<html lang=\"en\">
 				<head>
@@ -78,7 +78,7 @@
 					<link rel=\"stylesheet\" href=\"/core/css/bootstrap-theme.min.css\" />
 					<link rel=\"stylesheet\" href=\"/core/css/charity.css\" />
 					<style>";
-		if ($color == null) {
+		if ($color == -1) {
 			echo "body{background:#FFF;}div.sidebar,div.content{border:1px solid #999;}div.page-title h2{color:#222;}";
 		}
 		else {

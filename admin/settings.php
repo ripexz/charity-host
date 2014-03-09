@@ -33,6 +33,8 @@
 	$get_settings = $conn->query("SELECT * FROM charities WHERE id = {$charity_id}");
 	$data = $get_settings->fetch_assoc();
 
+	$bg = $data["background_color"];
+
 	// Output form
 	echo '<form action="'.$_SERVER['PHP_SELF'].'" role="form" method="post" enctype="multipart/form-data">
 			<div class="form-group">
@@ -72,12 +74,14 @@
 			</div>
 			<div class="form-group">
 				<label>Background colour</label>
-				<div class="colour-settings">
-					<label class="radio-inline"><input type="radio" name="color" value="white"/>White</label>
-					<label class="radio-inline"><input type="radio" name="color" value="hue"/>Choose...</label>
-				</div>
+				<div class="colour-settings">';
+	
+	echo '<label class="radio-inline"><input'.($bg == -1 ? ' checked' : '').' type="radio" name="color" value="white"/>White</label>'
+	echo '<label class="radio-inline"><input'.($bg >= 0 ? ' checked' : '').' type="radio" name="color" value="hue"/>Choose...</label>'
+	
+	echo		'</div>
 				<div class="colour-picker">
-					<div class="demo"></div>
+					<div style="background-color:'.($bg > -1 ? "hsl({$bg},21%,52%)" : '#FFF').';" class="demo"></div>
 					<input min="0" max="359" type="range" name="hue" id="colour-range" />
 				</div>
 			</div>
