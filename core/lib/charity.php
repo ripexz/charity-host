@@ -166,16 +166,29 @@
 	* Checks if Lost and Found is enabled, if yes returns
 	* relevant page data
 	*/
-	function get_lnf_data($charity_id) {
+	function get_sa_data($charity_id) {
 		$features = get_feature_status($charity_id);
 
-		if ($features["lnf_enabled"]) {
+		if ($features["sa_enabled"]) {
 			$data = array();
 
 			$data["sidebar"] = "none";
 			$data["title"] = "Lost and found";
 			$data["link"] = "lostfound";
-			$data["content"] = "<script src=\"/core/js/lnf.js\"></script>";
+
+			$data["content"] = '<div id="lost-and-found" data-bind="foreach: visibleAnimals">
+								<div class="lnf">
+									<div class="lnf-image">
+										<img data-bind="event: {error: changeHashCode}, attr: {src: \'/core/phpthumb/phpThumb.php?src=/core/uploads/\' + url + \'&w=211&f=png&sia=\' + title + hashCode(), alt: title}"/>
+									</div>
+									<div class="lnf-title">
+										<p data-bind="text: title"></p>
+									</div>
+									<div data-bind="html: description" class="lnf-desc"></div>
+								</div>
+							</div>
+							<script src="/core/js/lnf.js"></script>';
+			return $data;
 		}
 
 		return false;
@@ -192,7 +205,7 @@
 			$data = array();
 
 			$data["sidebar"] = "none";
-			$data["title"] = "Lost and Found";
+			$data["title"] = "Sponsor an animal";
 			$data["link"] = "lostfound";
 
 			$data["content"] = '<div id="sponsored-animals" data-bind="foreach: visibleAnimals">

@@ -1,6 +1,6 @@
-var sa_vm;
+var lnf_vm;
 
-function sponsoredAnimalsViewModel() {
+function lostAndFoundViewModel() {
 	var self = this;
 
 	self.searchText = ko.observable("");
@@ -24,9 +24,9 @@ function sponsoredAnimalsViewModel() {
 }
 
 $(document).ready(function(){
-	sa_vm = new sponsoredAnimalsViewModel();
+	lnf_vm = new lostAndFoundViewModel();
 
-	sa_vm.getData();
+	lnf_vm.getData();
 
-	ko.applyBindings(sa_vm, $("#sponsored-animals")[0]);
+	ko.applyBindings(lnf_vm, $("#lost-and-found")[0]);
 });
