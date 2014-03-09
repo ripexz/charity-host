@@ -250,6 +250,8 @@
 		$data["lnf_enabled"] = false;
 		$data["sa_enabled"] = false;
 
+		$db = new db(null);
+		$conn = $db->connect();
 		$features = $conn->query("SELECT lnf_enabled, sa_enabled FROM charities WHERE id = {$charity_id}");
 		if ($features->num_rows == 1) {
 			$arr = $features->fetch_assoc();
