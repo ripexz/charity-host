@@ -78,7 +78,7 @@
 				</div>
 				<div class="colour-picker">
 					<div class="demo"></div>
-					<input type="range" name="hue" id="colour-range" />
+					<input min="0" max="359" type="range" name="hue" id="colour-range" />
 				</div>
 			</div>
 			<div class="form-group">

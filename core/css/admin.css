@@ -136,3 +136,7 @@ form p.end-link {
 	margin-left: -29px;
 	bottom: 10px;
 }
+.colour-picker .demo {
+	width: 128px;
+	height: 128px;
+}
