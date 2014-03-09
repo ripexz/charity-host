@@ -12,7 +12,7 @@
 	$conn = $db->connect();
 	$charity_id = (int) $_SESSION["charity_id"];
 
-	output_admin_header("Dashboard", $_SESSION["charity_name"], "admin");
+	output_admin_header("Settings", $_SESSION["charity_name"], "admin");
 	echo '<div id="settings">';
 
 	// Handle submitted data
@@ -30,7 +30,7 @@
 	}
 
 	// Get data
-	$get_settings = $conn->query("SELECT * FROM charities WHERE charity_id = {$charity_id}");
+	$get_settings = $conn->query("SELECT * FROM charities WHERE id = {$charity_id}");
 	$data = $get_settings->fetch_assoc();
 
 	// Output form
