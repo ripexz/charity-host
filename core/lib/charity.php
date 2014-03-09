@@ -76,17 +76,16 @@
 					<link rel=\"stylesheet\" href=\"http://fonts.googleapis.com/css?family=Open+Sans:400,700,600\">
 					<link rel=\"stylesheet\" href=\"/core/css/bootstrap.min.css\" />
 					<link rel=\"stylesheet\" href=\"/core/css/bootstrap-theme.min.css\" />
-					<link rel=\"stylesheet\" href=\"/core/css/charity.css\" />";
-
+					<link rel=\"stylesheet\" href=\"/core/css/charity.css\" />
+					<style>";
 		if ($color == null) {
-			$style = "#FFF";
+			echo "body{background:#FFF;}div.sidebar,div.content{border:1px solid #999;}div.page-title h2{color:#222;}";
 		}
 		else {
-			$style = "hsl(" . $color . ", 21%, 52%)";
+			echo "body {background:hsl(" . $color . ", 21%, 52%);}";
 		}
-		echo "<style>body { background: {$style}; }</style>";
-		
-		echo	"</head>
+		echo	"</style>
+				</head>
 				<body>
 					<div id=\"wrapper\"> <!-- start of wrapper -->";
 
