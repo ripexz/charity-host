@@ -42,7 +42,7 @@
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="#">Dashboard</a></li>
-						<li><a href="#">Settings</a></li>
+						<li><a href="settings.php">Settings</a></li>
 						<li><a href="logout.php">Log out</a></li>
 					</ul>
 				</div>
@@ -60,7 +60,7 @@
 							<li><a href="gallery.php">Gallery</a></li>
 						</ul>
 						<ul class="nav nav-sidebar">
-							<li><a href="#">Settings</a></li>
+							<li><a href="settings.php">Settings</a></li>
 							<li><a href="#">Users</a></li>
 						</ul>
 						<ul class="nav nav-sidebar">
