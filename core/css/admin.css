@@ -137,6 +137,7 @@ form p.end-link {
 	bottom: 10px;
 }
 .colour-picker .demo {
+	border: 1px solid #666;
 	width: 128px;
 	height: 128px;
 }
