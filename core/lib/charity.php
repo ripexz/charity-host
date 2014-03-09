@@ -255,8 +255,8 @@
 		$features = $conn->query("SELECT lnf_enabled, sa_enabled FROM charities WHERE id = {$charity_id}");
 		if ($features->num_rows == 1) {
 			$arr = $features->fetch_assoc();
-			$lnf = (bool) $arr["lnf_enabled"];
-			$sa = (bool) $arr["sa_enabled"];
+			$data["lnf_enabled"] = (bool) $arr["lnf_enabled"];
+			$data["sa_enabled"] = (bool) $arr["sa_enabled"];
 		}
 		return $data;
 	}
