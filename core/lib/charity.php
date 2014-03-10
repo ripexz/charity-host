@@ -128,6 +128,7 @@
 	function output_charity_footer($charity, $contacts, $org = "Charity Host") {
 		echo "<footer>
 				<div class=\"container\">
+					<p class=\"pull-right\"><a href=\"#\">Back to top</a></p>
 					<div class=\"contact-details\">";
 
 		echo "<p>{$charity}</p>";
@@ -136,7 +137,6 @@
 		echo isset($contacts["address"]) ? "<p>{$contacts['address']}</p>" : '';
 		
 		echo		"</div>
-					<p class=\"pull-right\"><a href=\"#\">Back to top</a></p>
 					<p class=\"copyright\"><small>&copy;" . date('Y') . " " . $charity . ". Powered by " . $org . "</small></p>
 				</div>
 			</footer>
