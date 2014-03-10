@@ -19,7 +19,7 @@
 	// Handle submitted data
 	if (isset($_POST["submit"])) {
 		$valid = array();
-		
+
 
 		if (count($errors) == 0) {
 			//continue
@@ -83,7 +83,7 @@
 	echo		'</div>
 				<div class="colour-picker">
 					<div style="background-color:'.($bg > -1 ? "hsl({$bg},21%,52%)" : '#FFF').';" class="demo"></div>
-					<input min="0" max="359" type="range" name="hue" id="colour-range" />
+					<input'.($bg == -1 ? ' style="display:none;' : '').' min="0" max="359" type="range" name="hue" id="colour-range" />
 				</div>
 			</div>
 			<div class="form-group">

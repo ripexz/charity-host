@@ -23,13 +23,15 @@ function updateColourDemo(hue) {
 	$(".colour-picker .demo").css("background", colour);
 }
 function bindColourPicker() {
-	if ($("#colour-range").length > 0) {
+	if ($(".colour-picker").length == 1) {
 		// Bind white option
-		$(".colour-picker .white").click(function(e){
+		$(".colour-settings .white").click(function(e){
+			$("#colour-range").hide();
 			updateColourDemo();
 		});
 		// Bind hue option
-		$(".colour-picker .hue").click(function(e){
+		$(".colour-settings .hue").click(function(e){
+			$("#colour-range").show();
 			updateColourDemo($("#colour-range").val());
 		});
 		// Bind range changer
