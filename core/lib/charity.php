@@ -184,8 +184,56 @@
 									</div>
 									<div data-bind="html: description" class="lnf-desc"></div>
 								</div>
-							</div>
-							<script src="/core/js/lnf.js"></script>';
+							</div>';
+
+			$data["content"] .= '<div id="lnfModal" class="modal fade">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<form action="#" role="form" method="post" enctype="multipart/form-data">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+											<h4 class="modal-title">Add a Lost and Found entry</h4>
+										</div>
+										<div class="modal-body">
+											<div class="form-group">
+												<label>Entry type</label>
+												<div class="lnf-type">
+													<label class="radio-inline"><input type="radio" name="type_is_found" value="0" checked/>Lost</label>
+													<label class="radio-inline"><input type="radio" name="type_is_found" value="1"/>Found</label>
+												</div>
+											</div>
+											<div class="form-group">
+												<label for="title">Title</label>
+												<input name="title" type="text" class="form-control" id="title" placeholder="Short title (e.g. type of animal, location)" required>
+											</div>
+											<div class="form-group">
+												<label for="description">Description</label>
+												<input name="description" type="text" class="form-control" id="description" placeholder="Animal description and other details" required>
+											</div>
+											<div class="form-group">
+												<label for="email">Email address</label>
+												<input name="email" type="email" class="form-control" id="email" placeholder="Contact email address" required>
+											</div>
+											<div class="form-group">
+												<label for="phone">Phone number</label>
+												<input name="phone" type="text" class="form-control" id="phone" placeholder="Contact phone number (optional)">
+											</div>
+											<div class="form-group">
+												<label for="imagefile">Image</label>
+												<input name="imagefile" type="file" id="imagefile" optional>
+												<p class="help-block">No larger than 1MB in size.</p>
+											</div>
+										</div>
+										<div class="modal-footer">
+											<button name="submit" type="submit" class="btn btn-primary">Submit</button>
+											<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+										</div>
+										</form>
+									</div><!-- /.modal-content -->
+								</div><!-- /.modal-dialog -->
+							</div><!-- /.modal -->';
+
+			$data["content"] .= '<script src="/core/js/lnf.js"></script>';
 			return $data;
 		}
 

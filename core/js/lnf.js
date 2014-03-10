@@ -24,9 +24,10 @@ function lostAndFoundViewModel() {
 }
 
 $(document).ready(function(){
+	var files;
+	$('#imagefile').on('change', prepareUpload);
+
 	lnf_vm = new lostAndFoundViewModel();
-
 	lnf_vm.getData();
-
 	ko.applyBindings(lnf_vm, $("#lost-and-found")[0]);
 });
