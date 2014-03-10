@@ -46,7 +46,29 @@
 			}
 		}
 		if ($logo == "new") {
-			//handle file upload
+			if ($_FILES["imagefile"]["error"] !== UPLOAD_ERR_OK) {
+				$errors[] = "Image upload failed.";
+			}
+			if ($_FILES["imagefile"]["size"] > 1048576) {
+				$errors[] = "Image file is too big, please select an image that is under 1 MB.";
+			}
+			$info = getimagesize($_FILES["imagefile"]["tmp_name"]);
+			if ($info === FALSE) {
+				$errors[] = "Unable to determine image type of uploaded file.";
+			}
+			else {
+				$valid_image = true;
+				$extension = pathinfo($_FILES["imagefile"]["name"], PATHINFO_EXTENSION);
+				$filename = $charity_id . "_logo_" . time() . '.' . $extension;
+				$upload_to = "../core/uploads/" . $filename;
+
+				if (move_uploaded_file($_FILES["imagefile"]["tmp_name"], $upload_to)) {
+					$safe_url = $conn->real_escape_string($filename);
+				}
+				else {
+					$errors[] = "Image upload failed.";
+				}
+			}
 		}
 
 		$safe = $db->escape_array($conn, $valid);
@@ -55,7 +77,7 @@
 			//Build query:
 			$sql = "UPDATE charities
 					SET name = '{$safe[charity_name]}', email = '{$safe[charity_email]}', phone = '{$safe[charity_phone]}', address = '{$safe[charity_address]}', paypal = '{$safe[charity_paypal]}', bg_color = {$colour}";
-			$sql .= ($logo == "new") ? "" : ""; //new logo url set here
+			$sql .= ($logo == "new" && $safe_url) ? ", logo_url = '{$safe_url}'" : ""; //new logo url set here
 			$sql .=	" WHERE id = {$charity_id}";
 
 			$result = $conn->query($sql);
@@ -121,7 +143,7 @@
 			<div class="form-group logo-uploader">
 				<label for="imagefile">Choose an image</label>
 				<input name="imagefile" type="file" id="imagefile">
-				<p class="help-block">No larger than 2MB in size.</p>
+				<p class="help-block">No larger than 1MB in size.</p>
 			</div>
 			<div class="form-group">
 				<label>Background colour</label>
@@ -133,7 +155,7 @@
 	echo		'</div>
 				<div class="colour-picker">
 					<div style="background-color:'.($bg > -1 ? "hsl({$bg},21%,52%)" : '#FFF').';" class="demo"></div>
-					<input'.($bg == -1 ? ' style="visibility:hidden;' : '').' min="0" max="359" type="range" name="hue" id="colour-range" />
+					<input'.($bg == -1 ? ' style="visibility:hidden;' : ' value="'.$bg.'"').' min="0" max="359" type="range" name="hue" id="colour-range" />
 				</div>
 			</div>
 			<div class="form-group">
