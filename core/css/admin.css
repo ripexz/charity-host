@@ -141,3 +141,6 @@ form p.end-link {
 	width: 128px;
 	height: 128px;
 }
+.logo-uploader {
+	visibility: none;
+}

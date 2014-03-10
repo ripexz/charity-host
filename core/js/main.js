@@ -3,6 +3,7 @@ var siteName = "Charity Host";
 $(document).ready(function() {
 	highlightAdminNav();
 	bindColourPicker();
+	bindImageUploader();
 });
 
 function updatePreview(el) {
@@ -37,6 +38,21 @@ function bindColourPicker() {
 		// Bind range changer
 		$("#colour-range").on("change", function(e) {
 			updateColourDemo(e.target.value);
+		});
+	}
+}
+
+function bindImageUploader() {
+	if ($(".logo-settings").length == 1) {
+		var uploader = $(".logo-uploader #imagefile");
+		// Bind keep option
+		$(".logo-settings .keep").click(function(e){
+			$(".logo-uploader").css("visibility", "hidden");
+			uploader.replaceWith(uploader = uploader.clone(true));
+		});
+		// Bind new option
+		$(".logo-settings .new").click(function(e){
+			$(".logo-uploader").css("visibility", "visible");
 		});
 	}
 }
