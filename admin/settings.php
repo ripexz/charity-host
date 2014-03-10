@@ -63,7 +63,7 @@
 				$upload_to = "../core/uploads/" . $filename;
 
 				if (move_uploaded_file($_FILES["imagefile"]["tmp_name"], $upload_to)) {
-					$safe_url = $conn->real_escape_string($filename);
+					$safe_url = $conn->real_escape_string('/core/uploads/' . $filename);
 				}
 				else {
 					$errors[] = "Image upload failed.";
