@@ -142,5 +142,5 @@ form p.end-link {
 	height: 128px;
 }
 .logo-uploader {
-	visibility: none;
+	visibility: hidden;
 }

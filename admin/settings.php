@@ -114,8 +114,8 @@
 			<div class="form-group">
 				<label>Charity logo</label>
 				<div class="logo-settings">
-					<label class="radio-inline"><input type="radio" name="logo" value="keep" checked/>Keep current</label>
-					<label class="radio-inline"><input type="radio" name="logo" value="new"/>Upload new</label>
+					<label class="radio-inline"><input type="radio" name="logo" class="keep" value="keep" checked/>Keep current</label>
+					<label class="radio-inline"><input type="radio" name="logo" class="new" value="new"/>Upload new</label>
 				</div>
 			</div>
 			<div class="form-group logo-uploader">
