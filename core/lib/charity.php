@@ -92,7 +92,7 @@
 		echo "<header>";
 
 		echo '<div class="container titlebar">
-				<img class="logo" src="'.$logo.'" alt="Logo">
+				<div class="logo"><img src="'.$logo.'" alt="Logo"></div>
 				<h1 class="charity-name">'.$charity.'</h1>
 			</div>';
 

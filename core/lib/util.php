@@ -31,7 +31,12 @@
 					show_not_found();
 				}
 				else {
-					output_charity_page($split, $validCharity["name"], $validCharity["id"], $validCharity["bg_color"], $validCharity["logo_url"]);
+					if ($validCharity["logo_url"] == '') {
+						output_charity_page($split, $validCharity["name"], $validCharity["id"], $validCharity["bg_color"]);
+					}
+					else {
+						output_charity_page($split, $validCharity["name"], $validCharity["id"], $validCharity["bg_color"], $validCharity["logo_url"]);
+					}
 				}
 				break;
 		}
