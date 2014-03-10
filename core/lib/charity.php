@@ -128,7 +128,7 @@
 	function output_charity_footer($charity, $contacts, $org = "Charity Host") {
 		echo "<footer>
 				<div class=\"container\">
-					<div class=\"contact-details\">"
+					<div class=\"contact-details\">";
 
 		echo "<p>{$charity}</p>";
 		echo isset($contacts["phone"]) ? '' : "<p>T: {$phone}</p>";
