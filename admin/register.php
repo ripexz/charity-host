@@ -42,6 +42,7 @@
 		$conn = $db->connect();
 
 		if (!$conn->connect_errno) {
+			$valid = array();
 			$valid["charity_name"] = get_required_string($_POST, "charity_name", "Charity name", 255, $errors);
 			$valid["charity_link"] = get_required_string($_POST, "charity_link", "Charity link", 60, $errors);
 

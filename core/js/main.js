@@ -26,12 +26,12 @@ function bindColourPicker() {
 	if ($(".colour-picker").length == 1) {
 		// Bind white option
 		$(".colour-settings .white").click(function(e){
-			$("#colour-range").hide();
+			$("#colour-range").css("visibility", "hidden");
 			updateColourDemo();
 		});
 		// Bind hue option
 		$(".colour-settings .hue").click(function(e){
-			$("#colour-range").show();
+			$("#colour-range").css("visibility", "visible");
 			updateColourDemo($("#colour-range").val());
 		});
 		// Bind range changer
