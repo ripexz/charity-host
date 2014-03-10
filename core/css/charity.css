@@ -41,9 +41,16 @@ footer {
 footer .container {
 	margin-top: 8px;
 }
+footer .contact-details p {
+	margin: 0;
+	color: #FFF;
+}
 footer .container .pull-right a:visited,
 footer .container .pull-right a {
 	color: #DDD;
+}
+footer .container p.copyright {
+	color: #999;
 }
 div.content {
 	background: rgba(255,255,255,0.7);

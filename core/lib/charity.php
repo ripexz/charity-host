@@ -7,7 +7,7 @@
 	* Checks if page is valid, if yes - generates and outputs
 	* requested page
 	*/
-	function output_charity_page($request, $name, $charity_id, $bg_color = -1, $logo = "/core/images/logo.png") {
+	function output_charity_page($request, $name, $charity_id, $contacts, $bg_color = -1, $logo = "/core/images/logo.png") {
 
 		if ($request[1]) {
 			switch ($request[1]) {
@@ -56,7 +56,7 @@
 
 		echo '</div>
 			</div>';
-		output_charity_footer($name);
+		output_charity_footer($name, $contacts);
 
 	}
 
@@ -125,11 +125,19 @@
 	/*
 	* Generates and outputs charity page footer
 	*/
-	function output_charity_footer($charity, $org = "Charity Host") {
+	function output_charity_footer($charity, $contacts, $org = "Charity Host") {
 		echo "<footer>
 				<div class=\"container\">
+					<div class=\"contact-details\">"
+
+		echo "<p>{$charity}</p>";
+		echo isset($contacts["phone"]) ? '' : "<p>T: {$phone}</p>";
+		echo isset($contacts["email"]) ? '' : "<p>E: {$email}</p>";
+		echo isset($contacts["address"]) ? '' "<p>{$address}</p>";
+		
+		echo		"</div>
 					<p class=\"pull-right\"><a href=\"#\">Back to top</a></p>
-					<p>&copy;" . date('Y') . " " . $charity . ". Powered by " . $org . "</p>
+					<p class=\"copyright\"><small>&copy;" . date('Y') . " " . $charity . ". Powered by " . $org . "</small></p>
 				</div>
 			</footer>
 			</div> <!-- end of wrapper -->

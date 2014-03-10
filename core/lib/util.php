@@ -32,10 +32,10 @@
 				}
 				else {
 					if ($validCharity["logo_url"] == '') {
-						output_charity_page($split, $validCharity["name"], $validCharity["id"], $validCharity["bg_color"]);
+						output_charity_page($split, $validCharity["name"], $validCharity["id"], $validCharity["contacts"], $validCharity["bg_color"]);
 					}
 					else {
-						output_charity_page($split, $validCharity["name"], $validCharity["id"], $validCharity["bg_color"], $validCharity["logo_url"]);
+						output_charity_page($split, $validCharity["name"], $validCharity["id"], $validCharity["contacts"], $validCharity["bg_color"], $validCharity["logo_url"]);
 					}
 				}
 				break;
@@ -52,9 +52,15 @@
 		if (!$conn->connect_errno) {
 			$safe_link = $conn->real_escape_string($link);
 
-			$result = $conn->query("SELECT id, name, bg_color, logo_url FROM charities WHERE link = '{$safe_link}'");
+			$result = $conn->query("SELECT id, name, bg_color, logo_url, email, phone, address FROM charities WHERE link = '{$safe_link}'");
 			if ($result->num_rows == 1) {
-				return $result->fetch_assoc();
+				$data = $result->fetch_assoc();
+				$contacts = array();
+				$contacts['email'] = $data['email'] ? $data['email'] : NULL;
+				$contacts['phone'] = $data['phone'] ? $data['phone'] : NULL;
+				$contacts['address'] = $data['address'] ? $data['address'] : NULL;
+				$data["contacts"] = $contacts;
+				return $data;
 			}
 			else {
 				return false;
