@@ -173,7 +173,8 @@
 			$data["title"] = "Lost and found";
 			$data["link"] = "lostfound";
 
-			$data["content"] = '<div id="lost-and-found" data-bind="foreach: visibleAnimals">
+			$data["content"] = '<button id="lnf-modal-toggle" class="btn btn-default" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#lnfModal">Add entry</button>
+								<div id="lost-and-found" data-bind="foreach: visibleAnimals">
 								<div class="lnf">
 									<div class="lnf-image">
 										<img data-bind="event: {error: changeHashCode}, attr: {src: \'/core/phpthumb/phpThumb.php?src=/core/uploads/\' + url + \'&w=211&f=png&sia=\' + title + hashCode(), alt: title}"/>

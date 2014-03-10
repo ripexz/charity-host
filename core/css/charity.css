@@ -53,3 +53,8 @@ div.sidebar {
 	background: rgba(255,255,255,0.5);
 	padding: 20px;
 }
+#lnf-modal-toggle {
+	position: absolute;
+	top: -45px;
+	right: 15px;
+}
