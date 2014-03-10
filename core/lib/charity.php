@@ -133,7 +133,7 @@
 		echo "<p>{$charity}</p>";
 		echo isset($contacts["phone"]) ? '' : "<p>T: {$phone}</p>";
 		echo isset($contacts["email"]) ? '' : "<p>E: {$email}</p>";
-		echo isset($contacts["address"]) ? '' "<p>{$address}</p>";
+		echo isset($contacts["address"]) ? '' : "<p>{$address}</p>";
 		
 		echo		"</div>
 					<p class=\"pull-right\"><a href=\"#\">Back to top</a></p>
