@@ -2,7 +2,7 @@ var siteName = "Charity Host";
 
 $(document).ready(function() {
 	highlightAdminNav();
-	updateColourPicker();
+	bindColourPicker();
 });
 
 function updatePreview(el) {
