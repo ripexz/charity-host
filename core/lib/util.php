@@ -31,7 +31,7 @@
 					show_not_found();
 				}
 				else {
-					output_charity_page($split, $validCharity["name"], $validCharity["id"]);
+					output_charity_page($split, $validCharity["name"], $validCharity["id"], $validCharity["bg_color"]);
 				}
 				break;
 		}
@@ -47,7 +47,7 @@
 		if (!$conn->connect_errno) {
 			$safe_link = $conn->real_escape_string($link);
 
-			$result = $conn->query("SELECT id, name FROM charities WHERE link = '{$safe_link}'");
+			$result = $conn->query("SELECT id, name, bg_color FROM charities WHERE link = '{$safe_link}'");
 			if ($result->num_rows == 1) {
 				return $result->fetch_assoc();
 			}

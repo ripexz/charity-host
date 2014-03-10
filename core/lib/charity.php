@@ -7,7 +7,7 @@
 	* Checks if page is valid, if yes - generates and outputs
 	* requested page
 	*/
-	function output_charity_page($request, $name, $charity_id) {
+	function output_charity_page($request, $name, $charity_id, $logo = "/core/images/logo.png", $bg_color = -1) {
 
 		if ($request[1]) {
 			switch ($request[1]) {
@@ -33,7 +33,7 @@
 			exit();
 		}
 
-		output_charity_header($request, $name, $charity_id, $page_data["title"]);
+		output_charity_header($request, $name, $charity_id, $logo, $bg_color, $page_data["title"]);
 		echo '<div class="container">
 				<div class="row">';
 
@@ -63,7 +63,7 @@
 	/*
 	* Generates and outputs charity site header
 	*/
-	function output_charity_header(&$request, $charity, $charity_id, $title = "Home", $logo = "/core/images/logo.png", $color = -1) {
+	function output_charity_header(&$request, $charity, $charity_id, $logo, $color, $title = "Home") {
 		echo "<!DOCTYPE html>
 			<html lang=\"en\">
 				<head>
