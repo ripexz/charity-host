@@ -189,12 +189,13 @@
 			$data["content"] .= '<div id="lnfModal" class="modal fade">
 								<div class="modal-dialog">
 									<div class="modal-content">
-										<form action="#" role="form" method="post" enctype="multipart/form-data">
+										<form id="lnfForm" action="#" role="form" method="post" enctype="multipart/form-data">
 										<div class="modal-header">
 											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 											<h4 class="modal-title">Add a Lost and Found entry</h4>
 										</div>
 										<div class="modal-body">
+											<input type="hidden" name="charity_id" value="'.$charity_id.'" id="lnf_charity_id"/>
 											<div class="form-group">
 												<label>Entry type</label>
 												<div class="lnf-type">
