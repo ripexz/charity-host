@@ -45,6 +45,7 @@
 			FROM lost_and_found lnf
 				JOIN charity_lost_found clf ON lnf.id = clf.lost_found_id
 			WHERE clf.charity_id = {$charity_id}
+				AND lnf.approved = 1
 			ORDER BY lnf.id DESC
 			LIMIT {$upper_limit}, {$next_page}";
 	$res = $conn->query($sql);
@@ -55,6 +56,7 @@
 			FROM lost_and_found lnf
 				JOIN charity_lost_found clf ON lnf.id = clf.lost_found_id
 			WHERE clf.charity_id = {$charity_id}
+				AND lnf.approved = 1
 			ORDER BY lnf.id DESC
 			LIMIT {$lower_limit}, {$upper_limit}";
 
