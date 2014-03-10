@@ -39,7 +39,7 @@
 		}
 
 		$logo = "keep";
-		if (isset($_POST["logo"]) {
+		if (isset($_POST["logo"])) {
 			$temp_logo = trim((string)$_POST["logo"]);
 			if ($temp_logo == "new") {
 				$logo = "new";
