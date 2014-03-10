@@ -18,10 +18,23 @@ function highlightAdminNav() {
 	$("#admin_snav li a[href='"+page+"']").parent().addClass("active");
 }
 
-function updateColourPicker() {
-	$("#colour-range").on("change", function(e) {
-		var value = e.target.value,
-			hsl = "hsl(" + value + ", 21%, 52%)";
-		$(".colour-picker .demo").css("background", hsl);
-	});
+function updateColourDemo(hue) {
+	var colour = hue ? "hsl(" + parseInt(hue, 10) + ", 21%, 52%)" : "#FFF";
+	$(".colour-picker .demo").css("background", colour);
+}
+function bindColourPicker() {
+	if ($("#colour-range").length > 0) {
+		// Bind white option
+		$(".colour-picker .white").click(function(e){
+			updateColourDemo();
+		});
+		// Bind hue option
+		$(".colour-picker .hue").click(function(e){
+			updateColourDemo($("#colour-range").val());
+		});
+		// Bind range changer
+		$("#colour-range").on("change", function(e) {
+			updateColourDemo(e.target.value);
+		});
+	}
 }

@@ -7,6 +7,7 @@
 	require_once('../core/lib/admin.php');
 	require_once('../core/lib/db.php');
 	require_once('../core/lib/validation.php');
+	$errors = array();
 
 	$db = new db(null);
 	$conn = $db->connect();
@@ -17,8 +18,8 @@
 
 	// Handle submitted data
 	if (isset($_POST["submit"])) {
-		$errors = array();
-		//todo
+		$valid = array();
+		
 
 		if (count($errors) == 0) {
 			//continue
@@ -76,8 +77,8 @@
 				<label>Background colour</label>
 				<div class="colour-settings">';
 	
-	echo '<label class="radio-inline"><input'.($bg == -1 ? ' checked' : '').' type="radio" name="color" value="white"/>White</label>';
-	echo '<label class="radio-inline"><input'.($bg > -1 ? ' checked' : '').' type="radio" name="color" value="hue"/>Choose...</label>';
+	echo '<label class="radio-inline"><input'.($bg == -1 ? ' checked' : '').' type="radio" name="color" value="white" class="white"/>White</label>';
+	echo '<label class="radio-inline"><input'.($bg > -1 ? ' checked' : '').' type="radio" name="color" value="hue" class="hue"/>Choose...</label>';
 	
 	echo		'</div>
 				<div class="colour-picker">
