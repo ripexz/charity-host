@@ -26,7 +26,7 @@
 		$valid["charity_address"] = get_optional_string($_POST, "charity_address", "Charity address", 255, $errors);
 
 		if (isset($_POST["color"])) {
-			$temp_colour = trim((string)$_POST["colour"]);
+			$temp_colour = trim((string)$_POST["color"]);
 			if ($temp_colour == "white") {
 				$colour = -1;
 			}
