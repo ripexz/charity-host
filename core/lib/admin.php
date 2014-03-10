@@ -37,7 +37,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">'.$charity_name.'</a>
+					<a target="_blank" class="navbar-brand" href="'.$_SESSION['charity_link'].'">'.$charity_name.'</a>
 				</div>
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
