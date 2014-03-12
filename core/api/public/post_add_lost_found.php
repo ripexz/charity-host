@@ -40,10 +40,15 @@
 
 	if (count($errors) > 0) {
 		//return first error only
+		$err = '';
+		foreach ($errors as $error) {
+			$err = $error;
+			break;
+		}
 		http_response_code(400);
 		echo '{
 			"STATUS": "ERROR",
-			"MESSAGE": "'.$errors[0].'"
+			"MESSAGE": "'.$err.'"
 		}';
 		exit();
 	}
