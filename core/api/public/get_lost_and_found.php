@@ -85,7 +85,8 @@
 			\"description\": \"{$row['description']}\",
 			\"image\": \"{$row['image']}\",
 			\"email\": \"{$row['email']}\",
-			\"phone\": \"{$row['phone']}\"
+			\"phone\": \"{$row['phone']}\",
+			\"isFound\": \"{$row['type_is_found']}\",
 		}";
 		if ($item < $result->num_rows) {
 			$json .= ',';
