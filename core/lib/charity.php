@@ -183,27 +183,30 @@
 			$data["link"] = "lostfound";
 
 			$data["content"] = '<button id="lnf-modal-toggle" class="btn btn-default" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#lnfModal">Add entry</button>
-								<div id="lost-and-found" data-bind="foreach: visibleAnimals">
-								<div class="lnf">
-									<div class="lnf-title">
-										<p data-bind="text: title"></p>
-									</div>
-									<div class="lnf-image">
-										<img data-bind="event: {error: changeHashCode}, attr: {src: \'/core/phpthumb/phpThumb.php?src=\' + url + \'&w=211&f=png&sia=\' + title + hashCode(), alt: title}"/>
-									</div>
-									<div class="lnf-desc">
-										<div class="wrap">
-											<p class="content" data-bind="text: description"></p>
+								<div id="lost-and-found">
+								<input data-bind="value: searchText, valueUpdate: \'afterkeydown\'" type="text" class="form-control" placeholder="Search entries by title" />
+								<!-- ko foreach: visibleAnimals -->
+									<div class="lnf">
+										<div class="lnf-title">
+											<p data-bind="text: title"></p>
+										</div>
+										<div class="lnf-image">
+											<img data-bind="event: {error: changeHashCode}, attr: {src: \'/core/phpthumb/phpThumb.php?src=\' + url + \'&w=211&f=png&sia=\' + title + hashCode(), alt: title}"/>
+										</div>
+										<div class="lnf-desc">
+											<div class="wrap">
+												<p class="content" data-bind="text: description"></p>
+											</div>
+										</div>
+										<div class="lnf-footer">
+											<p>
+												<span data-bind="text: \'E: \' + email"></span>
+												<!-- ko if: phone --><span style="margin-left:10px;" data-bind="text: \'T: \' + phone"></span><!-- /ko -->
+												<span class="type" data-bind="text: isFound == 1 ? \'Found\' : \'Lost\', css: {\'found\': isFound == 1}"></span>
+											</p>
 										</div>
 									</div>
-									<div class="lnf-footer">
-										<p>
-											<span data-bind="text: \'E: \' + email"></span>
-											<!-- ko if: phone --><span style="margin-left:10px;" data-bind="text: \'T: \' + phone"></span><!-- /ko -->
-											<span class="type" data-bind="text: isFound == 1 ? \'Found\' : \'Lost\', css: {\'found\': isFound == 1}"></span>
-										</p>
-									</div>
-								</div>
+								<!-- /ko -->
 							</div>';
 
 			$data["content"] .= '<div id="lnfModal" class="modal fade">
