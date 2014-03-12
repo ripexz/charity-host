@@ -196,6 +196,12 @@
 											<p class="content" data-bind="text: description"></p>
 										</div>
 									</div>
+									<div class="lnf-contacts">
+										<p>
+											<span data-bind="text: \'E:\' + email"></span>
+											<!-- ko if: phone --><span style="margin-left:20px;" data-bind="text: \'T:\' + phone"></span><!-- /ko -->
+										</p>
+									</div>
 								</div>
 							</div>';
 

@@ -128,3 +128,14 @@ div.sidebar {
 .lnf .lnf-desc .wrap .content {
 	font-size: 13px;
 }
+.lnf .lnf-contacts {
+	position: absolute;
+	bottom: 0;
+	left: 211px;
+	height: 20px;
+	background: rgba(0,0,0,0.1);
+}
+.lnf .lnf-contacts p {
+	font-size: 11px;
+	margin: 3px 10px;
+}
