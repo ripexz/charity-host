@@ -25,8 +25,24 @@
 	if (isset($_POST['lnf_enabled'])) {
 		$lnf = (int) (bool) $_POST['lnf_enabled'];
 	}
+	else {
+		http_response_code(400);
+		echo '{
+			"STATUS": "ERROR",
+			"MESSAGE": "lnf_enabled is required."
+		}';
+		exit();
+	}
 	if (isset($_POST['lnf_auto_approve'])) {
 		$aa = (int) (bool) $_POST['lnf_auto_approve'];
+	}
+	else {
+		http_response_code(400);
+		echo '{
+			"STATUS": "ERROR",
+			"MESSAGE": "lnf_auto_approve is required."
+		}';
+		exit();
 	}
 
 	// Execute query

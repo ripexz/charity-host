@@ -13,7 +13,7 @@ function lostAndFoundEntry(opts) {
 	self.email = opts.email;
 	self.phone = opts.phone;
 	self.isFound = opts.isFound;
-	self.isApproved = opts.isApproved == "0" ? false : true;
+	self.isApproved = opts.isApproved == "0" ? ko.observable(false) : ko.observable(true);
 
 	self.hashCode = ko.observable('');
 
@@ -43,11 +43,45 @@ function lostAndFoundViewModel() {
 
 	/* START: Admin functions */
 	self.approveEntry = function(id) {
-		//todo
+		$.ajax({
+			url: '/core/api/private/post_edit_lnf_entry.php',
+			type: 'POST',
+			data: {
+				"id": id,
+				"action": "approve"
+			},
+			cache: false,
+			dataType: 'json',
+		}).done(function(data) {
+			if (data.STATUS == "OK") {
+				var index = self.findIndexByKeyValue(self.animals(), "id", id);
+				self.animals()[index].isApproved(true);
+				showAlert("success", "Lost and Found entry approved successfully.");
+			}
+		}).fail(function(data){
+			showAlert("danger", data.responseJSON.MESSAGE);
+		});
 	}
 
 	self.deleteEntry = function(id) {
-		//todo
+		$.ajax({
+			url: '/core/api/private/post_edit_lnf_entry.php',
+			type: 'POST',
+			data: {
+				"id": id,
+				"action": "delete"
+			},
+			cache: false,
+			dataType: 'json',
+		}).done(function(data) {
+			if (data.STATUS == "OK") {
+				var index = self.findIndexByKeyValue(self.animals(), "id", id);
+				self.animals.remove(self.animals()[index]);
+				showAlert("success", "Lost and Found entry deleted successfully.");
+			}
+		}).fail(function(data){
+			showAlert("danger", data.responseJSON.MESSAGE);
+		});
 	}
 	/* END: Admin functions */
 
@@ -75,6 +109,15 @@ function lostAndFoundViewModel() {
 			$(".loading").hide();
 			showAlert("danger", data.responseJSON.MESSAGE);
 		});
+	}
+
+	self.findIndexByKeyValue = function(array, key, value) {
+		for ( i = 0; i < array.length; i++ ) {
+			if ( array[i][key] == value ) {
+				return i;
+			}
+		}
+		return -1;
 	}
 }
 
