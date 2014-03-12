@@ -186,7 +186,7 @@
 								<div id="lost-and-found" data-bind="foreach: visibleAnimals">
 								<div class="lnf">
 									<div class="lnf-image">
-										<img data-bind="event: {error: changeHashCode}, attr: {src: \'/core/phpthumb/phpThumb.php?src=/core/uploads/\' + url + \'&w=211&f=png&sia=\' + title + hashCode(), alt: title}"/>
+										<img data-bind="event: {error: changeHashCode}, attr: {src: \'/core/phpthumb/phpThumb.php?src=\' + url + \'&w=211&f=png&sia=\' + title + hashCode(), alt: title}"/>
 									</div>
 									<div class="lnf-title">
 										<p data-bind="text: title"></p>
