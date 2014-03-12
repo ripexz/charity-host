@@ -88,7 +88,13 @@
 	/*
 	* Sends a link with a delete code to the user
 	*/
-	function email_delete_code($data, $delete_code) {
-		//todo
+	function email_delete_code($data, $code) {
+		$message = "Thank you for submitting a Lost and Found entry, you can remove it at any time by following this link: \r\n http://www.charityhost.eu/delete.php?code=" . $code;
+		$subject = 'Lost and Found - CharityHost.eu';
+		$headers = 'From: CharityHost.eu <mail@charityhost.eu>' . "\r\n" .
+					'Reply-To: mail@charityhost.eu' . "\r\n" .
+					'Content-Type: text/html' . "\r\n";
+		
+		mail($data["email"], $subject, $message, $headers);
 	}
 ?>
