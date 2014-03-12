@@ -13,7 +13,7 @@ function lostAndFoundEntry(opts) {
 	self.email = opts.email;
 	self.phone = opts.phone;
 	self.isFound = opts.isFound;
-	self.isApproved = opts.isApproved || true;
+	self.isApproved = opts.isApproved == "0" ? false : true;
 
 	self.hashCode = ko.observable('');
 

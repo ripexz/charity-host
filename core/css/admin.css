@@ -153,6 +153,12 @@ form p.end-link {
 	position: relative;
 	min-height: 160px;
 }
+#lost-and-found .lnf.admin {
+	background: rgba(100, 0, 0, 0.3);
+}
+#lost-and-found .lnf.admin.approved {
+	background: rgba(0, 100, 0, 0.3);
+}
 .lnf .lnf-overlay {
 	opacity: 0;
 	position: absolute;

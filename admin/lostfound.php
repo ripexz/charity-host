@@ -18,7 +18,7 @@
 
 	echo '<input data-bind="value: searchText, valueUpdate: \'afterkeydown\'" type="text" class="form-control" placeholder="Search entries by title" />
 		<!-- ko foreach: visibleAnimals -->
-			<div class="lnf">
+			<div class="lnf admin" data-bind="css: {approved: isApproved}">
 				<div class="lnf-overlay">
 					<div class="lnf-tools">
 						<button data-bind="click: function(){$root.deleteEntry(id)}" class="lnf-delete btn btn-lg btn-danger">Delete</button>
