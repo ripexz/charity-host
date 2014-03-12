@@ -14,16 +14,12 @@
 
 	// Check passed values
 	$valid_id = false;
-	if (isset($_GET['charity_id'])) {
-		$charity_id = (int) $_GET['charity_id'];
+	if (isset($_POST['charity_id'])) {
+		$charity_id = (int) $_POST['charity_id'];
 		if ($charity_id > 0) {
 			$valid_id = true;
 		}
 	}
-
-	var_dump($_GET);
-	exit();
-
 	if (!$valid_id) {
 		http_response_code(400);
 		echo '{
