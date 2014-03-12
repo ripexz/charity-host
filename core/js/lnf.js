@@ -193,11 +193,11 @@ function submitForm(e, imgUrl) {
 			$(".loading").hide();
 			$("#lnfModal").modal('hide');
 			$("#lnfForm")[0].reset();
-			if (data.autoApprove) {
-				showAlert("success", "Lost and Found entry added successfully.");
+			if (data.autoApprove == "0") {
+				showAlert("success", "Lost and Found entry submitted, but needs to be approved by an administrator.");
 			}
 			else {
-				showAlert("success", "Lost and Found entry submitted, but needs to be approved by an administrator.");
+				showAlert("success", "Lost and Found entry added successfully.");
 			}
 		}
 	}).fail(function(data){
