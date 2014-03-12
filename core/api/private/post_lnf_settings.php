@@ -23,10 +23,10 @@
 
 	// Check passed values
 	if (isset($_POST['lnf_enabled'])) {
-		$lnf = (bool) $_POST['lnf_enabled'];
+		$lnf = (int) (bool) $_POST['lnf_enabled'];
 	}
 	if (isset($_POST['lnf_auto_approve'])) {
-		$aa = (bool) $_POST['lnf_auto_approve'];
+		$aa = (int) (bool) $_POST['lnf_auto_approve'];
 	}
 
 	// Execute query
