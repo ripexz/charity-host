@@ -4,6 +4,8 @@
 
 	// Connect to database
 	require_once('../../lib/db.php');
+	require_once('../../lib/validation.php');
+	$errors = array();
 	$db = new db(null);
 	$conn = $db->connect();
 
@@ -27,7 +29,16 @@
 		exit();
 	}
 
-	// Validate data here
+	$valid = array();
+	$valid["is_found"] = get_required_int($_POST, 'type_is_found', "Type", 1, $errors, 0, 1);
+	$valid["title"] = get_required_string($_POST, 'title', 'Title', 255, $errors)
+	$valid["description"] = get_required_string($_POST, 'description', 'Description', 500, $errors)
+	$valid["email"] = get_required_string($_POST, 'email', 'Email address', 255, $errors)
+	$valid["phone"] = get_optional_string($_POST, 'phone', 'Phone number', 30, $errors)
+	$valid["image"] = (string) $_POST["filenames"][0];
+	var_dump($valid);
+	echo "<br>";
+	var_dump($_POST);
 	exit();
 
 	// Check if Lost and Found is enabled for that charity
