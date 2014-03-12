@@ -198,6 +198,8 @@ function submitForm(e, imgUrl) {
 			}
 			else {
 				showAlert("success", "Lost and Found entry added successfully.");
+				lnf_vm.animals.removeAll();
+				lnf_vm.getData();
 			}
 		}
 	}).fail(function(data){
