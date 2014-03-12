@@ -14,6 +14,36 @@
 	$charity_id = (int) $_SESSION["charity_id"];
 
 	output_admin_header("Lost and found", $_SESSION["charity_name"], "admin");
+
+	echo '<div id="lnf-settings">
+			<form>
+			<div class="row">
+  				<div class="col-md-4">
+  					<div class="form-group">
+						<label>Lost and found</label>
+						<div class="logo-settings">
+							<label class="radio-inline"><input type="radio" name="lnf_enabled" value="enabled">Enabled</label>
+							<label class="radio-inline"><input type="radio" name="lnf_enabled" value="disabled">Disabled</label>
+						</div>
+  					</div>
+  				</div>
+  				<div class="col-md-4">
+  					<div class="form-group">
+						<label>Automatic approval</label>
+						<div class="logo-settings">
+							<label class="radio-inline"><input type="radio" name="lnf_auto_approve" value="enabled">Enabled</label>
+							<label class="radio-inline"><input type="radio" name="lnf_auto_approve" value="disabled">Disabled</label>
+						</div>
+						<p class="help-block">If enabled, all new entries will be public automatically.</p>
+  					</div>
+  				</div>
+  				<div class="col-md-4 submit">
+  					<button class="btn btn-lg btn-primary">Save settings</button>
+  				</div>
+  			</div>
+  			</form>
+  		</div>';
+
 	echo '<div id="lost-and-found">';
 
 	echo '<input data-bind="value: searchText, valueUpdate: \'afterkeydown\'" type="text" class="form-control" placeholder="Search entries by title" />

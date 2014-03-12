@@ -239,3 +239,9 @@ form p.end-link {
 	text-transform: uppercase;
 	font-weight: bold;
 }
+#lnf-settings {
+	margin-bottom: 20px;
+}
+#lnf-settings .submit {
+	text-align: right;
+}

@@ -124,7 +124,7 @@
 				<input value="'.$data["address"].'" name="charity_address" type="text" class="form-control" id="charity_address" placeholder="Charity address">
 			</div>
 			<div class="row">
-				<div class="col-md-3">
+				<div class="col-md-6" style="padding-left:0;">
 					<div class="form-group">
 						<label>Charity logo</label>
 						<div class="logo-settings">
@@ -148,7 +148,7 @@
 						<p class="help-block">No larger than 1MB in size.</p>
 					</div>
 				</div> <!-- col -->
-				<div class="col-md-3">
+				<div class="col-md-6">
 					<div class="form-group">
 						<label>Background colour</label>
 						<div class="colour-settings">';
