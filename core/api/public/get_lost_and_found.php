@@ -91,7 +91,7 @@
 			\"email\": \"{$row['email']}\",
 			\"phone\": \"{$row['phone']}\",
 			\"isFound\": \"{$row['type_is_found']}\"";
-		$json .= $all ? ", \"isApproved\": \"{$row['approved']}\"";
+		$json .= $all ? ", \"isApproved\": \"{$row['approved']}\"" : '';
 		$json .= "}";
 		if ($item < $result->num_rows) {
 			$json .= ',';
