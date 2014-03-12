@@ -79,7 +79,9 @@
 		$result = $conn->query("DELETE FROM lost_and_found WHERE id = {$id}");
 
 		//remove file:
-		unlink($link);
+		$filename = substr($link, 14);
+		$relpath = '../../uploads/' . $filename;
+		unlink($relpath);
 	}
 
 	if (!$result) {
