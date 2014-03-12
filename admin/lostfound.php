@@ -19,16 +19,16 @@
 	output_admin_header("Lost and found", $_SESSION["charity_name"], "admin");
 
 	echo '<div id="lnf-settings">
-			<form>
+			<form id="lnf-settings-form">
 			<div class="row">
   				<div class="col-md-4">
   					<div class="form-group">
 						<label>Lost and found</label>
 						<div class="logo-settings">
-							<label class="radio-inline"><input type="radio" name="lnf_enabled" value="enabled"';
+							<label class="radio-inline"><input type="radio" name="lnf_enabled" value="1"';
 	echo $data["lnf_enabled"] ? ' checked ' : '';
 	echo '>Enabled</label>
-							<label class="radio-inline"><input type="radio" name="lnf_enabled" value="disabled"';
+							<label class="radio-inline"><input type="radio" name="lnf_enabled" value="0"';
 	echo $data["lnf_enabled"] ? '' : ' checked ';
 	echo '>Disabled</label>
 						</div>
@@ -38,10 +38,10 @@
   					<div class="form-group">
 						<label>Automatic approval</label>
 						<div class="logo-settings">
-							<label class="radio-inline"><input type="radio" name="lnf_auto_approve" value="enabled"';
+							<label class="radio-inline"><input type="radio" name="lnf_auto_approve" value="1"';
 	echo $data["lnf_auto_approve"] ? ' checked ' : '';
 	echo '>Enabled</label>
-							<label class="radio-inline"><input type="radio" name="lnf_auto_approve" value="disabled"';
+							<label class="radio-inline"><input type="radio" name="lnf_auto_approve" value="0"';
 	echo $data["lnf_auto_approve"] ? '' : ' checked ';
 	echo '>Disabled</label>
 						</div>

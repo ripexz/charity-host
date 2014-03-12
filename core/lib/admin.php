@@ -11,6 +11,7 @@
 					<script src=\"//tinymce.cachefly.net/4.0/tinymce.min.js\"></script>
 					<script src=\"/core/js/bootstrap.min.js\"></script>
 					<script src=\"/core/js/main.js\"></script>
+					<script src=\"/core/js/admin.js\"></script>
 					<link rel=\"stylesheet\" href=\"http://fonts.googleapis.com/css?family=Open+Sans:400,700,600\">
 					<link rel=\"stylesheet\" href=\"/core/css/bootstrap.min.css\" />
 					<link rel=\"stylesheet\" href=\"/core/css/bootstrap-theme.min.css\" />
