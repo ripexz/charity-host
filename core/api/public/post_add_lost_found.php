@@ -49,7 +49,7 @@
 	}
 
 	// Check if Lost and Found is enabled for that charity
-	$res = "SELECT lnf_enabled, lnf_auto_approve FROM charities WHERE id = {$charity_id}";
+	$res = $conn->query("SELECT lnf_enabled, lnf_auto_approve FROM charities WHERE id = {$charity_id}");
 	if ($res->num_rows != 1) {
 		http_response_code(500);
 		echo '{
