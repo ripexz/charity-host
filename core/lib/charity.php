@@ -229,7 +229,7 @@
 											</div>
 											<div class="form-group">
 												<label for="imagefile">Image</label>
-												<input name="imagefile" type="file" id="imagefile" optional>
+												<input name="imagefile" type="file" id="imagefile" required>
 												<p class="help-block">No larger than 1MB in size.</p>
 											</div>
 										</div>

@@ -84,4 +84,11 @@
 	function show_not_found() {
 		include "404.php";
 	}
+
+	/*
+	* Sends a link with a delete code to the user
+	*/
+	function email_delete_code($data, $delete_code) {
+		//todo
+	}
 ?>
