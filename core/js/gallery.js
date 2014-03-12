@@ -69,10 +69,10 @@ function galleryViewModel() {
 				if (data.STATUS == "OK") {
 					var index = self.findIndexByKeyValue(self.images(), 'id', id);
 					self.images.remove(self.images()[index]);
+					showAlert("success", "Image deleted successfully.");
 				}
-				else {
-					alert(data.STATUS, data.MESSAGE);
-				}
+			}).fail(function(data){
+				showAlert("danger", data.responseJSON.MESSAGE);
 			});
 		}
 	}
