@@ -1,5 +1,6 @@
 var lnf_vm;
 var files;
+var fileUrl = null;
 
 function lostAndFoundEntry(opts) {
 	var self = this;
@@ -45,7 +46,7 @@ function lostAndFoundViewModel() {
 		$.ajax({
 			type: "GET",
 			url: '/core/api/public/get_lost_and_found.php?charity_id=' + window.charity_id + '&page=' + page + '&pagesize=' + pagesize,
-		}).always(function(data) {
+		}).done(function(data) {
 			if (data.STATUS == "OK") {
 				$.each(data.lost_and_found, function(i, item) {
 					lfe = new lostAndFoundEntry(item)
@@ -64,7 +65,7 @@ function lostAndFoundViewModel() {
 	}
 }
 
-$(document).ready(function(){
+$(document).ready(function() {
 	$('#imagefile').on('change', function(e){
 		files = e.target.files;
 	});
@@ -80,6 +81,12 @@ function uploadFiles(e) {
 	e.stopPropagation();
 	e.preventDefault();
 
+	// Dont reupload file
+	if (fileUrl !== null) {
+		submitForm(e, fileUrl);
+		return;
+	}
+
 	$(".loading").show();
 
 	var data = new FormData();
@@ -91,21 +98,25 @@ function uploadFiles(e) {
 	var charity_id = $("#lnf_charity_id").val();
 
 	$.ajax({
-		url: '/core/api/public/post_upload_lnf_file.php?charity_id=' + charity_id,
+		url: '/cor/api/public/post_upload_lnf_file.php?charity_id=' + charity_id,
 		type: 'POST',
 		data: data,
 		cache: false,
 		dataType: 'json',
 		processData: false, // Don't process the files
 		contentType: false, // Set content type to false as jQuery will tell the server its a query string request
-	}).always(function(data) {
+	}).done(function(data) {
 		if (data.STATUS == "OK") {
+			fileUrl = data.imgUrl;
 			submitForm(e, data.imgUrl);
 		}
 		else {
 			$(".loading").hide();
 			showAlert("danger", data.MESSAGE);
 		}
+		console.log(data);
+	}).fail(function(data){
+		console.log(data);
 	});
 }
 
@@ -121,8 +132,9 @@ function submitForm(e, imgUrl) {
 		data: formData,
 		cache: false,
 		dataType: 'json',
-	}).always(function(data) {
+	}).done(function(data) {
 		if (data.STATUS == "OK") {
+			fileUrl = null;
 			$(".loading").hide();
 			$("#lnfModal").modal('hide');
 			$("#lnfForm")[0].reset();
