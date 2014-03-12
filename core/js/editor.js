@@ -47,12 +47,14 @@ $(document).ready(function(){
 			selector: "#pf-content",
 			menubar: false,
 			statusbar: false,
+			plugins: ["link image"],
 			toolbar: "styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
 		});
 		tinymce.init({
 			selector: "#pf-sidebar-content",
 			menubar: false,
 			statusbar: false,
+			plugins: ["link image"],
 			toolbar: "styleselect | bold italic underline | bullist numlist | link image"
 		});
 	});
