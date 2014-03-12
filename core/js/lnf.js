@@ -58,9 +58,9 @@ function lostAndFoundViewModel() {
 					self.getData(page+1, pagesize);
 				}
 			}
-			else {
-				showAlert("danger", data.MESSAGE);
-			}
+		}).fail(function(data){
+			$(".loading").hide();
+			showAlert("danger", data.responseJSON.MESSAGE);
 		});
 	}
 }
@@ -110,13 +110,9 @@ function uploadFiles(e) {
 			fileUrl = data.imgUrl;
 			submitForm(e, data.imgUrl);
 		}
-		else {
-			$(".loading").hide();
-			showAlert("danger", data.MESSAGE);
-		}
-		console.log(data);
 	}).fail(function(data){
-		console.log(data);
+		$(".loading").hide();
+		showAlert("danger", data.responseJSON.MESSAGE);
 	});
 }
 
@@ -140,9 +136,8 @@ function submitForm(e, imgUrl) {
 			$("#lnfForm")[0].reset();
 			showAlert("success", "Lost and Found entry added successfully.");
 		}
-		else {
-			$(".loading").hide();
-			showAlert("danger", data.MESSAGE);
-		}
+	}).fail(function(data){
+		$(".loading").hide();
+		showAlert("danger", data.responseJSON.MESSAGE);
 	});
 }
