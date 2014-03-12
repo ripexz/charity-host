@@ -22,24 +22,21 @@
 		exit();
 	}
 
-	var_dump($_FILES);
-	exit();
-
-	if ($_FILES["imagefile"]["error"] !== UPLOAD_ERR_OK) {
+	if ($_FILES[0]["error"] !== UPLOAD_ERR_OK) {
 		echo '{
 			"STATUS": "ERROR",
 			"MESSAGE": "Image upload failed"
 		}';
 		exit();
 	}
-	if ($_FILES["imagefile"]["size"] > 1048576) {
+	if ($_FILES[0]["size"] > 1048576) {
 		echo '{
 			"STATUS": "ERROR",
 			"MESSAGE": "Image file is too big, please select an image that is under 1 MB."
 		}';
 	}
 
-	$info = getimagesize($_FILES["imagefile"]["tmp_name"]);
+	$info = getimagesize($_FILES[0]["tmp_name"]);
 	if ($info === FALSE) {
 		echo '{
 			"STATUS": "ERROR",
@@ -49,11 +46,11 @@
 	}
 
 	// All good so far, try move file now
-	$extension = pathinfo($_FILES["imagefile"]["name"], PATHINFO_EXTENSION);
+	$extension = pathinfo($_FILES[0]["name"], PATHINFO_EXTENSION);
 	$filename = $charity_id . "_lnf_" . time() . '.' . $extension;
 	$upload_to = "../../uploads/" . $filename;
 
-	if (move_uploaded_file($_FILES["imagefile"]["tmp_name"], $upload_to)) {
+	if (move_uploaded_file($_FILES[0]["tmp_name"], $upload_to)) {
 		http_response_code(200);
 		echo '{
 			"STATUS": "OK",
