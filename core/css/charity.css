@@ -83,3 +83,47 @@ div.sidebar {
 	margin-top: -16px;
 	z-index: 9002;
 }
+/* Lost and found styling */
+#lost-and-found .lnf {
+	margin: 0 20px;
+	border: 1px solid black;
+	max-height: 160px;
+	position: relative;
+	min-height: 160px;
+}
+.lnf .lnf-title {
+	position: absolute;
+	border-bottom: 1px solid black;
+	left: 211px;
+	right: 0;
+	height: 30px;
+}
+.lnf .lnf-title p {
+	font-size: 16px;
+	font-weight: bold;
+	margin: 5px 10px 0px 10px;
+}
+.lnf .lnf-image {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 211px;
+	height: 160px;
+	text-align: center;
+	border-right: 1px solid black;
+}
+.lnf .lnf-image img {
+	max-width: 211px;
+	max-height: 158px;
+}
+.lnf .lnf-desc {
+	position: absolute;
+	left: 211px;
+	top: 31px;
+}
+.lnf .lnf-desc .wrap {
+	padding: 10px;
+}
+.lnf .lnf-desc .wrap .content {
+	font-size: 13px;
+}
