@@ -41,7 +41,10 @@ function uploadFiles(e) {
 	e.preventDefault();
 
 	var data = new FormData();
-	data.append(files[0]);
+
+	$.each(files, function(key, value) {
+		data.append(key, value);
+	});
 
 	var charity_id = $("#lnf_charity_id").val();
 
