@@ -48,9 +48,9 @@
 	$sql = "SELECT lnf.*
 			FROM lost_and_found lnf
 				JOIN charity_lost_found clf ON lnf.id = clf.lost_found_id
-			WHERE clf.charity_id = {$charity_id}";
-	$sql .= $all ? "" : "AND lnf.approved = 1";
-	$sql .=	"ORDER BY lnf.id DESC
+			WHERE clf.charity_id = {$charity_id} ";
+	$sql .= $all ? "" : " AND lnf.approved = 1 ";
+	$sql .=	" ORDER BY lnf.id DESC
 			LIMIT {$upper_limit}, {$next_page}";
 	$res = $conn->query($sql);
 	$loadmore = ($res->num_rows > 0) ? "true" : "false";
@@ -59,9 +59,9 @@
 	$sql = "SELECT lnf.*
 			FROM lost_and_found lnf
 				JOIN charity_lost_found clf ON lnf.id = clf.lost_found_id
-			WHERE clf.charity_id = {$charity_id}";
-	$sql .= $all ? "" : "AND lnf.approved = 1";
-	$sql .=	"ORDER BY lnf.id DESC
+			WHERE clf.charity_id = {$charity_id} ";
+	$sql .= $all ? "" : " AND lnf.approved = 1 ";
+	$sql .=	" ORDER BY lnf.id DESC
 			LIMIT {$lower_limit}, {$upper_limit}";
 
 	// Execute query
