@@ -13,6 +13,9 @@
 	$conn = $db->connect();
 	$charity_id = (int) $_SESSION["charity_id"];
 
+	$get_settings = $conn->query("SELECT lnf_enabled, lnf_auto_approve FROM charities WHERE id = {$charity_id}");
+	$data = $get_settings->fetch_assoc();
+
 	output_admin_header("Lost and found", $_SESSION["charity_name"], "admin");
 
 	echo '<div id="lnf-settings">
@@ -22,8 +25,12 @@
   					<div class="form-group">
 						<label>Lost and found</label>
 						<div class="logo-settings">
-							<label class="radio-inline"><input type="radio" name="lnf_enabled" value="enabled">Enabled</label>
-							<label class="radio-inline"><input type="radio" name="lnf_enabled" value="disabled">Disabled</label>
+							<label class="radio-inline"><input type="radio" name="lnf_enabled" value="enabled"';
+	echo $data["lnf_enabled"] ? ' checked ' : '';
+	echo '>Enabled</label>
+							<label class="radio-inline"><input type="radio" name="lnf_enabled" value="disabled"';
+	echo $data["lnf_enabled"] ? '' : ' checked ';
+	echo '>Disabled</label>
 						</div>
   					</div>
   				</div>
@@ -31,8 +38,12 @@
   					<div class="form-group">
 						<label>Automatic approval</label>
 						<div class="logo-settings">
-							<label class="radio-inline"><input type="radio" name="lnf_auto_approve" value="enabled">Enabled</label>
-							<label class="radio-inline"><input type="radio" name="lnf_auto_approve" value="disabled">Disabled</label>
+							<label class="radio-inline"><input type="radio" name="lnf_auto_approve" value="enabled"';
+	echo $data["lnf_auto_approve"] ? ' checked ' : '';
+	echo '>Enabled</label>
+							<label class="radio-inline"><input type="radio" name="lnf_auto_approve" value="disabled"';
+	echo $data["lnf_auto_approve"] ? '' : ' checked ';
+	echo '>Disabled</label>
 						</div>
 						<p class="help-block">If enabled, all new entries will be public automatically.</p>
   					</div>
