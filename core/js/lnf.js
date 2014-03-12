@@ -20,7 +20,28 @@ function lostAndFoundViewModel() {
 	});
 
 	self.getData = function(page, pagesize) {
-		//todo
+		var page = page || 1,
+			pagesize = pagesize || 20;
+
+		$.ajax({
+			type: "GET",
+			url: '/core/api/private/get_lost_and_found.php?page=' + page + '&pagesize=' + pagesize,
+		}).done(function(data) {
+			if (data.STATUS == "OK") {
+				$.each(data.lost_and_found, function(i, item) {
+					var lfe = new lostFoundEntry(item);
+					self.animals.push(lfe);
+				});
+
+				//load next page:
+				if (data.loadmore) {
+					self.getData(page+1, pagesize);
+				}
+			}
+			else {
+				alert(data.STATUS, data.MESSAGE);
+			}
+		});
 	}
 }
 
@@ -39,6 +60,8 @@ $(document).ready(function(){
 function uploadFiles(e) {
 	e.stopPropagation();
 	e.preventDefault();
+
+	$(".loading").show();
 
 	var data = new FormData();
 
@@ -61,6 +84,7 @@ function uploadFiles(e) {
 			submitForm(e, data.imgUrl);
 		}
 		else {
+			$(".loading").hide();
 			alert(data.STATUS, data.MESSAGE);
 		}
 	});
@@ -80,10 +104,12 @@ function submitForm(e, imgUrl) {
 		dataType: 'json',
 	}).done(function(data) {
 		if (data.STATUS == "OK") {
+			$(".loading").hide();
 			$("#lnfModal").modal('hide');
 			$("#lnfForm")[0].reset();
 		}
 		else {
+			$(".loading").hide();
 			alert(data.STATUS, data.MESSAGE);
 		}
 	});

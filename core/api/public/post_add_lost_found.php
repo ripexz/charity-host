@@ -82,8 +82,6 @@
 	$result = $conn->query($sql);
 	if (!$result) {
 		http_response_code(500);
-		var_dump($conn->error);
-		exit();
 		echo '{
 			"STATUS": "ERROR",
 			"MESSAGE": "Lost and found entry could not be added."
