@@ -17,6 +17,7 @@
 	echo '<div id="lost-and-found">';
 
 	echo '</div>';
+	echo '<script type="text/javascript">window.charity_id = '.$charity_id.'</script>';
 	echo '<script type="text/javascript" src="/core/js/lnf.js"></script>';
 	output_admin_footer();
 
