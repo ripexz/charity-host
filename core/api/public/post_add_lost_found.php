@@ -20,6 +20,10 @@
 			$valid_id = true;
 		}
 	}
+
+	var_dump($_GET);
+	exit();
+
 	if (!$valid_id) {
 		http_response_code(400);
 		echo '{
