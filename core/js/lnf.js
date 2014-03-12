@@ -39,6 +39,16 @@ function lostAndFoundViewModel() {
 		}
 	});
 
+	/* START: Admin functions */
+	self.approveEntry = function(id) {
+		//todo
+	}
+	
+	self.deleteEntry = function(id) {
+		//todo
+	}
+	/* END: Admin functions */
+
 	self.getData = function(page, pagesize) {
 		var page = page || 1,
 			pagesize = pagesize || 20;
