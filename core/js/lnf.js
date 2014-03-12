@@ -70,10 +70,7 @@ function submitForm(e, imgUrl) {
 	var form = $(e.target);
 
 	var formData = form.serialize();
-
-	$.each(data.files, function(key, value) {
-		formData = formData + '&filenames[]=' + value;
-	});
+	formData = formData + '&filename=' + imgUrl;
 
 	$.ajax({
 		url: '/core/api/public/post_add_lost_found.php',

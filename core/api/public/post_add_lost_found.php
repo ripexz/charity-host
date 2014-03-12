@@ -35,7 +35,7 @@
 	$valid["description"] = get_required_string($_POST, 'description', 'Description', 500, $errors)
 	$valid["email"] = get_required_string($_POST, 'email', 'Email address', 255, $errors)
 	$valid["phone"] = get_optional_string($_POST, 'phone', 'Phone number', 30, $errors)
-	$valid["image"] = (string) $_POST["filenames"][0];
+	$valid["image"] = (string) $_POST["filename"];
 	var_dump($valid);
 	echo "<br>";
 	var_dump($_POST);
