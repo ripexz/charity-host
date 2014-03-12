@@ -19,7 +19,7 @@
 	output_admin_header("Lost and found", $_SESSION["charity_name"], "admin");
 
 	echo '<div id="lnf-settings">
-			<form id="lnf-settings-form">
+			<form id="lnf-settings-form" action="#">
 			<div class="row">
   				<div class="col-md-4">
   					<div class="form-group">

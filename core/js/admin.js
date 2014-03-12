@@ -58,6 +58,9 @@ function bindImageUploader() {
 }
 
 function updateLostFoundSettings(e) {
+	e.stopPropagation();
+	e.preventDefault();
+	
 	var form = $(e.target),
 		formData = form.serialize();
 
