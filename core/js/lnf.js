@@ -45,7 +45,7 @@ function lostAndFoundViewModel() {
 		$.ajax({
 			type: "GET",
 			url: '/core/api/public/get_lost_and_found.php?charity_id=' + window.charity_id + '&page=' + page + '&pagesize=' + pagesize,
-		}).done(function(data) {
+		}).always(function(data) {
 			if (data.STATUS == "OK") {
 				$.each(data.lost_and_found, function(i, item) {
 					lfe = new lostAndFoundEntry(item)
@@ -98,7 +98,7 @@ function uploadFiles(e) {
 		dataType: 'json',
 		processData: false, // Don't process the files
 		contentType: false, // Set content type to false as jQuery will tell the server its a query string request
-	}).done(function(data) {
+	}).always(function(data) {
 		if (data.STATUS == "OK") {
 			submitForm(e, data.imgUrl);
 		}
@@ -121,7 +121,7 @@ function submitForm(e, imgUrl) {
 		data: formData,
 		cache: false,
 		dataType: 'json',
-	}).done(function(data) {
+	}).always(function(data) {
 		if (data.STATUS == "OK") {
 			$(".loading").hide();
 			$("#lnfModal").modal('hide');
