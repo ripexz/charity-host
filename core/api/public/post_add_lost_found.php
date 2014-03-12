@@ -74,10 +74,11 @@
 
 	$safe = $db->escape_array($conn, $valid);
 	$delete_code = encrypt($valid["email"] . time());
+	$delete_code_safe = $conn->real_escape_string($delete_code);
 
 	// Generate query
 	$sql = "INSERT INTO lost_and_found (title, description, email, image, phone, type_is_found, approved, delete_code)
-			VALUES ('{$safe[title]}', '{$safe[description]}', '{$safe[email]}', '{$safe[image]}', '{$safe[phone]}', '{$safe[is_found]}', '{$lnf_auto_approve}', '{$delete_code}')";
+			VALUES ('{$safe[title]}', '{$safe[description]}', '{$safe[email]}', '{$safe[image]}', '{$safe[phone]}', '{$safe[is_found]}', '{$lnf_auto_approve}', '{$delete_code_safe}')";
 	// Execute query
 	$result = $conn->query($sql);
 	if (!$result) {
