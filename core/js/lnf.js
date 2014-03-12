@@ -58,7 +58,7 @@ function lostAndFoundViewModel() {
 				}
 			}
 			else {
-				alert(data.STATUS, data.MESSAGE);
+				showAlert("danger", data.MESSAGE);
 			}
 		});
 	}
@@ -104,7 +104,7 @@ function uploadFiles(e) {
 		}
 		else {
 			$(".loading").hide();
-			alert(data.STATUS, data.MESSAGE);
+			showAlert("danger", data.MESSAGE);
 		}
 	});
 }
@@ -126,10 +126,11 @@ function submitForm(e, imgUrl) {
 			$(".loading").hide();
 			$("#lnfModal").modal('hide');
 			$("#lnfForm")[0].reset();
+			showAlert("success", "Lost and Found entry added successfully.");
 		}
 		else {
 			$(".loading").hide();
-			alert(data.STATUS, data.MESSAGE);
+			showAlert("danger", data.MESSAGE);
 		}
 	});
 }

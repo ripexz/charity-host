@@ -70,10 +70,10 @@ function showAlert(type, text) {
 		});
 	$('body').append(el);
 	$('#alertMsg').slideDown("fast", function() {
-		/*setTimeout(function(){
+		setTimeout(function(){
 			$('#alertMsg').fadeOut("slow", function() {
 				$('#alertMsg').remove();
 			});
-		}, 2000);*/
+		}, 2000);
 	});
 }
