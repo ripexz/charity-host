@@ -144,3 +144,66 @@ form p.end-link {
 .logo-uploader {
 	visibility: hidden;
 }
+/* Lost and found styling */
+#lost-and-found .lnf {
+	margin: 10px 0 0 0;
+	border: 1px solid black;
+	max-height: 160px;
+	position: relative;
+	min-height: 160px;
+}
+.lnf .lnf-title {
+	position: absolute;
+	left: 211px;
+	right: 0;
+	height: 30px;
+	background: rgba(0,0,0,0.1);
+}
+.lnf .lnf-title p {
+	font-size: 16px;
+	font-weight: bold;
+	margin: 5px 10px 0px 10px;
+}
+.lnf .lnf-image {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 211px;
+	height: 159px;
+	text-align: center;
+	border-right: 1px solid black;
+	background: rgba(0,0,0,0.1);
+}
+.lnf .lnf-image img {
+	max-width: 211px;
+	height: 158px;
+}
+.lnf .lnf-desc {
+	position: absolute;
+	left: 211px;
+	top: 31px;
+}
+.lnf .lnf-desc .wrap {
+	padding: 10px;
+}
+.lnf .lnf-desc .wrap .content {
+	font-size: 13px;
+}
+.lnf .lnf-footer {
+	position: absolute;
+	bottom: 0;
+	left: 211px;
+	right: 0;
+	height: 20px;
+	background: rgba(0,0,0,0.1);
+}
+.lnf .lnf-footer p {
+	font-size: 11px;
+	margin: 3px 10px;
+}
+.lnf .lnf-footer .type {
+	position: absolute;
+	right: 10px;
+	text-transform: uppercase;
+	font-weight: bold;
+}
