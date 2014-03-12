@@ -10,6 +10,7 @@
 	// Set up defaults
 	$page = 1;
 	$pagesize = 50;
+	$all = false;
 	$charity_id = 0;
 
 	// Check passed values
@@ -34,6 +35,9 @@
 	if (isset($_GET['pagesize'])) {
 		$pagesize = $_GET['pagesize'] > 0 ? (int) $_GET['pagesize'] : $pagesize;
 	}
+	if (isset($_GET['all'])) {
+		$all = (bool) $_GET['all'];
+	}
 
 	// Calculate limits
 	$lower_limit = $page * $pagesize - $pagesize;
@@ -44,9 +48,9 @@
 	$sql = "SELECT lnf.*
 			FROM lost_and_found lnf
 				JOIN charity_lost_found clf ON lnf.id = clf.lost_found_id
-			WHERE clf.charity_id = {$charity_id}
-				AND lnf.approved = 1
-			ORDER BY lnf.id DESC
+			WHERE clf.charity_id = {$charity_id}";
+	$sql .= $all ? "" : "AND lnf.approved = 1";
+	$sql .=	"ORDER BY lnf.id DESC
 			LIMIT {$upper_limit}, {$next_page}";
 	$res = $conn->query($sql);
 	$loadmore = ($res->num_rows > 0) ? "true" : "false";
@@ -55,9 +59,9 @@
 	$sql = "SELECT lnf.*
 			FROM lost_and_found lnf
 				JOIN charity_lost_found clf ON lnf.id = clf.lost_found_id
-			WHERE clf.charity_id = {$charity_id}
-				AND lnf.approved = 1
-			ORDER BY lnf.id DESC
+			WHERE clf.charity_id = {$charity_id}";
+	$sql .= $all ? "" : "AND lnf.approved = 1";
+	$sql .=	"ORDER BY lnf.id DESC
 			LIMIT {$lower_limit}, {$upper_limit}";
 
 	// Execute query
@@ -86,8 +90,9 @@
 			\"image\": \"{$row['image']}\",
 			\"email\": \"{$row['email']}\",
 			\"phone\": \"{$row['phone']}\",
-			\"isFound\": \"{$row['type_is_found']}\"
-		}";
+			\"isFound\": \"{$row['type_is_found']}\"";
+		$json .= $all ? ", \"isApproved\": \"{$row['approved']}\"";
+		$json .= "}";
 		if ($item < $result->num_rows) {
 			$json .= ',';
 		}

@@ -1,6 +1,7 @@
 var lnf_vm;
 var files;
 var fileUrl = null;
+var admin;
 
 function lostAndFoundEntry(opts) {
 	var self = this;
@@ -12,6 +13,7 @@ function lostAndFoundEntry(opts) {
 	self.email = opts.email;
 	self.phone = opts.phone;
 	self.isFound = opts.isFound;
+	self.isApproved = opts.isApproved || true;
 
 	self.hashCode = ko.observable('');
 
@@ -43,7 +45,7 @@ function lostAndFoundViewModel() {
 	self.approveEntry = function(id) {
 		//todo
 	}
-	
+
 	self.deleteEntry = function(id) {
 		//todo
 	}
@@ -51,11 +53,12 @@ function lostAndFoundViewModel() {
 
 	self.getData = function(page, pagesize) {
 		var page = page || 1,
-			pagesize = pagesize || 20;
+			pagesize = pagesize || 20,
+			extra = admin ? '&all=true' : '';
 
 		$.ajax({
 			type: "GET",
-			url: '/core/api/public/get_lost_and_found.php?charity_id=' + window.charity_id + '&page=' + page + '&pagesize=' + pagesize,
+			url: '/core/api/public/get_lost_and_found.php?charity_id=' + window.charity_id + '&page=' + page + '&pagesize=' + pagesize + extra,
 		}).done(function(data) {
 			if (data.STATUS == "OK") {
 				$.each(data.lost_and_found, function(i, item) {
@@ -76,6 +79,9 @@ function lostAndFoundViewModel() {
 }
 
 $(document).ready(function() {
+	var loc = window.location.href,
+		lfm = 'charityhost.eu/admin/lostfound.php';
+	admin = loc.indexOf('http://www.' + lfm) == 0 || loc.indexOf('http://' + lfm) == 0;
 	$('#imagefile').on('change', function(e){
 		files = e.target.files;
 	});

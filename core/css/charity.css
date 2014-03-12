@@ -125,6 +125,8 @@ div.sidebar {
 }
 .lnf .lnf-desc .wrap {
 	padding: 10px;
+	overflow-y: auto;
+	max-height: 106px;
 }
 .lnf .lnf-desc .wrap .content {
 	font-size: 13px;
