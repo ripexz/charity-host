@@ -128,7 +128,7 @@ div.sidebar {
 .lnf .lnf-desc .wrap .content {
 	font-size: 13px;
 }
-.lnf .lnf-contacts {
+.lnf .lnf-footer {
 	position: absolute;
 	bottom: 0;
 	left: 211px;
@@ -136,7 +136,13 @@ div.sidebar {
 	height: 20px;
 	background: rgba(0,0,0,0.1);
 }
-.lnf .lnf-contacts p {
+.lnf .lnf-footer p {
 	font-size: 11px;
 	margin: 3px 10px;
+}
+.lnf .lnf-footer .type {
+	position: absolute;
+	right: 10px;
+	text-transform: uppercase;
+	font-weight: bold;
 }

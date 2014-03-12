@@ -184,7 +184,7 @@
 
 			$data["content"] = '<button id="lnf-modal-toggle" class="btn btn-default" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#lnfModal">Add entry</button>
 								<div id="lost-and-found" data-bind="foreach: visibleAnimals">
-								<div class="lnf" data-bind="css: {\'found\': isFound == 1}">
+								<div class="lnf">
 									<div class="lnf-title">
 										<p data-bind="text: title"></p>
 									</div>
@@ -196,10 +196,11 @@
 											<p class="content" data-bind="text: description"></p>
 										</div>
 									</div>
-									<div class="lnf-contacts">
+									<div class="lnf-footer">
 										<p>
 											<span data-bind="text: \'E: \' + email"></span>
 											<!-- ko if: phone --><span style="margin-left:10px;" data-bind="text: \'T: \' + phone"></span><!-- /ko -->
+											<span class="type" data-bind="text: isFound == 1 ? \'Found\' : \'Lost\', css: {\'found\': isFound == 1}"></span>
 										</p>
 									</div>
 								</div>
