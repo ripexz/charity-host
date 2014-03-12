@@ -29,8 +29,7 @@ function lostAndFoundViewModel() {
 		}).done(function(data) {
 			if (data.STATUS == "OK") {
 				$.each(data.lost_and_found, function(i, item) {
-					var lfe = new lostFoundEntry(item);
-					self.animals.push(lfe);
+					self.animals.push(item);
 				});
 
 				//load next page:
