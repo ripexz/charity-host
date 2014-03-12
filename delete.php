@@ -43,7 +43,7 @@
 		go_home();
 	}
 	
-	$delete2 = $conn->query("DELETE FROM charity_lost_found WHERE lost_found_id = {$id}");
+	$delete2 = $conn->query("DELETE FROM charity_lost_found WHERE lost_found_id = {$entry_id}");
 	if (!$delete2) {
 		go_home();
 	}
