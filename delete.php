@@ -8,7 +8,7 @@
 		go_home();
 	}
 	
-	require_once('../core/lib/db.php');
+	require_once('core/lib/db.php');
 	$db = new db(null);
 	$conn = $db->connect();
 
