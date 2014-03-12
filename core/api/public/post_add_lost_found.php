@@ -101,7 +101,7 @@
 
 	// Generate JSON
 	email_delete_code($valid, $delete_code);
-	$json = '{ "STATUS": "OK", "id": "'.$last_id.'", "deleteCode": "'.$delete_code.'"}';
+	$json = '{ "STATUS": "OK", "id": "'.$last_id.'", "autoApprove": "'.$lnf_auto_approve.'"}';
 
 	// Output result
 	http_response_code(200);

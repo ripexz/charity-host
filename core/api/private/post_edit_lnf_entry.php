@@ -54,7 +54,7 @@
 	}
 
 	// Validate entry ownership
-	$sql = "SELECT lnf.id
+	$sql = "SELECT lnf.id, lnf.image
 			FROM lost_and_found lnf
 				JOIN charity_lost_found clf ON lnf.id = clf.lost_found_id
 			WHERE clf.charity_id = {$charity_id} 
@@ -68,6 +68,8 @@
 		}';
 		exit();
 	}
+	$lnfdata = $res->fetch_assoc();
+	$link = $lnfdata["image"];
 
 	// Execute query
 	if ($action == "approve") {
@@ -75,6 +77,9 @@
 	}
 	else {
 		$result = $conn->query("DELETE FROM lost_and_found WHERE id = {$id}");
+
+		//remove file:
+		unlink($link);
 	}
 
 	if (!$result) {

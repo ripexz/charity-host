@@ -193,7 +193,12 @@ function submitForm(e, imgUrl) {
 			$(".loading").hide();
 			$("#lnfModal").modal('hide');
 			$("#lnfForm")[0].reset();
-			showAlert("success", "Lost and Found entry added successfully.");
+			if (data.autoApprove) {
+				showAlert("success", "Lost and Found entry added successfully.");
+			}
+			else {
+				showAlert("success", "Lost and Found entry submitted, but needs to be approved by an administrator.");
+			}
 		}
 	}).fail(function(data){
 		$(".loading").hide();
