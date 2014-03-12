@@ -10,7 +10,6 @@ function lostAndFoundEntry(opts) {
 	self.url = opts.image;
 	self.email = opts.email;
 	self.phone = opts.phone;
-	self.isFound = opts.isFound;
 
 	self.hashCode = ko.observable('');
 
