@@ -64,6 +64,11 @@ function lostAndFoundViewModel() {
 	}
 
 	self.deleteEntry = function(id) {
+		var confirmed = confirm("Are you sure you want to delete this image?");
+		if (!confirmed) {
+			return;
+		}
+		
 		$.ajax({
 			url: '/core/api/private/post_edit_lnf_entry.php?f=' + Date.now(),
 			type: 'POST',
