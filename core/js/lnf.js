@@ -98,7 +98,7 @@ function uploadFiles(e) {
 	var charity_id = $("#lnf_charity_id").val();
 
 	$.ajax({
-		url: '/core/api/public/post_upload_lnf_file.php?charity_id=',
+		url: '/core/api/public/post_upload_lnf_file.php?charity_id=' + charity_id,
 		type: 'POST',
 		data: data,
 		cache: false,
