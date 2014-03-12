@@ -191,7 +191,7 @@
 									<div class="lnf-title">
 										<p data-bind="text: title"></p>
 									</div>
-									<div data-bind="html: description" class="lnf-desc"></div>
+									<div data-bind="text: description" class="lnf-desc"></div>
 								</div>
 							</div>';
 

@@ -1,6 +1,24 @@
 var lnf_vm;
 var files;
 
+function lostAndFoundEntry(opts) {
+	var self = this;
+
+	self.id = opts.id;
+	self.title = opts.title;
+	self.description = opts.description;
+	self.url = opts.image;
+	self.email = opts.email;
+	self.phone = opts.phone;
+
+	self.hashCode = ko.observable('');
+
+	self.changeHashCode = function() {
+		var hashstr = '&hash=' + Date.now();
+		self.hashCode(hashstr);
+	}
+}
+
 function lostAndFoundViewModel() {
 	var self = this;
 
@@ -29,7 +47,8 @@ function lostAndFoundViewModel() {
 		}).done(function(data) {
 			if (data.STATUS == "OK") {
 				$.each(data.lost_and_found, function(i, item) {
-					self.animals.push(item);
+					lfe = new lostAndFoundEntry(item)
+					self.animals.push(lfe);
 				});
 
 				//load next page:
