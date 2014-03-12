@@ -72,11 +72,8 @@
 		exit();
 	}
 
-	$safe = $db->escape_array($valid);
+	$safe = $db->escape_array($conn, $valid);
 	$delete_code = encrypt($valid["email"] . time());
-
-	var_dump($safe);
-	exit();
 
 	// Generate query
 	$sql = "INSERT INTO lost_and_found (title, description, email, image, phone, type_is_found, approved, delete_code)
