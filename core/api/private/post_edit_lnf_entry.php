@@ -70,7 +70,7 @@
 	}
 
 	// Execute query
-	if ($action == "delete") {
+	if ($action == "approve") {
 		$result = $conn->query("UPDATE lost_and_found SET approved = 1 WHERE id = {$id}");
 	}
 	else {
