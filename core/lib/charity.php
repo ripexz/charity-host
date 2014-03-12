@@ -84,7 +84,8 @@
 		else {
 			echo "body {background:hsl(" . $color . ", 21%, 52%);}";
 		}
-		echo	"</style>
+		echo	"	</style>
+					<script type=\"text/javascript\">window.charity_id = {$charity_id}</script>
 				</head>
 				<body>
 					<div id=\"wrapper\"> <!-- start of wrapper -->";
