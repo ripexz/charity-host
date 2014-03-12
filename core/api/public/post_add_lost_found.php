@@ -82,7 +82,7 @@
 	$result = $conn->query($sql);
 	if (!$result) {
 		http_response_code(500);
-		var_dump($mysql->error);
+		var_dump($conn->error);
 		exit();
 		echo '{
 			"STATUS": "ERROR",
