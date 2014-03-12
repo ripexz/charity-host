@@ -51,7 +51,7 @@
 	echo '<h1 style="text-align:center;font-family:Arial,sans-serif;">Lost and found entry deleted successfully.</h1>';
 	echo '<script type="text/javascript">
 			setTimeout(function(){
-				window.location.href = "http://www.charityhost.eu/"'.$link.'
+				window.location.href = "http://www.charityhost.eu/'.$link.'"
 			}, 2000);
 		</script>';
 
