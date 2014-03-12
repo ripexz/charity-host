@@ -129,7 +129,7 @@
 		echo '<img src="/core/images/logo.png" alt="Charity Host" title="Logo"/>';
 	}
 	else {
-		echo "<img src=\"/core/uploads/{$data[logo_url]}\" alt=\"Charity Host\" title=\"Logo\"/>";
+		echo "<img src=\"{$data[logo_url]}\" alt=\"Charity Host\" title=\"Logo\"/>";
 	}
 
 	echo'</div>
