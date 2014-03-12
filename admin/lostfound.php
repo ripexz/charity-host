@@ -21,8 +21,8 @@
 			<div class="lnf">
 				<div class="lnf-overlay">
 					<div class="lnf-tools">
-						<button data-bind="click: function(){$root.deleteEntry(id)}" class="lnf-delete btn btn-sm btn-danger">Delete</button>
-						<button data-bind="click: function(){$root.approveEntry(id)}" class="lnf-approve btn btn-sm btn-success">Approve</button>
+						<button data-bind="click: function(){$root.deleteEntry(id)}" class="lnf-delete btn btn-lg btn-danger">Delete</button>
+						<button data-bind="click: function(){$root.approveEntry(id)}" class="lnf-approve btn btn-lg btn-success">Approve</button>
 					</div>
 				</div>
 				<div class="lnf-title">
