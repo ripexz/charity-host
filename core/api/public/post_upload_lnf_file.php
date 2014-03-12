@@ -22,6 +22,9 @@
 		exit();
 	}
 
+	var_dump($_FILES);
+	exit();
+
 	if ($_FILES["imagefile"]["error"] !== UPLOAD_ERR_OK) {
 		echo '{
 			"STATUS": "ERROR",
