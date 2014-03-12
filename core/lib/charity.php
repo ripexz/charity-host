@@ -183,8 +183,7 @@
 			$data["link"] = "lostfound";
 
 			$data["content"] = '<button id="lnf-modal-toggle" class="btn btn-default" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#lnfModal">Add entry</button>
-								<div id="lost-and-fou
-								nd" data-bind="foreach: visibleAnimals">
+								<div id="lost-and-found" data-bind="foreach: visibleAnimals">
 								<div class="lnf">
 									<div class="lnf-title">
 										<p data-bind="text: title"></p>
