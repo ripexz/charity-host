@@ -25,7 +25,7 @@ function lostAndFoundViewModel() {
 
 		$.ajax({
 			type: "GET",
-			url: '/core/api/private/get_lost_and_found.php?page=' + page + '&pagesize=' + pagesize,
+			url: '/core/api/public/get_lost_and_found.php?page=' + page + '&pagesize=' + pagesize,
 		}).done(function(data) {
 			if (data.STATUS == "OK") {
 				$.each(data.lost_and_found, function(i, item) {
