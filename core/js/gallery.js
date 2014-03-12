@@ -64,7 +64,7 @@ function galleryViewModel() {
 		if (confirmed) {
 			$.ajax({
 				type: "DELETE",
-				url: '/core/api/private/delete_image.php?id=' + id + '&f=' + Date.now(),
+				url: '/core/api/private/get_delete_image.php?id=' + id + '&f=' + Date.now(),
 			}).done(function(data) {
 				if (data.STATUS == "OK") {
 					var index = self.findIndexByKeyValue(self.images(), 'id', id);
