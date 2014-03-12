@@ -44,7 +44,7 @@ function lostAndFoundViewModel() {
 	/* START: Admin functions */
 	self.approveEntry = function(id) {
 		$.ajax({
-			url: '/core/api/private/post_edit_lnf_entry.php',
+			url: '/core/api/private/post_edit_lnf_entry.php?f=' + Date.now(),
 			type: 'POST',
 			data: {
 				"id": id,
@@ -65,7 +65,7 @@ function lostAndFoundViewModel() {
 
 	self.deleteEntry = function(id) {
 		$.ajax({
-			url: '/core/api/private/post_edit_lnf_entry.php',
+			url: '/core/api/private/post_edit_lnf_entry.php?f=' + Date.now(),
 			type: 'POST',
 			data: {
 				"id": id,
@@ -89,6 +89,7 @@ function lostAndFoundViewModel() {
 		var page = page || 1,
 			pagesize = pagesize || 20,
 			extra = admin ? '&all=true' : '';
+		extra += '&f=' + Date.now();
 
 		$.ajax({
 			type: "GET",
@@ -157,7 +158,7 @@ function uploadFiles(e) {
 	var charity_id = $("#lnf_charity_id").val();
 
 	$.ajax({
-		url: '/core/api/public/post_upload_lnf_file.php?charity_id=' + charity_id,
+		url: '/core/api/public/post_upload_lnf_file.php?charity_id=' + charity_id + '&f=' + Date.now(),
 		type: 'POST',
 		data: data,
 		cache: false,
@@ -182,7 +183,7 @@ function submitForm(e, imgUrl) {
 	formData = formData + '&filename=' + imgUrl;
 
 	$.ajax({
-		url: '/core/api/public/post_add_lost_found.php',
+		url: '/core/api/public/post_add_lost_found.php?f=' + Date.now(),
 		type: 'POST',
 		data: formData,
 		cache: false,

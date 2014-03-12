@@ -60,12 +60,12 @@ function bindImageUploader() {
 function updateLostFoundSettings(e) {
 	e.stopPropagation();
 	e.preventDefault();
-	
+
 	var form = $(e.target),
 		formData = form.serialize();
 
 	$.ajax({
-		url: '/core/api/private/post_lnf_settings.php',
+		url: '/core/api/private/post_lnf_settings.php?f=' + Date.now(),
 		type: 'POST',
 		data: formData,
 		cache: false,

@@ -38,7 +38,7 @@ function galleryViewModel() {
 
 		$.ajax({
 			type: "GET",
-			url: '/core/api/private/get_images.php?page=' + page + '&pagesize=' + pagesize,
+			url: '/core/api/private/get_images.php?page=' + page + '&pagesize=' + pagesize + '&f=' + Date.now(),
 		}).done(function(data) {
 			if (data.STATUS == "OK") {
 				$.each(data.images, function(i, item) {
@@ -64,7 +64,7 @@ function galleryViewModel() {
 		if (confirmed) {
 			$.ajax({
 				type: "DELETE",
-				url: '/core/api/private/delete_image.php?id=' + id,
+				url: '/core/api/private/delete_image.php?id=' + id + '&f=' + Date.now(),
 			}).done(function(data) {
 				if (data.STATUS == "OK") {
 					var index = self.findIndexByKeyValue(self.images(), 'id', id);
