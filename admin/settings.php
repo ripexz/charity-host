@@ -123,7 +123,16 @@
 				<label for="charity_address">Charity address</label>
 				<input value="'.$data["address"].'" name="charity_address" type="text" class="form-control" id="charity_address" placeholder="Charity address">
 			</div>
-			<div class="logo-preview">';
+			<div class="row">
+				<div class="col-md-3">
+					<div class="form-group">
+						<label>Charity logo</label>
+						<div class="logo-settings">
+							<label class="radio-inline"><input type="radio" name="logo" class="keep" value="keep" checked/>Keep current</label>
+							<label class="radio-inline"><input type="radio" name="logo" class="new" value="new"/>Upload new</label>
+						</div>
+					</div>
+					<div class="logo-preview">';
 
 	if ($data["logo_url"] == '') {
 		echo '<img src="/core/images/logo.png" alt="Charity Host" title="Logo"/>';
@@ -132,32 +141,29 @@
 		echo "<img src=\"{$data[logo_url]}\" alt=\"Charity Host\" title=\"Logo\"/>";
 	}
 
-	echo'</div>
-			<div class="form-group">
-				<label>Charity logo</label>
-				<div class="logo-settings">
-					<label class="radio-inline"><input type="radio" name="logo" class="keep" value="keep" checked/>Keep current</label>
-					<label class="radio-inline"><input type="radio" name="logo" class="new" value="new"/>Upload new</label>
-				</div>
-			</div>
-			<div class="form-group logo-uploader">
-				<label for="imagefile">Choose an image</label>
-				<input name="imagefile" type="file" id="imagefile">
-				<p class="help-block">No larger than 1MB in size.</p>
-			</div>
-			<div class="form-group">
-				<label>Background colour</label>
-				<div class="colour-settings">';
+	echo 		'	</div>
+					<div class="form-group logo-uploader">
+						<label for="imagefile">Choose an image</label>
+						<input name="imagefile" type="file" id="imagefile">
+						<p class="help-block">No larger than 1MB in size.</p>
+					</div>
+				</div> <!-- col -->
+				<div class="col-md-3">
+					<div class="form-group">
+						<label>Background colour</label>
+						<div class="colour-settings">';
 	
 	echo '<label class="radio-inline"><input'.($bg == -1 ? ' checked' : '').' type="radio" name="color" value="white" class="white"/>White</label>';
 	echo '<label class="radio-inline"><input'.($bg > -1 ? ' checked' : '').' type="radio" name="color" value="hue" class="hue"/>Choose...</label>';
 	
 	echo		'</div>
-				<div class="colour-picker">
-					<div style="background-color:'.($bg > -1 ? "hsl({$bg},21%,52%)" : '#FFF').';" class="demo"></div>
-					<input'.($bg == -1 ? ' style="visibility:hidden;' : ' value="'.$bg.'"').' min="0" max="359" type="range" name="hue" id="colour-range" />
-				</div>
-			</div>
+						<div class="colour-picker">
+							<div style="background-color:'.($bg > -1 ? "hsl({$bg},21%,52%)" : '#FFF').';" class="demo"></div>
+							<input'.($bg == -1 ? ' style="visibility:hidden;' : ' value="'.$bg.'"').' min="0" max="359" type="range" name="hue" id="colour-range" />
+						</div>
+					</div>
+				</div> <!-- col -->
+			</div> <!-- row -->
 			<div class="form-group">
 				<!-- todo -->
 			</div>
