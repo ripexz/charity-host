@@ -86,7 +86,8 @@ div.sidebar {
 /* Lost and found styling */
 #lost-and-found .lnf {
 	margin: 10px 0 0 0;
-	border: 1px solid black;
+	border: 1px solid #999;
+	border-radius: 3px;
 	max-height: 160px;
 	position: relative;
 	min-height: 160px;
@@ -110,7 +111,7 @@ div.sidebar {
 	width: 211px;
 	height: 159px;
 	text-align: center;
-	border-right: 1px solid black;
+	border-right: 1px solid #999;
 	background: rgba(0,0,0,0.1);
 }
 .lnf .lnf-image img {

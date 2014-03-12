@@ -147,10 +147,30 @@ form p.end-link {
 /* Lost and found styling */
 #lost-and-found .lnf {
 	margin: 10px 0 0 0;
-	border: 1px solid black;
+	border: 1px solid #999;
+	border-radius: 3px;
 	max-height: 160px;
 	position: relative;
 	min-height: 160px;
+}
+.lnf .lnf-overlay {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: rgba(0,0,0,0.7);
+	z-index: 1;
+}
+.lnf .lnf-overlay .lnf-tools {
+	position: absolute;
+	width: 200px;
+	height: 46px;
+	left: 50%;
+	top: 50%;
+	margin-left: -100px;
+	margin-top: -23px;
+	text-align: center;
 }
 .lnf .lnf-title {
 	position: absolute;
@@ -171,7 +191,7 @@ form p.end-link {
 	width: 211px;
 	height: 159px;
 	text-align: center;
-	border-right: 1px solid black;
+	border-right: 1px solid #999;
 	background: rgba(0,0,0,0.1);
 }
 .lnf .lnf-image img {
