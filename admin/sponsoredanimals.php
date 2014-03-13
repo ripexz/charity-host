@@ -22,7 +22,7 @@
 			<button id="sa-modal-toggle" class="btn btn-top-right btn-primary btn-lg" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#saModal">Add animal</button>
 			<form id="sa-settings-form" action="#">
 			<div class="row">
-  				<div class="col-md-4">
+  				<div class="col-md-2">
   					<div class="form-group">
 						<label>Lost and found</label>
 						<div class="logo-settings">
@@ -35,7 +35,7 @@
 						</div>
   					</div>
   				</div>
-  				<div class="col-md-8 submit">
+  				<div class="col-md-10 submit">
   					<button class="btn btn-primary">Save settings</button>
   				</div>
   			</div>
@@ -85,7 +85,7 @@
 						</div>
 						<div class="form-group">
 							<label for="description">Description</label>
-							<input name="description" type="text" class="form-control" id="description" placeholder="Animal description and other details" required>
+							<textarea name="description" class="form-control" id="description" placeholder="Animal description and other details" required></textarea>
 						</div>
 						<div class="form-group">
 							<label for="imagefile">Image</label>

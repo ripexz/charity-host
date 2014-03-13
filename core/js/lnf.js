@@ -146,6 +146,12 @@ function uploadFiles(e) {
 	e.stopPropagation();
 	e.preventDefault();
 
+	// Skip if no file selected
+	if (typeof files == "undefined" || files.length == 0) {
+		submitForm(e, null);
+		return;
+	}
+
 	// Dont reupload file
 	if (fileUrl !== null) {
 		submitForm(e, fileUrl);
@@ -185,7 +191,9 @@ function submitForm(e, imgUrl) {
 	var form = $(e.target);
 
 	var formData = form.serialize();
-	formData = formData + '&filename=' + imgUrl;
+	if (imgUrl !== null) {
+		formData = formData + '&filename=' + imgUrl;
+	}
 
 	$.ajax({
 		url: '/core/api/public/post_add_lost_found.php?f=' + Date.now(),

@@ -36,7 +36,7 @@
 	$valid["description"] = get_required_string($_POST, 'description', 'Description', 500, $errors);
 	$valid["email"] = get_required_string($_POST, 'email', 'Email address', 255, $errors);
 	$valid["phone"] = get_optional_string($_POST, 'phone', 'Phone number', 30, $errors);
-	$valid["image"] = get_required_string($_POST, 'filename', 'Image', 255, $errors);
+	$valid["image"] = get_defaulting_string($_POST, 'filename', 'Image', 255, $errors, '/core/images/noImage.png');
 
 	if (count($errors) > 0) {
 		//return first error only

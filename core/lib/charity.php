@@ -245,7 +245,7 @@
 											</div>
 											<div class="form-group">
 												<label for="imagefile">Image</label>
-												<input name="imagefile" type="file" id="imagefile" required>
+												<input name="imagefile" type="file" id="imagefile">
 												<p class="help-block">No larger than 1MB in size.</p>
 											</div>
 										</div>
@@ -296,8 +296,8 @@
 										</div>
 										<div class="sa-footer">
 											<p>
-												<span data-bind="text: \'E: \' + email"></span>
-												<!-- ko if: phone --><span style="margin-left:10px;" data-bind="text: \'T: \' + phone"></span><!-- /ko -->
+												<span data-bind="text: \'Email: \' + email"></span>
+												<!-- ko if: phone --><span style="margin-left:10px;" data-bind="text: \'Phone: \' + phone"></span><!-- /ko -->
 												<span class="type" data-bind="text: isFound == 1 ? \'Found\' : \'Lost\', css: {\'found\': isFound == 1}"></span>
 											</p>
 										</div>
