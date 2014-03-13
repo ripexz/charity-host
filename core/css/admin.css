@@ -255,3 +255,9 @@ form p.end-link {
 #lnf-settings .submit {
 	text-align: right;
 }
+#sa-settings {
+	margin-bottom: 20px;
+}
+#sa-settings .submit {
+	text-align: right;
+}

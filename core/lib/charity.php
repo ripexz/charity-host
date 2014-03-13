@@ -279,7 +279,7 @@
 			$data["title"] = "Sponsor an Animal";
 			$data["link"] = "lostfound";
 
-			$data["content"] = '<div id="sponsored-animals">
+			$data["content"] = '<div id="sponsor-an-animal">
 								<input data-bind="value: searchText, valueUpdate: \'afterkeydown\'" type="text" class="form-control" placeholder="Search entries by title" />
 								<!-- ko foreach: visibleAnimals -->
 									<div class="sa">
