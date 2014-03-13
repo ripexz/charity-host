@@ -1,4 +1,5 @@
 var siteName = "Charity Host";
+var alertTimeout;
 
 function showAlert(type, text) {
 	var el = $('<div id="alertMsg" class="alert alert-'+ type +'"></div>')
@@ -12,10 +13,14 @@ function showAlert(type, text) {
 			"right": "0"
 		});
 	
-	$('#alertMsg').remove(); //remove any previous one
+	//remove any previous alert
+	clearTimeout(alertTimeout);
+	$('#alertMsg').remove(); 
+
+	//show new one
 	$('body').append(el);
 	$('#alertMsg').slideDown("fast", function() {
-		setTimeout(function(){
+		alertTimeout = setTimeout(function(){
 			$('#alertMsg').fadeOut("slow", function() {
 				$('#alertMsg').remove();
 			});
