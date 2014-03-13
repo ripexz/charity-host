@@ -200,8 +200,8 @@
 										</div>
 										<div class="lnf-footer">
 											<p>
-												<span data-bind="text: \'E: \' + email"></span>
-												<!-- ko if: phone --><span style="margin-left:10px;" data-bind="text: \'T: \' + phone"></span><!-- /ko -->
+												<span data-bind="text: \'Email: \' + email"></span>
+												<!-- ko if: phone --><span style="margin-left:10px;" data-bind="text: \'Phone: \' + phone"></span><!-- /ko -->
 												<span class="type" data-bind="text: isFound == 1 ? \'Found\' : \'Lost\', css: {\'found\': isFound == 1}"></span>
 											</p>
 										</div>
