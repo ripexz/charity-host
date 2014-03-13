@@ -16,7 +16,7 @@
 	$get_settings = $conn->query("SELECT sa_enabled FROM charities WHERE id = {$charity_id}");
 	$data = $get_settings->fetch_assoc();
 
-	output_admin_header("Sponsor an Animal", $_SESSION["charity_name"], "admin");
+	output_admin_header("Sponsored Animals", $_SESSION["charity_name"], "admin");
 
 	echo '<div id="sa-settings">
 			<button id="sa-modal-toggle" class="btn btn-top-right btn-primary btn-lg" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#saModal">Add animal</button>
