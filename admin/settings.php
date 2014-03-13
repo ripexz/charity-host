@@ -112,7 +112,7 @@
 			</div>
 			<div class="form-group">
 				<label for="charity_paypal">PayPal address</label>
-				<input value="'.$data["paypal"].'" name="charity_paypal" type="text" class="form-control" id="charity_paypal" placeholder="PayPal email address">
+				<input value="'.$data["paypal"].'" name="charity_paypal" type="email" class="form-control" id="charity_paypal" placeholder="PayPal email address">
 				<p class="help-block">PayPal address is required to receive donations.</p>
 			</div>
 			<div class="form-group">
