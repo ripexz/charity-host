@@ -136,13 +136,23 @@ form p.end-link {
 	margin-left: -29px;
 	bottom: 10px;
 }
+.colour-settings {
+	margin-bottom: 15px;
+}
 .colour-picker .demo {
 	border: 1px solid #666;
 	width: 128px;
 	height: 128px;
 }
+.colour-picker #colour-range {
+	width: 128px;
+}
 .logo-uploader {
 	visibility: hidden;
+}
+.logo-preview img {
+	max-width: 128px;
+	max-height: 128px
 }
 /* Lost and found styling */
 #lost-and-found .lnf {
