@@ -186,10 +186,10 @@
 								<div id="lost-and-found">
 								<input data-bind="value: searchText, valueUpdate: \'afterkeydown\'" type="text" class="form-control" placeholder="Search entries by title" />
 								<div data-bind="visible: visibleAnimals().length == 0" class="blankSlate">
-									<!-- ko if: searchText == "" -->
+									<!-- ko if: searchText().length == 0  -->
 										<h3>Currently there are no lost and found entries.</h3>
 									<!-- /ko -->
-									<!-- ko ifnot: searchText == "" -->
+									<!-- ko if: searchText().length > 0  -->
 										<h3>There are no lost and found entries that match your search term.</h3>
 									<!-- /ko -->
 								</div>
@@ -290,10 +290,10 @@
 			$data["content"] = '<div id="sponsor-an-animal">
 								<input data-bind="value: searchText, valueUpdate: \'afterkeydown\'" type="text" class="form-control" placeholder="Search entries by title" />
 								<div data-bind="visible: visibleAnimals().length == 0" class="blankSlate">
-									<!-- ko if: searchText == "" -->
+									<!-- ko if: searchText().length == 0 -->
 										<h3>Currently there are no animals you can sponsor.</h3>
 									<!-- /ko -->
-									<!-- ko ifnot: searchText == "" -->
+									<!-- ko if: searchText().length > 0  -->
 										<h3>There are no animals that match your search term.</h3>
 									<!-- /ko -->
 								</div>
