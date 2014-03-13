@@ -185,7 +185,7 @@
 			$data["content"] = '<button id="lnf-modal-toggle" class="btn btn-default" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#lnfModal">Add entry</button>
 								<div id="lost-and-found">
 								<input data-bind="value: searchText, valueUpdate: \'afterkeydown\'" type="text" class="form-control" placeholder="Search entries by title" />
-								<div data-bind="visible: visibleAnimals.length" class="blankSlate">
+								<div data-bind="visible: visibleAnimals().length == 0" class="blankSlate">
 									<!-- ko if: searchText == "" -->
 										<h3>Currently there are no lost and found entries.</h3>
 									<!-- /ko -->
@@ -289,7 +289,7 @@
 
 			$data["content"] = '<div id="sponsor-an-animal">
 								<input data-bind="value: searchText, valueUpdate: \'afterkeydown\'" type="text" class="form-control" placeholder="Search entries by title" />
-								<div data-bind="visible: visibleAnimals.length" class="blankSlate">
+								<div data-bind="visible: visibleAnimals().length == 0" class="blankSlate">
 									<!-- ko if: searchText == "" -->
 										<h3>Currently there are no animals you can sponsor.</h3>
 									<!-- /ko -->
