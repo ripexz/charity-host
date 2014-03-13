@@ -133,8 +133,8 @@
 					<div class=\"contact-details\">";
 
 		echo "<p>{$charity}</p>";
-		echo isset($contacts["phone"]) ? "<p>T: {$contacts['phone']}</p>" : '';
-		echo isset($contacts["email"]) ? "<p>E: {$contacts['email']}</p>" : '';
+		echo isset($contacts["phone"]) ? "<p>Phone: {$contacts['phone']}</p>" : '';
+		echo isset($contacts["email"]) ? "<p>Email: {$contacts['email']}</p>" : '';
 		echo isset($contacts["address"]) ? "<p>{$contacts['address']}</p>" : '';
 		
 		echo		"</div>
