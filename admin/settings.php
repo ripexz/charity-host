@@ -108,7 +108,7 @@
 			</div>
 			<div class="form-group">
 				<label for="charity_email">Charity email</label>
-				<input value="'.$data["email"].'" name="charity_email" type="text" class="form-control" id="charity_email" placeholder="Contact email address">
+				<input value="'.$data["email"].'" name="charity_email" type="email" class="form-control" id="charity_email" placeholder="Contact email address">
 			</div>
 			<div class="form-group">
 				<label for="charity_paypal">PayPal address</label>
