@@ -259,6 +259,10 @@ form p.end-link {
 #lnf-settings .submit {
 	text-align: right;
 }
+#lnf-settings .submit button {
+	position: relative;
+	top: 15px;
+}
 #sa-settings {
 	margin-bottom: 20px;
 }

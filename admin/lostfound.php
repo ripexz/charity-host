@@ -49,7 +49,7 @@
   					</div>
   				</div>
   				<div class="col-md-4 submit">
-  					<button class="btn btn-lg btn-primary">Save settings</button>
+  					<button class="btn btn-primary">Save settings</button>
   				</div>
   			</div>
   			</form>
