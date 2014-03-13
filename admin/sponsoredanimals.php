@@ -35,7 +35,7 @@
 						</div>
   					</div>
   				</div>
-  				<div class="col-md-4 submit">
+  				<div class="col-md-8 submit">
   					<button class="btn btn-primary">Save settings</button>
   				</div>
   			</div>
