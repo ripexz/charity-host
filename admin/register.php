@@ -112,7 +112,15 @@
 				// Create page entry in charity_pages
 				$result5 = $conn->query("INSERT INTO charity_pages (page_id, charity_id) VALUES ({$page_id}, {$charity_id})");
 
-				echo "<div class=\"alert alert-success\"><strong>Success! </strong>You can now log in.</div>";
+				session_regenerate_id();
+				$_SESSION['authorised'] = true;
+				$_SESSION['admin_id'] = $admin_id;
+				$_SESSION['admin_email'] = $valid["admin_email"];
+				$_SESSION['is_owner'] = 1;
+				$_SESSION['charity_id'] = $charity_id;
+				$_SESSION['charity_name'] = $valid["charity_name"];
+				$_SESSION['charity_link'] = $valid["charity_link"];
+				header("Location: dashboard.php");
 			}
 			else {
 				foreach ($errors as $error) {
