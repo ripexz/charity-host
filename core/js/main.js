@@ -11,6 +11,8 @@ function showAlert(type, text) {
 			"left": "0",
 			"right": "0"
 		});
+	
+	$('#alertMsg').remove(); //remove any previous one
 	$('body').append(el);
 	$('#alertMsg').slideDown("fast", function() {
 		setTimeout(function(){

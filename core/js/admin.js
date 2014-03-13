@@ -4,6 +4,7 @@ $(document).ready(function() {
 	bindImageUploader();
 
 	$('#lnf-settings-form').on('submit', updateLostFoundSettings);
+	$('#sa-settings-form').on('submit', updateSponsorAnAnimalSettings);
 });
 
 function updatePreview(el) {
@@ -73,6 +74,28 @@ function updateLostFoundSettings(e) {
 	}).done(function(data) {
 		if (data.STATUS == "OK") {
 			showAlert("success", "Lost and Found settings updated successfully.");
+		}
+	}).fail(function(data){
+		showAlert("danger", data.responseJSON.MESSAGE);
+	});
+}
+
+function updateSponsorAnAnimalSettings(e) {
+	e.stopPropagation();
+	e.preventDefault();
+
+	var form = $(e.target),
+		formData = form.serialize();
+
+	$.ajax({
+		url: '/core/api/private/post_sa_settings.php?f=' + Date.now(),
+		type: 'POST',
+		data: formData,
+		cache: false,
+		dataType: 'json',
+	}).done(function(data) {
+		if (data.STATUS == "OK") {
+			showAlert("success", "Sponsor an Animal settings updated successfully.");
 		}
 	}).fail(function(data){
 		showAlert("danger", data.responseJSON.MESSAGE);

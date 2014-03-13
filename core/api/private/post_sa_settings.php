@@ -22,31 +22,20 @@
 	$charity_id = $_SESSION["charity_id"];
 
 	// Check passed values
-	if (isset($_POST['lnf_enabled'])) {
-		$lnf = (int) (bool) $_POST['lnf_enabled'];
+	if (isset($_POST['sa_enabled'])) {
+		$sa = (int) (bool) $_POST['sa_enabled'];
 	}
 	else {
 		http_response_code(400);
 		echo '{
 			"STATUS": "ERROR",
-			"MESSAGE": "lnf_enabled is required."
-		}';
-		exit();
-	}
-	if (isset($_POST['lnf_auto_approve'])) {
-		$aa = (int) (bool) $_POST['lnf_auto_approve'];
-	}
-	else {
-		http_response_code(400);
-		echo '{
-			"STATUS": "ERROR",
-			"MESSAGE": "lnf_auto_approve is required."
+			"MESSAGE": "sa_enabled is required."
 		}';
 		exit();
 	}
 
 	// Execute query
-	$result = $conn->query("UPDATE charities SET lnf_enabled = {$lnf}, lnf_auto_approve = {$aa} WHERE id = {$charity_id}");
+	$result = $conn->query("UPDATE charities SET sa_enabled = {$sa} WHERE id = {$charity_id}");
 
 	if (!$result) {
 		http_response_code(500);
