@@ -64,7 +64,7 @@ function lostAndFoundViewModel() {
 	}
 
 	self.deleteEntry = function(id) {
-		var confirmed = confirm("Are you sure you want to delete this image?");
+		var confirmed = confirm("Are you sure you want to delete this entry?");
 		if (!confirmed) {
 			return;
 		}

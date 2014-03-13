@@ -276,21 +276,35 @@
 			$data = array();
 
 			$data["sidebar"] = "none";
-			$data["title"] = "Sponsor an animal";
+			$data["title"] = "Sponsor an Animal";
 			$data["link"] = "lostfound";
 
-			$data["content"] = '<div id="sponsored-animals" data-bind="foreach: visibleAnimals">
-								<div class="sa">
-									<div class="sa-image">
-										<img data-bind="event: {error: changeHashCode}, attr: {src: \'/core/phpthumb/phpThumb.php?src=\' + url + \'&w=211&f=png&sia=\' + title + hashCode(), alt: title}"/>
+			$data["content"] = '<div id="sponsored-animals">
+								<input data-bind="value: searchText, valueUpdate: \'afterkeydown\'" type="text" class="form-control" placeholder="Search entries by title" />
+								<!-- ko foreach: visibleAnimals -->
+									<div class="sa">
+										<div class="sa-title">
+											<p data-bind="text: title"></p>
+										</div>
+										<div class="sa-image">
+											<img data-bind="event: {error: changeHashCode}, attr: {src: \'/core/phpthumb/phpThumb.php?src=\' + url + \'&w=211&f=png&sia=\' + title + hashCode(), alt: title}"/>
+										</div>
+										<div class="sa-desc">
+											<div class="wrap">
+												<p class="content" data-bind="text: description"></p>
+											</div>
+										</div>
+										<div class="sa-footer">
+											<p>
+												<span data-bind="text: \'E: \' + email"></span>
+												<!-- ko if: phone --><span style="margin-left:10px;" data-bind="text: \'T: \' + phone"></span><!-- /ko -->
+												<span class="type" data-bind="text: isFound == 1 ? \'Found\' : \'Lost\', css: {\'found\': isFound == 1}"></span>
+											</p>
+										</div>
 									</div>
-									<div class="sa-title">
-										<p data-bind="text: title"></p>
-									</div>
-									<div data-bind="html: description" class="sa-desc"></div>
-								</div>
-							</div>
-							<script src="/core/js/sa.js"></script>';
+								<!-- /ko -->
+							</div>';
+			$data["content"] .= '<script src="/core/js/sa.js"></script>';
 			return $data;
 		}
 
