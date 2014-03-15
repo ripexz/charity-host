@@ -108,7 +108,7 @@
 					</div>
 				</div>
 				<div class="sa-footer">
-					<p><a data-bind="attr: {href: \'/donate.php?charity_id={$charity_id}&animal_id=\' + id}"></a></p>
+					<p><a data-bind="attr: {href: \'/donate.php?charity_id='.$charity_id.'&animal_id=\' + id}">Donate</a></p>
 				</div>
 			</div>
 		<!-- /ko -->';
