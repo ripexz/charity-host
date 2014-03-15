@@ -42,10 +42,7 @@ $(document).ready(function(){
 
 function faqFilter(el) {
 	var search = el.value;
-	if (search.lenght > 0) {
-		$('.question:not(:containsci('+search+'))').hide();
-	}
-	else {
-		$('.question').show();
-	}
+
+	$('.question:not(:containsci('+search+'))').hide();
+	$('.question:containsci('+search+')').show();
 }
