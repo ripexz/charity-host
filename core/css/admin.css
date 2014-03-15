@@ -263,12 +263,108 @@ form p.end-link {
 	position: relative;
 	top: 15px;
 }
+/* Sponsored animals styling */
+#sponsor-an-animal .sa {
+	margin: 10px 0 0 0;
+	border: 1px solid #999;
+	border-radius: 3px;
+	max-height: 160px;
+	position: relative;
+	min-height: 160px;
+}
+#sponsor-an-animal .sa.admin {
+	background: rgba(100, 0, 0, 0.3);
+}
+#sponsor-an-animal .sa.admin.approved {
+	background: rgba(0, 100, 0, 0.3);
+}
+.sa .sa-overlay {
+	opacity: 0;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: rgba(0,0,0,0.7);
+	z-index: 1;
+}
+.sa .sa-overlay:hover {
+	opacity: 1;
+}
+.sa .sa-overlay .sa-tools {
+	position: absolute;
+	width: 200px;
+	height: 46px;
+	left: 50%;
+	top: 50%;
+	margin-left: -100px;
+	margin-top: -23px;
+	text-align: center;
+}
+.sa .sa-title {
+	position: absolute;
+	left: 211px;
+	right: 0;
+	height: 30px;
+	background: rgba(0,0,0,0.1);
+}
+.sa .sa-title p {
+	font-size: 16px;
+	font-weight: bold;
+	margin: 5px 10px 0px 10px;
+}
+.sa .sa-image {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 211px;
+	height: 159px;
+	text-align: center;
+	border-right: 1px solid #999;
+	background: rgba(0,0,0,0.1);
+}
+.sa .sa-image img {
+	max-width: 211px;
+	height: 158px;
+}
+.sa .sa-desc {
+	position: absolute;
+	left: 211px;
+	top: 31px;
+}
+.sa .sa-desc .wrap {
+	padding: 10px;
+	overflow-y: auto;
+	max-height: 106px;
+}
+.sa .sa-desc .wrap .content {
+	font-size: 13px;
+}
+.sa .sa-footer {
+	position: absolute;
+	bottom: 0;
+	left: 211px;
+	right: 0;
+	height: 20px;
+	background: rgba(0,0,0,0.1);
+}
+.sa .sa-footer p {
+	font-size: 11px;
+	margin: 3px 10px;
+}
+.sa .sa-footer .type {
+	position: absolute;
+	right: 10px;
+	text-transform: uppercase;
+	font-weight: bold;
+}
 #sa-settings {
 	margin-bottom: 20px;
 }
 #sa-settings .submit button {
 	margin-top: 10px;
 }
+/* Generic loader */
 .loading {
 	display: none;
 	position: absolute;
