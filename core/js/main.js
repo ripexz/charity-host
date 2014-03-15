@@ -27,3 +27,25 @@ function showAlert(type, text) {
 		}, 2000);
 	});
 }
+
+$(document).ready(function(){
+
+	//Custom case-insensitive contains selector:
+	$.expr[":"].containsci = $.expr.createPseudo(function(arg) {
+		return function( elem ) {
+			return $(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
+		};
+	});
+
+
+});
+
+function faqFilter(el) {
+	var search = el.value;
+	if (search.lenght > 0) {
+		$('.question:not(:containsci('+search+'))').hide();
+	}
+	else {
+		$('.question').show();
+	}
+}

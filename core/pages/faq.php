@@ -1,6 +1,6 @@
 <div id="faq_wrap">
 	<div id="faq_search">
-		<input type="text" class="form-control" placeholder="Search...">
+		<input onkeyup="faqFilter(this)" type="text" class="form-control" placeholder="Search...">
 	</div>
 	<div>
 		<h1>Help</h1>

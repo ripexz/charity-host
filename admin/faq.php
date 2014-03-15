@@ -10,7 +10,6 @@
 	output_admin_header("FAQ", $_SESSION["charity_name"], "admin");
 
 	require_once('../core/pages/faq.php');
-	//$('.question:not(:contains(search))')
 
 	output_admin_footer();
 
