@@ -202,18 +202,12 @@ div.sidebar {
 	bottom: 0;
 	left: 211px;
 	right: 0;
-	height: 20px;
+	height: 26px;
 	background: rgba(0,0,0,0.1);
 }
 .sa .sa-footer p {
 	font-size: 11px;
 	margin: 3px 10px;
-}
-.sa .sa-footer .type {
-	position: absolute;
-	right: 10px;
-	text-transform: uppercase;
-	font-weight: bold;
 }
 .blankSlate {
 	text-align: center;

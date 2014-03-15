@@ -311,7 +311,11 @@
 											</div>
 										</div>
 										<div class="sa-footer">
-											<p><a data-bind="attr: {href: \'/donate.php?charity_id='.$charity_id.'&animal_id=\' + id}">Donate</a></p>
+											<p>
+												<a data-bind="attr: {href: \'/donate.php?charity_id='.$charity_id.'&animal_id=\' + id}">
+													<img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" alt="Donate" />
+												</a>
+											</p>
 										</div>
 									</div>
 								<!-- /ko -->
