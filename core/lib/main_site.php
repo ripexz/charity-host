@@ -6,6 +6,7 @@
 	function output_page($page, $title) {
 
 		output_header($title);
+		$title = ($title == "Home") ? "Charity Host" : $title; //chane for mvvm load
 		echo "<div class=\"container\">";
 
 		echo "<div id=\"content\">";
