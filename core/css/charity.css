@@ -204,6 +204,7 @@ div.sidebar {
 	right: 0;
 	height: 26px;
 	background: rgba(0,0,0,0.1);
+	text-align: right;
 }
 .sa .sa-footer p {
 	font-size: 11px;
