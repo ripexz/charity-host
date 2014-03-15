@@ -44,5 +44,12 @@ function faqFilter(el) {
 	var search = el.value;
 
 	$('.question:not(:containsci('+search+'))').hide();
-	$('.question:containsci('+search+')').show();
+	$('#noResults').hide();
+	
+	var $visible = $('.question:containsci('+search+')');
+	$visible.show();
+
+	if ($visible.length == 0) {
+		$('#noResults').show();
+	}
 }
