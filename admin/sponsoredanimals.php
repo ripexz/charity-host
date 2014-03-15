@@ -108,11 +108,7 @@
 					</div>
 				</div>
 				<div class="sa-footer">
-					<p>
-						<span data-bind="text: \'E: \' + email"></span>
-						<!-- ko if: phone --><span style="margin-left:10px;" data-bind="text: \'T: \' + phone"></span><!-- /ko -->
-						<span class="type" data-bind="text: isFound == 1 ? \'Found\' : \'Lost\', css: {\'found\': isFound == 1}"></span>
-					</p>
+					<p><a data-bind="attr: {href: \'/donate.php?charity_id={$charity_id}&animal_id=\' + id}"></a></p>
 				</div>
 			</div>
 		<!-- /ko -->';
