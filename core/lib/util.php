@@ -26,16 +26,16 @@
 				break;
 			
 			default:
-				$validCharity = validate_charity_link($split[0]);
-				if ($validCharity === false) {
+				$charity = validate_charity_link($split[0]);
+				if ($charity === false) {
 					show_not_found();
 				}
 				else {
-					if ($validCharity["logo_url"] == '') {
-						output_charity_page($split, $validCharity["name"], $validCharity["id"], $validCharity["contacts"], $validCharity["bg_color"]);
+					if ($charity["logo_url"] == '') {
+						output_charity_page($split, $charity["name"], $charity["id"], $charity["contacts"], $charity["paypal"], $charity["bg_color"]);
 					}
 					else {
-						output_charity_page($split, $validCharity["name"], $validCharity["id"], $validCharity["contacts"], $validCharity["bg_color"], $validCharity["logo_url"]);
+						output_charity_page($split, $charity["name"], $charity["id"], $charity["contacts"], $charity["paypal"], $charity["bg_color"], $charity["logo_url"]);
 					}
 				}
 				break;
@@ -52,7 +52,7 @@
 		if (!$conn->connect_errno) {
 			$safe_link = $conn->real_escape_string($link);
 
-			$result = $conn->query("SELECT id, name, bg_color, logo_url, email, phone, address FROM charities WHERE link = '{$safe_link}'");
+			$result = $conn->query("SELECT id, name, bg_color, logo_url, email, phone, address, paypal FROM charities WHERE link = '{$safe_link}'");
 			if ($result->num_rows == 1) {
 				$data = $result->fetch_assoc();
 				$contacts = array();

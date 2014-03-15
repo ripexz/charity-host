@@ -7,7 +7,7 @@
 	* Checks if page is valid, if yes - generates and outputs
 	* requested page
 	*/
-	function output_charity_page($request, $name, $charity_id, $contacts, $bg_color = -1, $logo = "/core/images/logo.png") {
+	function output_charity_page($request, $name, $charity_id, $contacts, $paypal, $bg_color = -1, $logo = "/core/images/logo.png") {
 
 		if ($request[1]) {
 			switch ($request[1]) {
@@ -56,7 +56,8 @@
 
 		echo '</div>
 			</div>';
-		output_charity_footer($name, $contacts);
+		$can_donate = ($paypal == '') ? false : true;
+		output_charity_footer($name, $contacts, $charity_id, $can_donate);
 
 	}
 
@@ -126,11 +127,19 @@
 	/*
 	* Generates and outputs charity page footer
 	*/
-	function output_charity_footer($charity, $contacts, $org = "Charity Host") {
+	function output_charity_footer($charity, $contacts, $charity_id, $can_donate, $org = "Charity Host") {
 		echo "<footer>
-				<div class=\"container\">
-					<p class=\"pull-right\"><a href=\"#\">Back to top</a></p>
-					<div class=\"contact-details\">";
+				<div class=\"container\">";
+
+		if ($can_donate) {
+			echo 		"<p class=\"pull-right\">
+							<a href=\"/donate.php?charity_id={$charity_id}\">
+								<img src=\"https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif\" alt=\"Donate\">
+							</a>
+						</p>";
+		}
+		
+		echo 		"<div class=\"contact-details\">";
 
 		echo "<p>{$charity}</p>";
 		echo isset($contacts["phone"]) ? "<p>Phone: {$contacts['phone']}</p>" : '';
