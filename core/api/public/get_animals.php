@@ -4,6 +4,7 @@
 
 	// Connect to database
 	require_once('../../lib/db.php');
+	require_once('../../lib/util.php');
 	$db = new db(null);
 	$conn = $db->connect();
 
@@ -77,10 +78,11 @@
 	$json .= ', "animals": [';
 	while ($row = $result->fetch_assoc()) {
 		$item++;
+		$ready = htmlentities_array($row);
 		$json .= "{
 			\"id\": \"{$row['id']}\",
-			\"title\": \"{$row['title']}\",
-			\"description\": \"{$row['description']}\",
+			\"title\": \"{$ready['title']}\",
+			\"description\": \"{$ready['description']}\",
 			\"image\": \"{$row['image']}\"
 		}";
 		if ($item < $result->num_rows) {

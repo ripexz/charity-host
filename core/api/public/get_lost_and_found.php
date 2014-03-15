@@ -4,6 +4,7 @@
 
 	// Connect to database
 	require_once('../../lib/db.php');
+	require_once('../../lib/util.php');
 	$db = new db(null);
 	$conn = $db->connect();
 
@@ -83,13 +84,14 @@
 	$json .= ', "lost_and_found": [';
 	while ($row = $result->fetch_assoc()) {
 		$item++;
+		$ready = htmlentities_array($row);
 		$json .= "{
 			\"id\": \"{$row['id']}\",
-			\"title\": \"{$row['title']}\",
-			\"description\": \"{$row['description']}\",
+			\"title\": \"{$ready['title']}\",
+			\"description\": \"{$ready['description']}\",
 			\"image\": \"{$row['image']}\",
-			\"email\": \"{$row['email']}\",
-			\"phone\": \"{$row['phone']}\",
+			\"email\": \"{$ready['email']}\",
+			\"phone\": \"{$ready['phone']}\",
 			\"isFound\": \"{$row['type_is_found']}\"";
 		$json .= $all ? ", \"isApproved\": \"{$row['approved']}\"" : '';
 		$json .= "}";

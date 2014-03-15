@@ -18,6 +18,55 @@
 
 	output_admin_header("Sponsored Animals", $_SESSION["charity_name"], "admin");
 
+	if (isset($_POST["submit"])) {
+		$errors = array();
+		$title = get_required_string($_POST, "title", "Title", 255, $errors);
+		$description = get_required_string($_POST, "description", "Description", 1000, $errors);
+
+		if ($_FILES["imagefile"]["error"] !== UPLOAD_ERR_OK) {
+			$errors[] = "Image upload failed.";
+		}
+
+		if ($_FILES["imagefile"]["size"] > 1048576) {
+			$errors[] = "Image file is too big, please select an image that is under 1 MB.";
+		}
+	
+		$info = getimagesize($_FILES["imagefile"]["tmp_name"]);
+		if ($info === FALSE) {
+			$errors[] = "Unable to determine image type of uploaded file.";
+		}
+
+		if (count($errors) == 0) {
+			$title = $conn->real_escape_string($title);
+			$description = $conn->real_escape_string($description);
+
+			$extension = pathinfo($_FILES["imagefile"]["name"], PATHINFO_EXTENSION);
+			$filename = $charity_id . "_sa_" . time() . '.' . $extension;
+			$upload_to = "../core/uploads/" . $filename;
+
+			if (move_uploaded_file($_FILES["imagefile"]["tmp_name"], $upload_to)) {
+				//Add db entry to sponsored animals:
+				$safe_url = $conn->real_escape_string("/core/uploads/" . $filename);
+
+				$result = $conn->query("INSERT INTO animals (title, description, image) VALUES ('{$title}', '{$description}', '{$safe_url}')");
+				
+				if ($result) {
+					$animal_id = $conn->insert_id;
+
+					//Add db entry to charity_images:
+					$result2 = $conn->query("INSERT INTO charity_animals (animal_id, charity_id) VALUES ({$animal_id}, {$charity_id})");
+				}
+			}
+			else {
+				$errors[] = "Image upload failed.";
+			}
+		}
+
+		foreach ($errors as $error) {
+			echo "<div class=\"alert alert-danger\"><strong>Error: </strong>{$error}</div>";
+		}
+	}
+
 	echo '<div id="sa-settings">
 			<button id="sa-modal-toggle" class="btn btn-top-right btn-primary btn-lg" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#saModal">Add animal</button>
 			<form id="sa-settings-form" action="#">
@@ -78,10 +127,9 @@
 						<h4 class="modal-title">Add a Lost and Found entry</h4>
 					</div>
 					<div class="modal-body">
-						<input type="hidden" name="charity_id" value="'.$charity_id.'" id="sa_charity_id"/>
 						<div class="form-group">
 							<label for="title">Title</label>
-							<input name="title" type="text" class="form-control" id="title" placeholder="Short title (e.g. type of animal, location)" required>
+							<input name="title" type="text" class="form-control" id="title" placeholder="Short title" required>
 						</div>
 						<div class="form-group">
 							<label for="description">Description</label>

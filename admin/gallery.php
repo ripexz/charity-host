@@ -42,7 +42,7 @@
 				if (move_uploaded_file($_FILES["imagefile"]["tmp_name"], $upload_to)) {
 					//Add db entry to images:
 					$safe_url = $conn->real_escape_string($filename);
-					$result = $conn->query("INSERT INTO images (title, url) VALUES ('{$title}', '{$filename}')");
+					$result = $conn->query("INSERT INTO images (title, url) VALUES ('{$title}', '{$safe_url}')");
 					if ($result) {
 						$image_id = $conn->insert_id;
 

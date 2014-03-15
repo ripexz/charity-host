@@ -49,7 +49,7 @@ function faqFilter(el) {
 	var $visible = $('.question:containsci('+search+')');
 	$visible.show();
 
-	if ($visible.length == 0) {
+	if (search.length > 0 && $visible.length == 0) {
 		$('#noResults').show();
 	}
 }

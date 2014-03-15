@@ -97,4 +97,15 @@
 		
 		mail($data["email"], $subject, $message, $headers);
 	}
+
+	/*
+	* Cleans array with htmlentities
+	*/
+	function htmlentities_array(&$data) {
+		$safe = array();
+		foreach ($data as $key => $value) {
+			$safe[$key] = htmlentities($value);
+		}
+		return $safe;
+	}
 ?>
