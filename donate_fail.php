@@ -15,7 +15,7 @@
 		}
 
 		if ($result) {
-			$data = $result2->fetch_assoc();
+			$data = $result->fetch_assoc();
 			$link = $data['link'];
 
 			header('Location: http://www.charityhost.eu/'.$link);
