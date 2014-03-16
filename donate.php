@@ -32,7 +32,8 @@
 
 			if ($result2) {
 				$amount_str = (string) ($amount / 100);
-				echo '<form name="donateForm" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+				echo '<h1 style="text-align:center">Processing...</h1>
+						<form name="donateForm" action="https://www.paypal.com/cgi-bin/webscr" method="post">
 						<input type="hidden" name="cmd" value="_donations">
 						<input type="hidden" name="business" value="ripexz@gmail.com">
 						<input type="hidden" name="lc" value="IE">
@@ -43,6 +44,7 @@
 						<input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_SM.gif:NonHostedGuest">
 						<input type="hidden" name="amount" value="'.$amount_str.'">
 						<noscript>
+							<p>Please click Confirm to continue</p>
 							<input type="submit" value="Confirm" />
 						</noscript>
 					</form>
