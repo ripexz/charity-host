@@ -158,6 +158,9 @@ form p.end-link {
 	max-width: 128px;
 	max-height: 128px
 }
+#noResults {
+	display: none;
+}
 /* Lost and found styling */
 #lost-and-found .lnf {
 	margin: 10px 0 0 0;
