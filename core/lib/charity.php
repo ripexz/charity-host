@@ -321,9 +321,12 @@
 										</div>
 										<div class="sa-footer">
 											<p>
-												<a data-bind="attr: {href: \'/donate.php?charity_id='.$charity_id.'&animal_id=\' + id}">
-													<img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" alt="Donate" />
-												</a>
+												<form action="/donate.php" method="post">
+													<input class="sponsor-animal-amount" type="text" name="amount" value="0.00" />
+													<input type="hidden" name="charity_id" value="'$charity_id'" />
+													<input data-bind="value: id" type="hidden" name="animal_id" />
+													<input type="image" name="submit" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" alt="Donate" />
+												</form>
 											</p>
 										</div>
 									</div>

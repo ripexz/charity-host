@@ -353,6 +353,11 @@ form p.end-link {
 	font-size: 11px;
 	margin: 3px 10px;
 }
+.sa .sa-footer .sponsor-animal-amount {
+	text-align: right;
+	padding-right: 5px;
+	width: 60px;
+}
 #sa-settings {
 	margin-bottom: 20px;
 }
