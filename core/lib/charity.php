@@ -9,6 +9,8 @@
 	*/
 	function output_charity_page($request, $name, $charity_id, $contacts, $paypal, $bg_color = -1, $logo = "/core/images/logo.png") {
 
+		$can_donate = ($paypal == '') ? false : true;
+
 		if ($request[1]) {
 			switch ($request[1]) {
 				case 'lostfound':
@@ -16,7 +18,7 @@
 					break;
 
 				case 'sponsor':
-					$page_data = get_sa_data($charity_id);
+					$page_data = get_sa_data($charity_id, $can_donate);
 					break;
 
 				default:
@@ -56,7 +58,6 @@
 
 		echo '</div>
 			</div>';
-		$can_donate = ($paypal == '') ? false : true;
 		output_charity_footer($name, $contacts, $charity_id, $can_donate);
 
 	}
@@ -286,11 +287,13 @@
 	* Checks if Sponsored Animals is enabled, if yes returns
 	* relevant page data
 	*/
-	function get_sa_data($charity_id) {
+	function get_sa_data($charity_id, $can_donate) {
 		$features = get_feature_status($charity_id);
 
 		if ($features["sa_enabled"]) {
 			$data = array();
+
+			$addClass = $can_donate ? '' : ' disabled';
 
 			$data["sidebar"] = "none";
 			$data["title"] = "Sponsor an Animal";
@@ -307,7 +310,7 @@
 									<!-- /ko -->
 								</div>
 								<!-- ko foreach: visibleAnimals -->
-									<div class="sa">
+									<div class="sa'.$addClass.'">
 										<div class="sa-title">
 											<p data-bind="text: title"></p>
 										</div>
