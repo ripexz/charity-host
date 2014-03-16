@@ -19,6 +19,7 @@
 			$link = $data['link'];
 
 			header('Location: http://www.charityhost.eu/'.$link);
+			exit();
 		}
 	}
 	header('Location: http://www.charityhost.eu');
