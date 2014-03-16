@@ -349,7 +349,7 @@ form p.end-link {
 	background: rgba(0,0,0,0.1);
 	text-align: right;
 }
-.sa .sa-footer p {
+.sa .sa-footer form {
 	font-size: 11px;
 	margin: 3px 10px;
 }
@@ -357,6 +357,9 @@ form p.end-link {
 	text-align: right;
 	padding-right: 5px;
 	width: 60px;
+	position: relative;
+	bottom: 7px;
+	right: 5px;
 }
 #sa-settings {
 	margin-bottom: 20px;

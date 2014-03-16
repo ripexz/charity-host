@@ -193,6 +193,9 @@ div.sidebar {
 	padding: 10px;
 	overflow-y: auto;
 	max-height: 106px;
+	position: relative;
+	bottom: 7px;
+	right: 5px;
 }
 .sa .sa-desc .wrap .content {
 	font-size: 13px;
@@ -206,7 +209,7 @@ div.sidebar {
 	background: rgba(0,0,0,0.1);
 	text-align: right;
 }
-.sa .sa-footer p {
+.sa .sa-footer form {
 	font-size: 11px;
 	margin: 3px 10px;
 }

@@ -320,14 +320,12 @@
 											</div>
 										</div>
 										<div class="sa-footer">
-											<p>
-												<form action="/donate.php" method="post">
-													<input class="sponsor-animal-amount" type="text" name="amount" value="0.00" />
-													<input type="hidden" name="charity_id" value="'.$charity_id.'" />
-													<input data-bind="value: id" type="hidden" name="animal_id" />
-													<input type="image" name="submit" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" alt="Donate" />
-												</form>
-											</p>
+											<form action="/donate.php" method="post">
+												<input class="sponsor-animal-amount" type="text" name="amount" value="0.00" />
+												<input type="hidden" name="charity_id" value="'.$charity_id.'" />
+												<input data-bind="value: id" type="hidden" name="animal_id" />
+												<input type="image" name="submit" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" alt="Donate" />
+											</form>
 										</div>
 									</div>
 								<!-- /ko -->
