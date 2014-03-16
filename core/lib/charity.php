@@ -133,11 +133,13 @@
 				<div class=\"container\">";
 
 		if ($can_donate) {
-			echo 		"<p class=\"pull-right\">
-							<a href=\"/donate.php?charity_id={$charity_id}\">
-								<img src=\"https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif\" alt=\"Donate\">
-							</a>
-						</p>";
+			echo 		"<div class=\"pull-right\">
+							<form action=\"/donate.php\" method=\"post\">								
+								<input type=\"hidden\" name=\"charity_id\" value=\"{$charity_id}\" />
+								<input type=\"image\" name=\"submit\" src=\"https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif\" alt=\"Donate\" />
+								<input class=\"footer-donate-amount\" type=\"text\" name=\"amount\" value=\"0.00\" />
+							</form>
+						</div>";
 		}
 		
 		echo 		"<div class=\"contact-details\">";
