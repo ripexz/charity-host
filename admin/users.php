@@ -22,10 +22,11 @@
 	if (isset($_GET['action'])) {
 
 		$action = (string) $_GET['action'];
+
 		if ($action == 'delete' && $_SESSION['is_owner']) {
 			$id = (int) $_GET['id'];
 			if ($id > 0) {
-				$res = $conn->query("SELECT admins WHERE id = {$id} AND is_owner = false");
+				$res = $conn->query("SELECT admins WHERE id = {$id} AND is_owner = 0");
 				if ($res->num_rows == 1) {
 					$res2 = $conn->query("DELETE FROM admins WHERE id = {$id}");
 					if ($res2) {
@@ -34,6 +35,7 @@
 				}
 			}
 		}
+
 		if ($action == 'add') {
 			$email = get_required_string($_POST, "email", "User email", 255, $errors);
 			$email_2 = get_required_string($_POST, "email_2", "User email (repeat)", 255, $errors);
