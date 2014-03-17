@@ -96,6 +96,11 @@
 	echo '<input data-bind="value: searchText, valueUpdate: \'afterkeydown\'" type="text" class="form-control" placeholder="Search entries by title or ID" />
 		<!-- ko foreach: visibleAnimals -->
 			<div class="sa">
+				<div class="sa-overlay">
+					<div class="sa-tools">
+						<button data-bind="click: function(){$root.deleteEntry(id)}" class="lnf-delete btn btn-lg btn-danger">Delete</button>
+					</div>
+				</div>
 				<div class="sa-title">
 					<p data-bind="text: title"></p>
 				</div>

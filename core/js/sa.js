@@ -42,8 +42,11 @@ function sponsorAnAnimalViewModel() {
 		}
 		
 		$.ajax({
-			url: '/core/api/private/get_delete_sa.php?id=' + id + '&f=' + Date.now(),
-			type: 'GET',
+			url: '/core/api/private/post_delete_sa.php?f=' + Date.now(),
+			type: 'POST',
+			data: {
+				id: id
+			}
 			cache: false,
 			dataType: 'json',
 		}).done(function(data) {

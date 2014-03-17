@@ -23,7 +23,7 @@
 	<div class="feature row">
 		<h2>Donations</h2>
 		<div class="feature-image">
-			<img src="http://www.placekitten.com/300/149" alt="Image" width="300" height="149" />
+			<img src="https://www.paypalobjects.com/webstatic/mktg/logo-center/PP_Acceptance_Marks_for_LogoCenter_266x142.png" alt="Image" width="300" height="149" />
 		</div>
 		<p>The donations feature of our website allows your charity to accept donations online through your website. Donations are paid through PayPal, and we do not take a percentage of any donations you receive.</p>
 	</div>
