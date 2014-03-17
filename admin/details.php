@@ -22,19 +22,19 @@
 			<button type="submit" name="submit" value="submit" class="btn btn-lg btn-primary btn-top-right">Submit</button>
 			<div class="form-group">
 				<label for="email">Email address</label>
-				<input id="email" name="email" type="email" class="form-control" placeholder="Email address" value="'.$_SESSION['admin_email'].'">
+				<input autocomplete="off" id="email" name="email" type="email" class="form-control" placeholder="Email address" value="'.$_SESSION['admin_email'].'">
 			</div>
 			<div class="form-group">
 				<label for="email_2">Repeat email</label>
-				<input id="email_2" name="email_2" type="email" class="form-control" placeholder="Confirm email" value="'.$_SESSION['admin_email'].'">
+				<input autocomplete="off" id="email_2" name="email_2" type="email" class="form-control" placeholder="Confirm email" value="'.$_SESSION['admin_email'].'">
 			</div>
 			<div class="form-group">
 				<label for="password">Password</label>
-				<input id="password" name="password" type="password" class="form-control" placeholder="Leave blank to keep your current password">
+				<input autocomplete="off" id="password" name="password" type="password" class="form-control" placeholder="Leave blank to keep your current password">
 			</div>
 			<div class="form-group">
 				<label for="password_2">Repeat password</label>
-				<input id="password_2" name="password_2" type="password" class="form-control" placeholder="Leave blank to keep your current password">
+				<input autocomplete="off" id="password_2" name="password_2" type="password" class="form-control" placeholder="Leave blank to keep your current password">
 			</div>
 		</form>';
 
