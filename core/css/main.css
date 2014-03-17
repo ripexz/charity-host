@@ -28,3 +28,14 @@ footer {
 #content h3 {
 	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 }
+.feature.row {
+	margin: 0;
+}
+.feature:nth-child(odd) .feature-image {
+	float: left;
+	margin-right: 20px;
+}
+.feature:nth-child(even) .feature-image {
+	float: right;
+	margin-left: 20px;
+}
