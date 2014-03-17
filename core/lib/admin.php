@@ -64,7 +64,7 @@
 						</ul>
 						<ul class="nav nav-sidebar">
 							<li><a href="settings.php">Settings</a></li>
-							<li><a href="#">Users</a></li>
+							<li><a href="users.php">Users</a></li>
 						</ul>
 						<ul class="nav nav-sidebar">
 							<li><a href="#">Your profile</a></li>
