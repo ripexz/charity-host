@@ -9,7 +9,7 @@
 	<div class="feature row">
 		<h2>Lost and Found</h2>
 		<div class="feature-image">
-			<img src="/core/images/feature_sa.png" alt="Image" width="300" height="149" />
+			<img src="/core/images/feature_lnf.png" alt="Image" width="300" height="149" />
 		</div>
 		<p>The Lost and Found feature we provide allows the public to post on your charities lost and found page about a lost animal missing in the area. This can then be removed from the site by you or the person who posted it once the animal has been found.</p>
 	</div>
