@@ -18,6 +18,15 @@
 
 	output_admin_header("Sponsored Animals", $_SESSION["charity_name"], "admin");
 
+	if (isset($_GET['search'])) {
+		$search = htmlentities($_GET['search']);
+		echo '<script type="text/javascript">
+				$(document).ready(function(e){
+					sa_vm.searchText('.$search.');
+				});
+			</script>';
+	} 
+
 	if (isset($_POST["submit"])) {
 		$errors = array();
 		$title = get_required_string($_POST, "title", "Title", 255, $errors);
@@ -93,7 +102,7 @@
 
 	echo '<div id="sponsor-an-animal">';
 
-	echo '<input data-bind="value: searchText, valueUpdate: \'afterkeydown\'" type="text" class="form-control" placeholder="Search entries by title" />
+	echo '<input data-bind="value: searchText, valueUpdate: \'afterkeydown\'" type="text" class="form-control" placeholder="Search entries by title or ID" />
 		<!-- ko foreach: visibleAnimals -->
 			<div class="sa">
 				<div class="sa-title">

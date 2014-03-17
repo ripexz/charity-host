@@ -29,7 +29,7 @@ function sponsorAnAnimalViewModel() {
 		}
 		else {
 			return ko.utils.arrayFilter(self.animals(), function(animal){
-				return animal.title.toLowerCase().indexOf(filter) != -1;
+				return animal.id == filter || animal.title.toLowerCase().indexOf(filter) != -1;
 			});
 		}
 	});
