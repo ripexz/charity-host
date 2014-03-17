@@ -61,7 +61,7 @@
 	$sa_res = $conn->query($sa_qry);
 	if ($sa_res->num_rows == 1) {
 		$sa = $sa_res->fetch_assoc();
-		echo "<p><strong>{$sa['total']} sponsored animals.</strong></p>";
+		echo "<p><strong>{$sa['total']}</strong> sponsored animals.</strong></p>";
 	}
 
 	$adm_qry = "SELECT COUNT(a.id) AS total
@@ -71,7 +71,7 @@
 	$adm_res = $conn->query($adm_qry);
 	if ($adm_res->num_rows == 1) {
 		$adm = $adm_res->fetch_assoc();
-		echo "<p><strong>{$adm['total']} charity administrators.</strong></p>";
+		echo "<p><strong>{$adm['total']}</strong> charity administrators.</strong></p>";
 	}
 
 	echo '</div>';
