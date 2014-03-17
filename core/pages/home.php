@@ -16,7 +16,7 @@
 	<div class="feature row">
 		<h2>Sponsor an Animal</h2>
 		<div class="feature-image">
-			<img src="http://www.placekitten.com/300/149" alt="Image" width="300" height="149" />
+			<img src="/core/images/feature_sa.png" alt="Image" width="300" height="149" />
 		</div>
 		<p>This feature allows you to post ads for animals looking for sponsorship or adoption. Donations can be made to specific animals, which will appear in your account information.</p>
 	</div>
