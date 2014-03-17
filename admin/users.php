@@ -8,6 +8,7 @@
 	require_once('../core/lib/db.php');
 
 	output_admin_header("Users", $_SESSION["charity_name"], "admin");
+	echo '<button class="btn btn-lg btn-primary btn-top-right" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#addUserModal">Add user</button>';
 	echo '<div>';
 
 	$db = new db(null);
@@ -52,6 +53,34 @@
 			echo "<div class=\"alert alert-info\">No users found.</div>";
 		}
 	}
+
+	// Add user modal:
+	echo '<div id="addUserModal" class="modal fade">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<form action="'.$_SERVER['PHP_SELF'].'?action=add" role="form" method="post">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title">Add a user</h4>
+					</div>
+					<div class="modal-body">
+						<div class="form-group">
+							<label for="email">Email address</label>
+							<input id="email" name="email" type="email" class="form-control" placeholder="Email address" required>
+						</div>
+						<div class="form-group">
+							<label for="email_2">Confirm email</label>
+							<input id="email_2" name="email_2" type="email" class="form-control" placeholder="Confirm email" required>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button name="submit" type="submit" class="btn btn-primary">Submit</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+					</div>
+					</form>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->';
 
 	echo '</div>';
 	output_admin_footer();
