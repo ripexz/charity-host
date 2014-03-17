@@ -26,7 +26,7 @@
 		if ($action == 'delete' && $_SESSION['is_owner']) {
 			$id = (int) $_GET['id'];
 			if ($id > 0) {
-				$res = $conn->query("SELECT admins WHERE id = {$id} AND is_owner = 0");
+				$res = $conn->query("SELECT * FROM admins WHERE id = {$id} AND is_owner = 0");
 				if ($res->num_rows == 1) {
 					$res2 = $conn->query("DELETE FROM admins WHERE id = {$id}");
 					if ($res2) {
