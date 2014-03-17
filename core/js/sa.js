@@ -46,7 +46,7 @@ function sponsorAnAnimalViewModel() {
 			type: 'POST',
 			data: {
 				id: id
-			}
+			},
 			cache: false,
 			dataType: 'json',
 		}).done(function(data) {
