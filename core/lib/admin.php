@@ -42,7 +42,7 @@
 				</div>
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="dashboard.php">Dashboard</a></li>
+						<li><a href="dashboard.php">Overview</a></li>
 						<li><a href="settings.php">Settings</a></li>
 						<li><a href="faq.php">FAQ</a></li>
 						<li><a href="logout.php">Log out</a></li>
