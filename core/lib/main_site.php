@@ -46,7 +46,7 @@
 			 <body id=\"mainSiteBody\">
 				<div id=\"wrapper\"> <!-- start of wrapper -->";
 
-		echo "<header>";
+		echo '<header><div class="overlay"></div>';
 		echo '<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 				<div class="container">
 					<div class="navbar-header">
