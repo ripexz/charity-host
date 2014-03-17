@@ -40,7 +40,6 @@
 			
 			while ($row = $result->fetch_assoc()) {
 				$amount = $row['amount'] / 100;
-				$amount = $row['amount'] % 100
 				echo '<tr>';
 				echo ($row['animal_id'] == null) ? "<td>General donation</td>" : "<td><a target=\"_blank\" href=\"sponsoredanimals.php?search={$row['animal_id']}\">Sponsored animal</a></td>";
 				echo "<td>&euro;{$amount}</td>";
