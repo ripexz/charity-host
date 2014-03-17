@@ -159,7 +159,7 @@
 		echo '<script type="text/javascript">
 				$(document).ready(function(e){
 					setTimeout(function(){
-						sa_vm.searchText('.$search.');
+						sa_vm.searchText("'.$search.'");
 					}, 1000);
 				});
 			</script>';
