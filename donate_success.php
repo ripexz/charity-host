@@ -14,7 +14,7 @@
 			$data = $result2->fetch_assoc();
 			$link = $data['link'];
 
-			header('Location: http://www.charityhost.eu/'.$link.'/thankyou?id='.$id);
+			header('Location: http://www.charityhost.eu/'.$link);
 		}
 	}
 	header('Location: http://www.charityhost.eu');
