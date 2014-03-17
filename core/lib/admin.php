@@ -59,6 +59,7 @@
 							<li><a href="pages.php">Pages</a></li>
 							<li><a href="lostfound.php">Lost & Found</a></li>
 							<li><a href="sponsoredanimals.php">Sponsored Animals</a></li>
+							<li><a href="donations.php">Donations</a></li>
 							<li><a href="gallery.php">Gallery</a></li>
 						</ul>
 						<ul class="nav nav-sidebar">

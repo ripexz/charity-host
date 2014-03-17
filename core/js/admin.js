@@ -14,7 +14,8 @@ function updatePreview(el) {
 
 function highlightAdminNav() {
 	var location = window.location.href.split('/'),
-		page = location[location.length - 1];
+		page = location[location.length - 1],
+		page = page.split('?')[0];
 
 	$("#admin_snav li").removeClass("active");
 	$("#admin_snav li a[href='"+page+"']").parent().addClass("active");
