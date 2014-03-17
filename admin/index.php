@@ -50,9 +50,7 @@
 				<h2 class="form-signin-heading">Please sign in</h2>
 				<input name="email" type="email" class="form-control" placeholder="Email address" required autofocus>
 				<input name="password" type="password" class="form-control" placeholder="Password" required>
-				<label class="checkbox">
-					<input type="checkbox" value="remember-me"> Remember me
-				</label>
+				<p class="text-center"><small><a href="reset.php">Forgot your password?</a></small></p>
 				<button name="submit" value="submit" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
 				<p class="end-link">Not a user? <a href="register.php">Click here to register</a>.</p>
 			</form>
