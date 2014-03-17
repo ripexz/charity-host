@@ -40,7 +40,7 @@
 				$amount = $row['amount'] / 100;
 				echo '<tr>';
 				echo ($row['animal_id'] == null) ? "<td>General donation</td>" : "<td><a target=\"_blank\" href=\"sponsoredanimals.php?search={$row['id']}\">Sponsored animal</a></td>";
-				echo "<td>{$amount}</td>";
+				echo "<td>&euro;{$amount}</td>";
 				echo "<td>{$row['status']}</td>";
 				echo "<td>{$row['timestamp']}</td>";
 				echo '</tr>';
