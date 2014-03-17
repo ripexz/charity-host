@@ -15,6 +15,28 @@
 	$conn = $db->connect();
 	$charity_id = (int) $_SESSION["charity_id"];
 
+
+	if (isset($_GET['action'])) {
+
+		$action = (string) $_GET['action'];
+		if ($action == 'delete' && $_SESSION['is_owner']) {
+			$id = (int) $_GET['id'];
+			if ($id > 0) {
+				$res = $conn->query("SELECT admins WHERE id = {$id} AND is_owner = false");
+				if ($res->num_rows == 1) {
+					$res2 = $conn->query("DELETE FROM admins WHERE id = {$id}");
+					if ($res2) {
+						$res3 = $conn->query("DELETE FROM charity_admins WHERE admin_id = {$id}");
+					}
+				}
+			}
+		}
+		if ($action == 'add') {
+			//todo
+		}
+	}
+
+
 	$sql = "SELECT a.*
 			FROM admins a
 				JOIN charity_admins ca ON a.id = ca.admin_id
@@ -66,11 +88,11 @@
 					<div class="modal-body">
 						<div class="form-group">
 							<label for="email">Email address</label>
-							<input id="email" name="email" type="email" class="form-control" placeholder="Email address" required>
+							<input id="email" name="email" type="email" class="form-control" placeholder="Enter the user\'s email address" required>
 						</div>
 						<div class="form-group">
 							<label for="email_2">Confirm email</label>
-							<input id="email_2" name="email_2" type="email" class="form-control" placeholder="Confirm email" required>
+							<input id="email_2" name="email_2" type="email" class="form-control" placeholder="Repeat the email address provided" required>
 						</div>
 					</div>
 					<div class="modal-footer">
