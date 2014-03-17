@@ -3,13 +3,20 @@ body {
 }
 header {
 	height: 400px;
-	background: #999;
+	background: #222;
+	background-image: url('/core/images/header.png');
+	background-repeat: no-repeat;
+	background-position: 50%;
+	position: relative;
 }
 header h1 {
 	text-align: center;
 	margin-top: 150px;
 	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 	font-size: 80px;
+	color: #FFF;
+	position: relative;
+	z-index: 1;
 }
 footer {
 	background: #CCC;
