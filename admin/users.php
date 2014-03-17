@@ -16,7 +16,7 @@
 
 	$sql = "SELECT a.*
 			FROM admins a
-				JOIN charity_admins a ON a.id = ca.admin_id
+				JOIN charity_admins ca ON a.id = ca.admin_id
 			WHERE ca.charity_id = {$charity_id}
 			ORDER BY a.id ASC";
 	$result = $conn->query($sql);
