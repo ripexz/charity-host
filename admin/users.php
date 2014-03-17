@@ -5,7 +5,10 @@
 		header("Location: index.php");
 	}
 	require_once('../core/lib/admin.php');
+	require_once('../core/lib/util.php');
 	require_once('../core/lib/db.php');
+	require_once('../core/lib/validation.php');
+	$errors = array();
 
 	output_admin_header("Users", $_SESSION["charity_name"], "admin");
 	echo '<button class="btn btn-lg btn-primary btn-top-right" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#addUserModal">Add user</button>';
@@ -32,7 +35,34 @@
 			}
 		}
 		if ($action == 'add') {
-			//todo
+			$email = get_required_string($_POST, "email", "User email", 255, $errors);
+			$email_2 = get_required_string($_POST, "email_2", "User email (repeat)", 255, $errors);
+
+			if ($email != $email_2) {
+				$errors[] = "Passwords do not match.";
+			}
+
+			if (count($errors) == 0) {
+				$text_password = generate_password();
+				$password = encrypt($text_password);
+
+				$email_db = $conn->real_escape_string($email);
+				$password_db = $conn->real_escape_string($password);
+
+				// Create user entry
+				$res = $conn->query("INSERT INTO admins (email, password, is_owner) VALUES ('{$email_db}', '{$password_db}', 0)");
+				$admin_id = $conn->insert_id;
+
+				// Create charity_admins entry
+				$res2 = $conn->query("INSERT INTO charity_admins (admin_id, charity_id) VALUES ({$admin_id}, {$charity_id})");
+
+				email_user_details($email, $text_password, $_SESSION['charity_name'], true);
+			}
+			else {
+				foreach ($errors as $error) {
+					echo "<div class=\"alert alert-danger\"><strong>Error: </strong>{$error}</div>";
+				}
+			}
 		}
 	}
 

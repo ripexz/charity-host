@@ -79,6 +79,18 @@
 	}
 
 	/*
+	* Generates a random password of specified length (10 by default)
+	*/
+	function generate_password($length = 10) {
+		$list = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		$result = '';
+		for ($i = 0; $i < $length; $i++) {
+			$result .= $list[rand(0, strlen($list) - 1)];
+		}
+		return $result;
+	}
+
+	/*
 	* Redirects user to a "Not Found" page
 	*/
 	function show_not_found() {
@@ -86,16 +98,42 @@
 	}
 
 	/*
-	* Sends a link with a delete code to the user
+	* Sends a link with a delete code for lost and found entries
+	* to the user that created the entry.
 	*/
 	function email_delete_code($data, $code) {
-		$message = "Thank you for submitting a Lost and Found entry, you can remove it at any time by following this link: \r\n http://www.charityhost.eu/delete.php?code=" . $code;
+		$message = "Thank you for submitting a Lost and Found entry, you can remove it at any time by following this link:<br>http://www.charityhost.eu/delete.php?code=" . $code;
 		$subject = 'Lost and Found - CharityHost.eu';
 		$headers = 'From: CharityHost.eu <mail@charityhost.eu>' . "\r\n" .
 					'Reply-To: mail@charityhost.eu' . "\r\n" .
 					'Content-Type: text/html' . "\r\n";
 		
 		mail($data["email"], $subject, $message, $headers);
+	}
+
+	/*
+	* Sends the user their login details
+	*/
+	function email_user_details($email, $password, $charity_name = '', $new = false) {
+		if ($new) {
+			$message = "Hello, you've been added as an administrator to {$charity_name}.<br>
+				Here are your login details:<br>
+				<b>Login:</b> {$email}<br>
+				<b>Password:</b> {$password}<br><br>
+				You can now log in on http://www.charityhost.eu/admin";
+		}
+		else { //reset
+			$message = "Hello, here are your new login details:<br>
+				<b>Login:</b> {$email}<br>
+				<b>Password:</b> {$password}<br><br>
+				You can now log in on http://www.charityhost.eu/admin";
+		}
+		$subject = $new ? 'Welcome - CharityHost.eu' : 'Password Reset - CharityHost.eu';
+		$headers = 'From: CharityHost.eu <mail@charityhost.eu>' . "\r\n" .
+					'Reply-To: mail@charityhost.eu' . "\r\n" .
+					'Content-Type: text/html' . "\r\n";
+		
+		mail($email, $subject, $message, $headers);
 	}
 
 	/*
