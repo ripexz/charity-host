@@ -67,7 +67,7 @@
 							<li><a href="users.php">Users</a></li>
 						</ul>
 						<ul class="nav nav-sidebar">
-							<li><a href="#">Your profile</a></li>
+							<li><a href="details.php">Your details</a></li>
 							<li><a href="logout.php">Log out</a></li>
 						</ul>
 					</div>

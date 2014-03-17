@@ -57,7 +57,7 @@
 				<h2 class="form-signin-heading">Reset your password</h2>
 				<input name="email" type="email" class="form-control" placeholder="Email address" required autofocus>
 				<button style="margin-top:15px;" name="submit" value="submit" class="btn btn-lg btn-primary btn-block" type="submit">Reset</button>
-				<p class="end-link">Not a user? <a href="register.php">Click here to register</a>.</p>
+				<p class="end-link"><a href="index.php">Back to Login</a></p>
 			</form>
 		</div>';
 
