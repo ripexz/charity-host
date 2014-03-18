@@ -51,7 +51,7 @@
 		http_response_code(200);
 		echo '{
 			"STATUS": "OK",
-			"imgUrl": "/core/uploads/'.$filename.'"
+			"imgUrl": "'.$filename.'"
 		}';
 	}
 	else {

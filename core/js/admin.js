@@ -1,4 +1,5 @@
-var gfiles, gfileUrl;
+var gfileUrl = null,
+	gfiles;
 
 $(document).ready(function() {
 	highlightAdminNav();
