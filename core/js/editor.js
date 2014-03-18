@@ -67,23 +67,19 @@ $(document).ready(function(){
 			toolbar: "styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
 			setup: function(editor) {
 				mainEditor = editor;
-			},
-			init_instance_callback: function() {
-				tinymce.init({
-					selector: "#pf-sidebar-content",
-					menubar: false,
-					statusbar: false,
-					plugins: ["link image"],
-					toolbar: "styleselect | bold italic underline | bullist numlist | link image",
-					setup: function(editor) {
-						sidebarEditor = editor;
-					},
-					init_instance_callback: function() {
-						bindImageButtons();
-					}
-				});
 			}
 		});
+		tinymce.init({
+			selector: "#pf-sidebar-content",
+			menubar: false,
+			statusbar: false,
+			plugins: ["link image"],
+			toolbar: "styleselect | bold italic underline | bullist numlist | link image",
+			setup: function(editor) {
+				sidebarEditor = editor;
+			}
+		});
+		bindImageButtons();
 	});
 
 	$('#galleryModal').modal({ keyboard: false, backdrop: 'static', show: false });
