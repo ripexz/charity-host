@@ -223,6 +223,7 @@
 
 	// Load additional JS:
 	echo "<script type=\"text/javascript\" src=\"/core/js/editor.js\"></script>";
+	echo "<script type=\"text/javascript\" src=\"/core/js/gallery.js\"></script>";
 
 	echo '</div>';
 	output_admin_footer();
