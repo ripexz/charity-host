@@ -82,7 +82,9 @@ $(document).ready(function(){
 		$('.mce-gallery-button').remove();
 
 		//Add the button:
-		$('.mce-window[aria-label="Insert/edit image"] .mce-first.mce-formitem').prepend(el);
+		setTimeout(function(){
+			$('.mce-window[aria-label="Insert/edit image"] .mce-first.mce-formitem').prepend(el);
+		}, 500);
 	});
 
 	//Bind gallery button:

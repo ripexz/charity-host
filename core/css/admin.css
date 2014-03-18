@@ -389,3 +389,7 @@ form p.end-link {
 	margin-top: -16px;
 	z-index: 9002;
 }
+.mce-gallery-button {
+	z-index: 1;
+	right: 1px;
+}
