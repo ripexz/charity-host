@@ -185,6 +185,7 @@
 						</div>
 					</div>
 					<div class="modal-footer">
+						<button type="button" class="btn btn-lg btn-primary" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#uploadModal">Upload new</button>
 						<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
 					</div>
 					</form>
