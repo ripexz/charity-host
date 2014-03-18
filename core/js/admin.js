@@ -135,7 +135,7 @@ function uploadGalleryFiles(e) {
 	});
 
 	$.ajax({
-		url: '/core/api/public/post_upload_image.php?f=' + Date.now(),
+		url: '/core/api/private/post_upload_image.php?f=' + Date.now(),
 		type: 'POST',
 		data: data,
 		cache: false,
@@ -162,7 +162,7 @@ function submitGalleryForm(e, imgUrl) {
 	}
 
 	$.ajax({
-		url: '/core/api/public/post_add_image.php?f=' + Date.now(),
+		url: '/core/api/private/post_add_image.php?f=' + Date.now(),
 		type: 'POST',
 		data: formData,
 		cache: false,
