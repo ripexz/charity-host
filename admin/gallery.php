@@ -33,6 +33,7 @@
 	echo '<div id="uploadModal" class="modal fade">
 			<div class="modal-dialog">
 				<div class="modal-content">
+					<div class="loading"><img src="/core/images/loading.gif" alt="Loading..." /></div>
 					<form id="imageUploadForm" action="'.$_SERVER['PHP_SELF'].'" role="form" method="post" enctype="multipart/form-data">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
