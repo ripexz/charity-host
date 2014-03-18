@@ -390,7 +390,7 @@ form p.end-link {
 	z-index: 9002;
 }
 /* Editor CSS */
-#page-editor .mce-gallery-button {
+.mce-gallery-button {
 	z-index: 1;
 	right: 1px;
 }
