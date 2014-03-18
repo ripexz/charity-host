@@ -1,7 +1,11 @@
+var gfiles, gfileUrl;
+
 $(document).ready(function() {
 	highlightAdminNav();
 	bindColourPicker();
 	bindImageUploader();
+
+	$('#imageUploadForm').on('submit', uploadGalleryFiles);
 
 	$('#lnf-settings-form').on('submit', updateLostFoundSettings);
 	$('#sa-settings-form').on('submit', updateSponsorAnAnimalSettings);
@@ -99,6 +103,79 @@ function updateSponsorAnAnimalSettings(e) {
 			showAlert("success", "Sponsor an Animal settings updated successfully.");
 		}
 	}).fail(function(data){
+		showAlert("danger", data.responseJSON.MESSAGE);
+	});
+}
+
+function uploadGalleryFiles(e) {
+	e.stopPropagation();
+	e.preventDefault();
+
+	// Alert if no file selected
+	if (typeof gfiles == "undefined" || gfiles.length == 0) {
+		showAlert('danger', 'No file selected.');
+		return;
+	}
+
+	// Dont reupload file
+	if (gfileUrl !== null) {
+		submitGalleryForm(e, gfileUrl);
+		return;
+	}
+
+	$(".loading").show();
+
+	var data = new FormData();
+
+	$.each(gfiles, function(key, value) {
+		data.append(key, value);
+	});
+
+	$.ajax({
+		url: '/core/api/public/post_upload_image.php?f=' + Date.now(),
+		type: 'POST',
+		data: data,
+		cache: false,
+		dataType: 'json',
+		processData: false, // Don't process the files
+		contentType: false, // Set content type to false as jQuery will tell the server its a query string request
+	}).done(function(data) {
+		if (data.STATUS == "OK") {
+			gfileUrl = data.imgUrl;
+			submitGalleryForm(e, data.imgUrl);
+		}
+	}).fail(function(data){
+		$(".loading").hide();
+		showAlert("danger", data.responseJSON.MESSAGE);
+	});
+}
+
+function submitGalleryForm(e, imgUrl) {
+	var form = $(e.target);
+
+	var formData = form.serialize();
+	if (imgUrl !== null) {
+		formData = formData + '&filename=' + imgUrl;
+	}
+
+	$.ajax({
+		url: '/core/api/public/post_add_image.php?f=' + Date.now(),
+		type: 'POST',
+		data: formData,
+		cache: false,
+		dataType: 'json',
+	}).done(function(data) {
+		if (data.STATUS == "OK") {
+			gfileUrl = null;
+			$(".loading").hide();
+			$("#uploadModal").modal('hide');
+			$("#imageUploadForm")[0].reset();
+			showAlert("success", "Image uploaded successfully.");
+			gallery_vm.images.removeAll();
+			gallery_vm.getData();
+		}
+	}).fail(function(data){
+		$(".loading").hide();
 		showAlert("danger", data.responseJSON.MESSAGE);
 	});
 }
