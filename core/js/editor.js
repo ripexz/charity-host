@@ -67,7 +67,7 @@ $(document).ready(function(){
 		});
 	});
 
-	$('#galleryModal').modal({ keyboard: false, backdrop: 'static' });
+	$('#galleryModal').modal({ keyboard: false, backdrop: 'static', show: false });
 
 	//Bind changes:
 	$("#pf-sidebar-select input").click(function(e){
