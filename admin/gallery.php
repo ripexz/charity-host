@@ -78,7 +78,7 @@
 	echo '<div id="uploadModal" class="modal fade">
 			<div class="modal-dialog">
 				<div class="modal-content">
-					<form action="'.$_SERVER['PHP_SELF'].'" role="form" method="post" enctype="multipart/form-data">
+					<form id="imageUploadForm" action="'.$_SERVER['PHP_SELF'].'" role="form" method="post" enctype="multipart/form-data">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 						<h4 class="modal-title">Upload an image</h4>
