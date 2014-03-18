@@ -1,3 +1,5 @@
+var mainEditor, sidebarEditor;
+
 function rearrangeEditor(sidebar, callback) {
 	switch (sidebar) {
 		case "right":
@@ -48,19 +50,43 @@ $(document).ready(function(){
 			menubar: false,
 			statusbar: false,
 			plugins: ["link image"],
-			toolbar: "styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+			toolbar: "styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+			setup: function(editor) {
+				mainEditor = editor;
+			}
 		});
 		tinymce.init({
 			selector: "#pf-sidebar-content",
 			menubar: false,
 			statusbar: false,
 			plugins: ["link image"],
-			toolbar: "styleselect | bold italic underline | bullist numlist | link image"
+			toolbar: "styleselect | bold italic underline | bullist numlist | link image",
+			setup: function(editor) {
+				sidebarEditor = editor;
+			}
 		});
 	});
+
+	$('#galleryModal').modal({ keyboard: false, backdrop: 'static' });
 
 	//Bind changes:
 	$("#pf-sidebar-select input").click(function(e){
 		rearrangeEditor($(this).val());
+	});
+
+	//Bind image button:
+	$('button').find('.mce-i-image').parent().click(function(e) {
+		var el = $('<div class="mce-widget mce-gallery-button mce-btn mce-last mce-abs-layout-item"><button type="button">Open Gallery</button></div>');
+		
+		//Remove existing:
+		$('.mce-gallery-button').remove();
+
+		//Add the button:
+		$('.mce-window[aria-label="Insert/edit image"] .mce-first.mce-formitem').prepend(el);
+	});
+
+	//Bind gallery button:
+	$(document).delegate('.mce-gallery-button', 'click', function(e){
+		$('#galleryModal').modal('show');
 	});
 });
