@@ -389,7 +389,14 @@ form p.end-link {
 	margin-top: -16px;
 	z-index: 9002;
 }
-.mce-gallery-button {
+/* Editor CSS */
+#page-editor .mce-gallery-button {
 	z-index: 1;
 	right: 1px;
+}
+#page-editor #galleryModal {
+	z-index: 99990;
+}
+#page-editor #uploadModal {
+	z-index: 99999;
 }

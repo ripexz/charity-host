@@ -104,7 +104,7 @@
 	$h1 = $new ? "Add page" : "Edit page";
 	output_admin_header($h1, $_SESSION["charity_name"], "admin");
 
-	echo '<div>';
+	echo '<div id="page-editor">';
 
 	//If there are errors, show em here:
 	foreach ($errors as $error) {
