@@ -178,7 +178,7 @@
 									<div class="gi-title">
 										<p data-bind="text: title"></p>
 									</div>
-									<button class="gi-delete btn btn-sm btn-success">Select</button>
+									<button data-bind="click: function(){$root.selectImage(url)}" class="gi-delete btn btn-sm btn-success">Select</button>
 								</div>
 								<img data-bind="event: {error: changeHashCode}, attr: {src: \'/core/phpthumb/phpThumb.php?src=/core/uploads/\' + url + \'&w=211&f=png&sia=\' + title + hashCode(), alt: title}"/>
 							</div>

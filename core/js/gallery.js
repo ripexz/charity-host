@@ -75,6 +75,13 @@ function galleryViewModel() {
 				showAlert("danger", data.responseJSON.MESSAGE);
 			});
 		}
+	},
+
+	/* Only used in editor: */
+	self.selectImage = function(url) {
+		var fullurl = "/core/uploads/" + url;
+		$('.mce-window[aria-label="Insert/edit image"] .mce-first.mce-formitem input').val(fullurl);
+		$('#galleryModal').modal('hide');
 	}
 
 	self.findIndexByKeyValue = function(array, key, value) {
