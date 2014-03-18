@@ -6,6 +6,9 @@ $(document).ready(function() {
 	bindImageUploader();
 
 	$('#imageUploadForm').on('submit', uploadGalleryFiles);
+	$('#imageUploadForm #imagefile').on('change', function(e){
+		gfiles = e.target.files;
+	});
 
 	$('#lnf-settings-form').on('submit', updateLostFoundSettings);
 	$('#sa-settings-form').on('submit', updateSponsorAnAnimalSettings);
