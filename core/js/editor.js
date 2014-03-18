@@ -42,6 +42,20 @@ function rearrangeEditor(sidebar, callback) {
 	}
 }
 
+function bindImageButtons() {
+	$('button').find('.mce-i-image').parent().click(function(e) {
+		var el = $('<div class="mce-widget mce-gallery-button mce-btn mce-last mce-abs-layout-item"><button type="button">Open Gallery</button></div>');
+		
+		//Remove existing:
+		$('.mce-gallery-button').remove();
+
+		//Add the button:
+		setTimeout(function(){
+			$('.mce-window[aria-label="Insert/edit image"] .mce-first.mce-formitem').prepend(el);
+		}, 500);
+	});
+}
+
 $(document).ready(function(){
 	var sidebar = $("#pf-sidebar-select").find(":checked").val();
 	rearrangeEditor(sidebar, function(){
@@ -65,6 +79,7 @@ $(document).ready(function(){
 				sidebarEditor = editor;
 			}
 		});
+		bindImageButtons();
 	});
 
 	$('#galleryModal').modal({ keyboard: false, backdrop: 'static', show: false });
@@ -72,19 +87,6 @@ $(document).ready(function(){
 	//Bind changes:
 	$("#pf-sidebar-select input").click(function(e){
 		rearrangeEditor($(this).val());
-	});
-
-	//Bind image button:
-	$('button').find('.mce-i-image').parent().click(function(e) {
-		var el = $('<div class="mce-widget mce-gallery-button mce-btn mce-last mce-abs-layout-item"><button type="button">Open Gallery</button></div>');
-		
-		//Remove existing:
-		$('.mce-gallery-button').remove();
-
-		//Add the button:
-		setTimeout(function(){
-			$('.mce-window[aria-label="Insert/edit image"] .mce-first.mce-formitem').prepend(el);
-		}, 500);
 	});
 
 	//Bind gallery button:
