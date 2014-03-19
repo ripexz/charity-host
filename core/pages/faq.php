@@ -2,9 +2,7 @@
 	<div id="faq_search">
 		<input onkeyup="faqFilter(this)" type="text" class="form-control" placeholder="Search...">
 	</div>
-	<div>
-		<h3 id="noResults">Your search did not match any results.</h3>
-	</div>
+	<h3 id="noResults">Your search did not match any results.</h3>
 	<div>
 		<h1>Registration</h1>
 		<div class="question">

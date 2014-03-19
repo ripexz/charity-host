@@ -54,3 +54,6 @@ footer {
 	float: right;
 	margin-left: 20px;
 }
+#noResults {
+	display: none;
+}
