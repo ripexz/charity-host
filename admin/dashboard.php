@@ -50,7 +50,7 @@
 	$dons_res = $conn->query($dons_qry);
 	if ($dons_res->num_rows == 1) {
 		$dons = $dons_res->fetch_assoc();
-		$total = $dons['approved'] + $dons['unapproved'];
+		$total = $dons['confirmed'] + $dons['unconfirmed'];
 		echo "<p><strong>{$total}</strong> donations of which {$dons['confirmed']} are confirmed and {$dons['unconfirmed']} are unconfirmed or in progress.</p>";
 	}
 
