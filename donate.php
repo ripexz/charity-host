@@ -27,13 +27,13 @@
 					// Sponsoring an animal
 					$animal_id = (int) $_POST['animal_id'];
 					$query = "INSERT INTO donations (amount, animal_id, timestamp) VALUES ({$amount}, {$animal_id}, NOW())";
-					$item_name = $_POST['animal_name'] ? htmlentities($_POST['animal_name']) || 'Sponsored an animal';
+					$item_name = $_POST['animal_name'] ? htmlentities($_POST['animal_name']) : 'Sponsored an animal';
 					$item_number = $animal_id;
 				}
 				else {
 					// General donations
 					$query = "INSERT INTO donations (amount, timestamp) VALUES ({$amount}, NOW())";
-					$item_name = $_POST['charity_name'] ? htmlentities($_POST['charity_name']) || 'Donated to charity';
+					$item_name = $_POST['charity_name'] ? htmlentities($_POST['charity_name']) : 'Donated to charity';
 					$item_number = $charity_id;
 				}
 				$result = $conn->query($query);
