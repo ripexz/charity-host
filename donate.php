@@ -47,7 +47,6 @@
 							<input type="hidden" name="business" value="'.$paypal.'">
 							<input type="hidden" name="lc" value="IE">
 							<input type="hidden" name="no_note" value="0">
-							<input type="hidden" name="donation_id" value="'.$donation_id.'">
 							<input type="hidden" name="rm" value="2">
 							<input type="hidden" name="currency_code" value="EUR">
 							<input type="hidden" name="return" value="http://www.charityhost.eu/donate_success.php?id='.$donation_id.'">
