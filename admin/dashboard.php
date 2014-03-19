@@ -51,7 +51,7 @@
 	if ($dons_res->num_rows == 1) {
 		$dons = $dons_res->fetch_assoc();
 		$total = $dons['approved'] + $dons['unapproved'];
-		echo "<p><strong>{$total}</strong> donations of which {$lnf['approved']} are confirmed and {$lnf['unapproved']} are unconfirmed or in progress.</p>";
+		echo "<p><strong>{$total}</strong> donations of which {$dons['confirmed']} are confirmed and {$dons['unconfirmed']} are unconfirmed or in progress.</p>";
 	}
 
 	$sa_qry = "SELECT COUNT(a.id) AS total
