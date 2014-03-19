@@ -1,11 +1,11 @@
 <?php
 
-	if (isset($_GET['id'])) {
+	if (isset($_POST['donation_id'])) {
 		require_once('core/lib/db.php');
 		$db = new db(null);
 		$conn = $db->connect();
 		
-		$id = (int) $_GET['id'];
+		$id = (int) $_POST['donation_id'];
 
 		$result = $conn->query("SELECT c.link FROM charities c JOIN charity_donations cd ON c.id = cd.charity_id JOIN donations d ON cd.donation_id = d.id WHERE d.id = {$id}");
 
