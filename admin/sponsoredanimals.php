@@ -130,7 +130,7 @@
 					<form id="saForm" action="#" role="form" method="post" enctype="multipart/form-data">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						<h4 class="modal-title">Add a Lost and Found entry</h4>
+						<h4 class="modal-title">Add a Sponsored Animal</h4>
 					</div>
 					<div class="modal-body">
 						<div class="form-group">
