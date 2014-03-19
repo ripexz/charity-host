@@ -19,7 +19,7 @@
 			<ul>
 				<li><strong>Pages:</strong> Update and create new pages for your site.</li>
 				<li><strong>Lost & Found:</strong> Manage your lost and found adverts.</li>
-				<li><strong>Sponsored Animals:</strong> Manage your sponsored animals.</li>
+				<li><strong>Sponsor/Adopt an Animal:</strong> Add and remove animals that need help or are up for adoption.</li>
 				<li><strong>Donations:</strong> View donation history.</li>
 				<li><strong>Gallery:</strong> Upload or delete your images here.</li>
 				<li><strong>Settings:</strong> Change your account information.</li>
@@ -61,7 +61,7 @@
 	$sa_res = $conn->query($sa_qry);
 	if ($sa_res->num_rows == 1) {
 		$sa = $sa_res->fetch_assoc();
-		echo "<p><strong>{$sa['total']}</strong> sponsored animals.</strong></p>";
+		echo "<p><strong>{$sa['total']}</strong> animals that need to be sponsored or adopted.</strong></p>";
 	}
 
 	$adm_qry = "SELECT COUNT(a.id) AS total
@@ -73,6 +73,8 @@
 		$adm = $adm_res->fetch_assoc();
 		echo "<p><strong>{$adm['total']}</strong> charity administrators.</strong></p>";
 	}
+
+	echo '<p>If you have any questions, please contact us at <a href="mailto:charityhosteu@gmail.com">charityhosteu@gmail.com</a></p>';
 
 	echo '</div>';
 	output_admin_footer();

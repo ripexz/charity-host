@@ -16,7 +16,7 @@
 	$get_settings = $conn->query("SELECT sa_enabled FROM charities WHERE id = {$charity_id}");
 	$data = $get_settings->fetch_assoc();
 
-	output_admin_header("Sponsored Animals", $_SESSION["charity_name"], "admin");
+	output_admin_header("Sponsor/Adopt an Animal", $_SESSION["charity_name"], "admin");
 
 	if (isset($_POST["submit"])) {
 		$errors = array();
@@ -73,7 +73,7 @@
 			<div class="row">
   				<div class="col-md-2">
   					<div class="form-group">
-						<label>Sponsored animals</label>
+						<label>Sponsor/Adopt an Animal</label>
 						<div class="logo-settings">
 							<label class="radio-inline"><input type="radio" name="sa_enabled" value="1"';
 	echo $data["sa_enabled"] ? ' checked ' : '';
@@ -131,7 +131,7 @@
 					<form id="saForm" action="#" role="form" method="post" enctype="multipart/form-data">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						<h4 class="modal-title">Add a Sponsored Animal</h4>
+						<h4 class="modal-title">Add an animal</h4>
 					</div>
 					<div class="modal-body">
 						<div class="form-group">

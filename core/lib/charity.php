@@ -299,14 +299,14 @@
 			$addClass = $can_donate ? '' : ' disabled';
 
 			$data["sidebar"] = "none";
-			$data["title"] = "Sponsor an Animal";
+			$data["title"] = "Sponsor or Adopt";
 			$data["link"] = "lostfound";
 
 			$data["content"] = '<div id="sponsor-an-animal">
 								<input data-bind="value: searchText, valueUpdate: \'afterkeydown\'" type="text" class="form-control" placeholder="Search entries by title" />
 								<div data-bind="visible: visibleAnimals().length == 0" class="blankSlate">
 									<!-- ko if: searchText().length == 0 -->
-										<h3>Currently there are no animals you can sponsor.</h3>
+										<h3>Currently there are no animals you can sponsor or adopt.</h3>
 									<!-- /ko -->
 									<!-- ko if: searchText().length > 0  -->
 										<h3>There are no animals that match your search term.</h3>
@@ -363,7 +363,7 @@
 
 		echo '<li' . ($curr_link == 'home' ? ' class="active"' : '') . '><a href="/'.$charity_link.'/">Home</a></li>';
 		echo $lnf ? '<li' . ($curr_link == 'lostfound' ? ' class="active"' : '') . '><a href="/'.$charity_link.'/lostfound">Lost and Found</a></li>' : '';
-		echo $sa ? '<li' . ($curr_link == 'sponsor' ? ' class="active"' : '') . '><a href="/'.$charity_link.'/sponsor">Sponsor an Animal</a></li>' : '';
+		echo $sa ? '<li' . ($curr_link == 'sponsor' ? ' class="active"' : '') . '><a href="/'.$charity_link.'/sponsor">Sponsor or Adopt</a></li>' : '';
 		
 		$links = $conn->query("SELECT p.link, p.title FROM pages p JOIN charity_pages ca ON p.id = ca.page_id WHERE p.link <> 'home' AND ca.charity_id = {$charity_id} ORDER BY p.id ASC");
 		if ($links->num_rows > 0) {
