@@ -44,11 +44,16 @@
 				$errors[] = "Passwords do not match.";
 			}
 
+			$email_db = $conn->real_escape_string($email);
+
+			$check_email = $conn->query("SELECT id FROM admins WHERE email = '{$email_db}';");
+			if ($check_email->num_rows != 0) {
+				$errors[] = "User email address already in use.";
+			}
+
 			if (count($errors) == 0) {
 				$text_password = generate_password();
 				$password = encrypt($text_password);
-
-				$email_db = $conn->real_escape_string($email);
 				$password_db = $conn->real_escape_string($password);
 
 				// Create user entry
