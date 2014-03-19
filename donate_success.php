@@ -1,11 +1,11 @@
 <?php
 
-	if (isset($_GET['id'])) {
+	if (isset($_POST['donation_id'])) {
 		require_once('core/lib/db.php');
 		$db = new db(null);
 		$conn = $db->connect();
 		
-		$id = (int) $_GET['id'];
+		$id = (int) $_POST['donation_id'];
 
 		$result = $conn->query("UPDATE donations SET status = 'confirmed' WHERE id = {$id}");
 
