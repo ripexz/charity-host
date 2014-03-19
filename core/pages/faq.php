@@ -3,13 +3,10 @@
 		<input onkeyup="faqFilter(this)" type="text" class="form-control" placeholder="Search...">
 	</div>
 	<div>
-		<h1>Help</h1>
-		<div>
-			<h3 id="noResults">Your search did not match any results.</h3>
-		</div>
+		<h3 id="noResults">Your search did not match any results.</h3>
 	</div>
 	<div>
-		<h2>Registration</h2>
+		<h1>Registration</h1>
 		<div class="question">
 			<h3>How do I register?</h3>
 			<p>
@@ -37,7 +34,7 @@
 		</div>
 	</div>
 	<div>
-		<h2>Donations</h2>
+		<h1>Donations</h1>
 		<div class="question">
 			<h3>How do I accept donations?</h3>
 			<p>
@@ -76,7 +73,7 @@
 		</div>
 	</div>
 	<div>
-		<h2>Create Website></h2>
+		<h1>Your Website</h1>
 		<div class="question">
 			<h3>How do I create a new page?</h3>
 			<p>
@@ -240,7 +237,7 @@
 		</div>
 	</div>
 	<div>
-		<h2>Account Info</h2>
+		<h1>Account Info</h1>
 			<div class="question">
 			<h3>Can I add other administrators to my site?</h3>
 			<p>
