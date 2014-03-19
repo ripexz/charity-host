@@ -73,7 +73,7 @@
 			<div class="row">
   				<div class="col-md-2">
   					<div class="form-group">
-						<label>Lost and found</label>
+						<label>Sponsored animals</label>
 						<div class="logo-settings">
 							<label class="radio-inline"><input type="radio" name="sa_enabled" value="1"';
 	echo $data["sa_enabled"] ? ' checked ' : '';
