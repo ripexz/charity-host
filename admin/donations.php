@@ -20,7 +20,7 @@
 			FROM donations d
 				JOIN charity_donations cd ON d.id = cd.donation_id
 			WHERE cd.charity_id = {$charity_id}
-			ORDER BY timestamp DESC";
+			ORDER BY d.status ASC, d.timestamp DESC";
 	$result = $conn->query($sql);
 	if (!$result) {
 		echo "<div class=\"alert alert-danger\"><strong>Error: </strong>Could not retrieve donations data.</div>";
