@@ -136,6 +136,7 @@
 			echo 		"<div class=\"pull-right\">
 							<form action=\"/donate.php\" method=\"post\">								
 								<input type=\"hidden\" name=\"charity_id\" value=\"{$charity_id}\" />
+								<input type=\"hidden\" name=\"charity_name\" value=\"{$charity}\" />
 								<input type=\"image\" name=\"submit\" src=\"https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif\" alt=\"Donate\" />
 								<input class=\"footer-donate-amount\" type=\"text\" name=\"amount\" value=\"0.00\" />
 							</form>
@@ -329,6 +330,7 @@
 												<input class="sponsor-animal-amount" type="text" name="amount" value="0.00" />
 												<input type="hidden" name="charity_id" value="'.$charity_id.'" />
 												<input data-bind="value: id" type="hidden" name="animal_id" />
+												<input data-bind="value: title" type="hidden" name="animal_name" />
 												<input type="image" name="submit" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" alt="Donate" />
 											</form>
 										</div>

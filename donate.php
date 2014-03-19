@@ -27,10 +27,14 @@
 					// Sponsoring an animal
 					$animal_id = (int) $_POST['animal_id'];
 					$query = "INSERT INTO donations (amount, animal_id, timestamp) VALUES ({$amount}, {$animal_id}, NOW())";
+					$item_name = $_POST['animal_name'] ? htmlentities($_POST['animal_name']) || 'Sponsored an animal';
+					$item_number = $animal_id;
 				}
 				else {
 					// General donations
 					$query = "INSERT INTO donations (amount, timestamp) VALUES ({$amount}, NOW())";
+					$item_name = $_POST['charity_name'] ? htmlentities($_POST['charity_name']) || 'Donated to charity';
+					$item_number = $charity_id;
 				}
 				$result = $conn->query($query);
 
@@ -46,8 +50,9 @@
 							<input type="hidden" name="cmd" value="_donations">
 							<input type="hidden" name="business" value="'.$paypal.'">
 							<input type="hidden" name="lc" value="IE">
-							<input type="hidden" name="no_note" value="0">
 							<input type="hidden" name="rm" value="2">
+							<input type="hidden" name="item_number" value="'.$item_number.'">
+							<input type="hidden" name="item_name" value="'.$item_name.'">
 							<input type="hidden" name="currency_code" value="EUR">
 							<input type="hidden" name="return" value="http://www.charityhost.eu/donate_success.php?id='.$donation_id.'">
 							<input type="hidden" name="cancel_return" value="http://www.charityhost.eu/donate_fail.php?id='.$donation_id.'">
