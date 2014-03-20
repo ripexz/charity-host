@@ -53,6 +53,7 @@
 
 				$result = $conn->query($sql);
 				if ($result) {
+					$_SESSION['admin_email'] = $valid['email'];
 					echo "<div class=\"alert alert-success\">Details updated successfully.</div>";
 				}
 			}

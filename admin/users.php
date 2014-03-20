@@ -101,7 +101,7 @@
 				echo "<td>{$row['id']}</td>";
 				echo "<td>{$row['email']}</td>";
 				echo $row['is_owner'] ? "<td>Yes</td>" : "<td>No</td>";
-				echo $_SESSION['is_owner'] && !$row['is_owner'] ? "<td><a href=\"{$_SERVER['PHP_SELF']}?id={$row['id']}&action=delete\">Delete</a></td>" : '';
+				echo $_SESSION['is_owner'] && !$row['is_owner'] ? "<td><a href=\"{$_SERVER['PHP_SELF']}?id={$row['id']}&action=delete\">Delete</a></td>" : '<td></td>';
 				echo '</tr>';
 			}
 
