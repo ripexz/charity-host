@@ -75,10 +75,8 @@
 	}
 
 	echo '<h3>Tutorial</h3>
-		<div class="text-center">
-			<iframe width="560" height="315" src="//www.youtube.com/embed/na7ozaqmTyM" frameborder="0" allowfullscreen></iframe>
-			<p>If you have any questions, please contact us at <a href="mailto:charityhosteu@gmail.com">charityhosteu@gmail.com</a></p>
-		</div>';
+		<iframe width="560" height="315" src="//www.youtube.com/embed/na7ozaqmTyM" frameborder="0" allowfullscreen></iframe>
+		<p>If you have any questions, please contact us at <a href="mailto:charityhosteu@gmail.com">charityhosteu@gmail.com</a></p>';
 
 	echo '</div>';
 	output_admin_footer();
