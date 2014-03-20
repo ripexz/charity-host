@@ -6,6 +6,10 @@
 	<p>Register or Login to start creating your own charity website.</p>
 	<p>Please check out our video tutorial for guidance, or look at the frequently asked questions section for further help.</p>
 	
+	<div class="text-center">
+		<iframe width="560" height="315" src="//www.youtube.com/embed/na7ozaqmTyM" frameborder="0" allowfullscreen></iframe>
+	</div>
+
 	<div class="feature row">
 		<h2>Lost and Found</h2>
 		<div class="feature-image">
