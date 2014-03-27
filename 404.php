@@ -1,5 +1,5 @@
 <?php
 
-	echo "<h1>Not Found</h1>";
+	echo "<h1>Never Found</h1>";
 
 ?>
